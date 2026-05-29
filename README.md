@@ -1,13 +1,14 @@
 <div align="center">
  
 # Jayson Quindao
-**Full-Stack Engineer · AI Systems Builder · Founder**
+ 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=00ff88&center=true&vCenter=true&width=450&lines=Full-Stack+Cloud+Engineer;AI+Systems+%26+Agentic+Pipelines;B2B+SaaS+Founder" alt="Typing SVG" />
  
 *Building production-grade SaaS, autonomous AI pipelines, and native desktop applications — solo.*
  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/jaysonquindao)
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=vercel&logoColor=white)](https://jaysonquindao-com.pages.dev)
-[![GG Loop](https://img.shields.io/badge/GG_Loop-FF6B35?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQyIDAtOC0zLjU4LTgtOHMzLjU4LTggOC04IDggMy41OCA4IDgtMy41OCA4LTggOHoiLz48L3N2Zz4=&logoColor=white)](https://ggloop.io)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/jaysonquindao)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=google-chrome&logoColor=00ff88)](https://jaysonquindao-com.pages.dev)
+[![GG Loop](https://img.shields.io/badge/GG_Loop-030303?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzAwZmY4OCIgZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDIgMTJzNC40OCAxMCAxMCAxMCAxMCAxMCAxMC0xMFMxNy41MiAyIDIgMnptMCAxOGMtNC40MiAwLTgtMy41OC04LTgtMHMzLjU4LTggOC04IDggMy41OCA4IDgtMy41OCA4LTggOHoiLz48L3N2Zz4=&logoColor=white)](https://ggloop.io)
  
 </div>
  
@@ -91,15 +92,15 @@ A full-stack competitive gaming rewards SaaS platform where businesses integrate
  
 ---
  
-## 📊 GitHub Stats
+## 📊 GitHub Activity & Stats
  
-<div align="center">
- 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=djjrip&show_icons=true&theme=dark&hide_border=true&bg_color=000000&title_color=ffffff&text_color=bbbbbb&icon_color=ffffff)
- 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=djjrip&layout=compact&theme=dark&hide_border=true&bg_color=000000&title_color=ffffff&text_color=bbbbbb)
- 
-</div>
+<p align="center">
+  <img src="https://github-readme-stats.shion.dev/api?username=djjrip&show_icons=true&hide_border=true&bg_color=030303&title_color=00ff88&text_color=c9d1d9&icon_color=00ccaa" alt="Jayson's GitHub Stats" width="48%" />
+  <img src="https://streak-stats.demolab.com/?user=djjrip&theme=dark&background=030303&ring=00ff88&fire=00ff88&currStreakNum=00ff88&sideNums=ffffff&sideLabels=ffffff&dates=c9d1d9&hide_border=true" alt="Jayson's Streak Stats" width="48%" />
+</p>
+<p align="center">
+  <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=djjrip&layout=compact&hide_border=true&bg_color=030303&title_color=00ff88&text_color=c9d1d9&icon_color=00ccaa" alt="Jayson's Top Languages" width="370px" />
+</p>
  
 ---
  
@@ -115,5 +116,5 @@ I am open to engineering roles, technical founder partnerships, and B2B SaaS col
 ---
  
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=djjrip&color=ffffff&style=flat&label=PROFILE+VIEWS" alt="profile views" />
+  <img src="https://komarev.com/ghpvc/?username=djjrip&color=00ff88&style=flat-square&label=PROFILE+VIEWS" alt="profile views" />
 </div>
