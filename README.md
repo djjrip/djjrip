@@ -23,6 +23,8 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-ebs-iops-shredder](nexus-ebs-iops-shredder/index.js)** | FinOps CLI Tool | A wicked fast script that parses AWS describe-volumes output to violently flag overprovisioned io2 IOPS burning database capital. |
+| **[nexus-nat-gateway-shredder](nexus-nat-gateway-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS VPC configurations to violently flag redundant NAT Gateways burning base capital in non-prod environments. |
 | **[nexus-cloudwatch-hoarder-hunter](nexus-cloudwatch-hoarder-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS CloudWatch log groups to violently flag 'Never Expire' retention policies burning AWS storage capital. |
 | **[nexus-llm-token-shredder](nexus-llm-token-shredder/index.js)** | AI FinOps Tool | A wicked fast stream processor that parses LLM Gateway logs to violently flag lazy RAG pipelines treating the context window like a trash can. |
 | **[nexus-ebs-hoarder-hunter](nexus-ebs-hoarder-hunter/index.js)** | FinOps CLI Tool | A wicked fast script that parses AWS describe-volumes output to violently flag unattached Phantom SSDs burning EC2 capital. |

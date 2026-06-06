@@ -1,0 +1,52 @@
+{
+    "NatGateways": [
+        {
+            "NatGatewayId": "nat-0prod1",
+            "State": "available",
+            "VpcId": "vpc-0prod",
+            "Tags": [{ "Key": "Environment", "Value": "Production" }]
+        },
+        {
+            "NatGatewayId": "nat-0prod2",
+            "State": "available",
+            "VpcId": "vpc-0prod",
+            "Tags": [{ "Key": "Environment", "Value": "Production" }]
+        },
+        {
+            "NatGatewayId": "nat-0prod3",
+            "State": "available",
+            "VpcId": "vpc-0prod",
+            "Tags": [{ "Key": "Environment", "Value": "Production" }]
+        },
+        {
+            "NatGatewayId": "nat-0staging1",
+            "State": "available",
+            "VpcId": "vpc-0staging",
+            "Tags": [{ "Key": "Environment", "Value": "Staging" }]
+        },
+        {
+            "NatGatewayId": "nat-0staging2",
+            "State": "available",
+            "VpcId": "vpc-0staging",
+            "Tags": [{ "Key": "Environment", "Value": "Staging" }]
+        },
+        {
+            "NatGatewayId": "nat-0staging3",
+            "State": "available",
+            "VpcId": "vpc-0staging",
+            "Tags": [{ "Key": "Environment", "Value": "Staging" }]
+        },
+        {
+            "NatGatewayId": "nat-0dev1",
+            "State": "available",
+            "VpcId": "vpc-0dev",
+            "Tags": [{ "Key": "Environment", "Value": "Dev" }]
+        },
+        {
+            "NatGatewayId": "nat-0dev2",
+            "State": "available",
+            "VpcId": "vpc-0dev",
+            "Tags": [{ "Key": "Environment", "Value": "Dev" }]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "Volumes": [
+        {
+            "VolumeId": "vol-0prodio2",
+            "VolumeType": "io2",
+            "Size": 1000,
+            "Iops": 20000,
+            "State": "in-use"
+        },
+        {
+            "VolumeId": "vol-0stagingio1",
+            "VolumeType": "io1",
+            "Size": 500,
+            "Iops": 5000,
+            "State": "in-use"
+        },
+        {
+            "VolumeId": "vol-0devgp3",
+            "VolumeType": "gp3",
+            "Size": 100,
+            "Iops": 3000,
+            "State": "in-use"
+        }
+    ]
+}

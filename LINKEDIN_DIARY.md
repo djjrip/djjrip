@@ -515,3 +515,73 @@ After a month, the notebook is full. So you rent a storage unit to keep it.
 Ten years later, you are renting 50 storage units just to hold old notebooks about eating sandwiches. You never read them. You just keep paying rent.
 
 Instead of paying rent for old notebooks, I built a machine that finds out exactly how much rent you are paying, yells at you, and tells you to throw away notebooks that are older than 14 days.
+
+## Iteration 112: The Copy-Paste Tax (NAT Gateway Shredder)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+When a startup builds their AWS architecture, they usually copy and paste their 'Production' Terraform code to create their 'Staging' and 'Dev' environments.
+
+This is a massive mistake.
+
+In Production, you need 'High Availability', which means you put a NAT Gateway in every Availability Zone. That's usually 3 NAT Gateways. But when you copy-paste that code into your Dev environment, you are now paying for 3 NAT Gateways in Dev.
+
+AWS charges about  a month just for a NAT Gateway to *exist*. You are paying ,200 a year for 'High Availability' in a Dev environment where a 5-minute outage literally doesn't matter.
+
+I was sick of seeing startups pay the 'copy-paste tax', so I vibe-coded the **Nexus NAT Gateway Shredder**. You feed it your AWS NAT Gateways JSON. It groups them by VPC, checks if the environment is non-prod, and if it sees more than 1 NAT Gateway, it violently flags the redundancy and calculates exactly how much money you are burning.
+
+Stop copy-pasting your production infrastructure into staging. I open-sourced the script.
+
+#FinOps #AWS #CloudComputing #Terraform #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Multi-AZ NAT Gateways represent a classic over-provisioning failure in non-production environments. While 3x NAT Gateways ensure cross-AZ fault tolerance in Production, deploying identical infrastructure topologies to Dev or Staging environments incurs unnecessary baseline hourly costs (.045/hr per NAT). The \
+exus-nat-gateway-shredder\ acts as an architectural linter. By parsing the \describe-nat-gateways\ output and correlating it with VPC environment tags, it identifies multi-NAT deployments in non-critical environments. This provides immediate, actionable feedback to DevOps teams, forcing them to refactor their Infrastructure-as-Code modules to support dynamic, cost-optimized topologies (e.g., routing all non-prod subnets to a single NAT Gateway).
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you buy a very expensive backup generator for your house, just in case the power goes out.
+
+That makes sense for your house. But then you decide to buy three more expensive backup generators for your kid's treehouse.
+
+If the power goes out in the treehouse, the kids can just use flashlights. You don't need backup generators for a treehouse.
+
+Instead of letting you waste money on treehouse generators, I built a machine that scans your property, finds the extra generators, and tells you to return them.
+
+## Iteration 113: The 'Just in Case' Tax (EBS IOPS Shredder)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+When an engineer provisions a database, they see a little box labeled 'Provisioned IOPS'.
+
+Instead of using the default 'gp3' SSD which gives you 3,000 IOPS for free, they click the dropdown, select the premium 'io2' SSD, and type '20000' into the box 'just in case' the database gets heavy traffic.
+
+AWS charges about .065 per provisioned IOPS per month. That means typing '20000' into that box instantly increases your AWS bill by ,300 a month. For a single disk.
+
+Most of the time, the database only ever uses 50 IOPS. You are paying ,000 a year for performance you are literally not using.
+
+I vibe-coded the **Nexus EBS IOPS Shredder**. You feed it your AWS EBS volumes export. It rips through the JSON, finds every 'io1' or 'io2' volume, and violently flags any massive IOPS provisions. It calculates exactly how much money you are setting on fire and screams at you to downgrade to 'gp3'.
+
+Stop paying the 'just in case' tax. I open-sourced the script.
+
+#FinOps #AWS #CloudComputing #Databases #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Overprovisioned EBS IOPS are a critical FinOps vulnerability because the cost is decoupled from storage size. A 100GB \io2\ volume with 20,000 Provisioned IOPS costs over ,300/mo, whereas a 100GB \gp3\ volume with its baseline 3,000 IOPS costs /mo. The \
+exus-ebs-iops-shredder\ acts as a deterministic FinOps auditor. By parsing the \describe-volumes\ API response and filtering purely on \VolumeType === 'io1' | 'io2'\, it mathematically exposes the annualized carrying cost of provisioned performance. Because \gp3\ volumes can burst up to 16,000 IOPS and handle 99% of standard relational database workloads, flagging \io2\ usage provides an immediate, low-risk path to aggressive cloud cost optimization.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you rent a car to drive 2 miles to the grocery store every week.
+
+Instead of renting a normal Honda Civic, you pay an extra ,300 a month to rent a Formula 1 race car, 'just in case' you need to drive to the grocery store at 200 miles per hour.
+
+You never drive 200 miles per hour, but you keep paying for the race car anyway.
+
+Instead of letting you waste your money, I built a machine that checks what car you rented, yells at you for renting a race car to buy groceries, and tells you to return it.
