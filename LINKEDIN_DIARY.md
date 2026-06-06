@@ -133,3 +133,32 @@ Imagine you own a lemonade stand. You have a notebook where you write down every
 At the end of the day, your notebook says you sold 10 cups, so you should have . But when your mom opens the cash box, there's only  inside.
 
 Instead of you and your mom spending hours reading every single line of your notebook to figure out who didn't pay, I built a robot that instantly highlights the names of the two kids who grabbed lemonade and ran away without paying.
+
+## Iteration 100: Ghost Principals & SOC2 Nightmares (IAM Ghost Hunter)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Every scaling startup is absolutely terrified of their first SOC2 compliance audit.
+
+The auditor sits down, asks for your AWS IAM Credential Report, and suddenly you realize that 'legacy_dev_dave' who quit 14 months ago still has an active root-level API key with no Multi-Factor Authentication. Instant audit failure. Worse, it's the exact vector hackers use to ransom your entire database.
+
+Instead of paying a compliance firm  to find this out, I vibe-coded the **Nexus IAM Ghost Hunter**. It’s a ruthless CLI script. Feed it your AWS credential report, and it instantly hunts down 'Ghost Principals'—users or API keys that haven't been touched in 90 days. It violently flags anyone missing MFA.
+
+I ran a mock sweep and found a legacy dev key that hadn't been used since 2023. This is how you prevent a catastrophic breach before it happens. I'm open-sourcing the script.
+
+#DevSecOps #Cybersecurity #SOC2 #AWS #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+The \
+exus-iam-ghost-hunter\ is a pragmatic execution of Cloud Infrastructure Entitlement Management (CIEM). Managing identity lifecycle in AWS is notoriously prone to human error, leading to orphaned Access Keys (Ghost Principals). This script parses the standard AWS IAM Credential Report (CSV) via streaming. It algorithmically enforces two strict compliance policies: 1) MFA must be active for all non-root principals, and 2) No authentication vector (Password, Key 1, Key 2) can exceed a 90-day TTL without active utilization. By programmatically flagging these vectors, we eliminate the primary attack surface for cloud account takeover.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you own a high-security bank. You gave a master key to a security guard named Dave two years ago. Dave quit last year, but you forgot to ask for his key back.
+
+Now, Dave's key is just sitting in a drawer at his house. If a thief breaks into Dave's house, they can take the key and walk right into your bank vault.
+
+Instead of manually calling every single person who has a key to check if they still work here, I built a robot that scans the bank's records and instantly flags anyone who hasn't swiped their key in 3 months. Then, we change the locks.
