@@ -253,3 +253,32 @@ But then John moves away, and an evil villain moves into 123 Main Street.
 You forgot to take down the sign on the highway. So now, everyone is driving to the villain's house, thinking it's your lemonade stand.
 
 Instead of driving down the highway every day to check my signs, I built a robot that constantly checks to make sure my friends still live at the addresses on my signs. If a villain moves in, the robot tears the sign down.
+
+## Iteration 104: Paying for Ghosts (SaaS Seat Sweeper)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+The fastest way to burn VC funding isn't throwing lavish parties. It's paying  a month for Jira, DataDog, and GitHub seats for people who quit two years ago.
+
+Every startup reaches a point where they are paying for 150 software licenses, but they only have 80 employees. When you ask HR, they point fingers at IT. When you ask IT, they say they didn't know 'Bob' left the company because nobody filed a ticket.
+
+Instead of paying the 'we suck at offboarding' tax, I vibe-coded the **Nexus SaaS Seat Sweeper**. It’s a ruthless script. You feed it your HR roster and your SaaS billing export. It reconciles the two datasets and violently flags every single 'Ghost Seat'—an email address that is actively billing you but isn't on the company payroll.
+
+I ran a test sweep and found ,200 in wasted annual capital instantly. I'm open-sourcing the script. Go sweep your seats.
+
+#FinOps #Engineering #StartupBurn #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+SaaS license bloat is a ubiquitous source of revenue leakage in mid-stage startups. The \
+exus-saas-seat-sweeper\ automates cross-system reconciliation. It loads the single source of truth (the HR roster, e.g., Workday or Rippling) into an O(1) in-memory Set of active email addresses. It then streams exports from downstream providers (GitHub, DataDog, Jira). Any email found in the downstream export that does not exist in the active HR Set is flagged as a Ghost Seat. This transforms manual IT offboarding audits into a deterministic, scriptable FinOps pipeline.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you pay  a month for a gym membership for everyone in your family.
+
+Your brother moves to another country, but you keep paying his gym membership for two years because you forgot to cancel it.
+
+Instead of checking the gym bill every month by hand, I built a robot that looks at who actually lives in your house, looks at the gym bill, and screams at you to cancel the memberships for people who moved out.
