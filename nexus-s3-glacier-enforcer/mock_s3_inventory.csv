@@ -1,0 +1,5 @@
+Bucket,Key,Size,LastModifiedDate,StorageClass
+prod-logs-bucket,apache/2021/01/01/access.log,10737418240000,2021-01-02,STANDARD
+prod-logs-bucket,apache/2026/06/05/access.log,5368709120,2026-06-06,STANDARD
+prod-db-backups,pg_dump_2020.sql,53687091200000,2020-12-31,STANDARD
+prod-db-backups,pg_dump_2026.sql,536870912000,2026-06-01,STANDARD

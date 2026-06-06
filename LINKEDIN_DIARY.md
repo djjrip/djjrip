@@ -381,3 +381,38 @@ Imagine you pay a baker  a week to bake a fresh wedding cake every single mornin
 But nobody has eaten the wedding cake in six months. The baker just bakes it, puts it on the counter, and throws it in the trash the next day.
 
 Instead of paying the baker to bake cakes for ghosts, I built a machine that checks if anyone actually took a slice. If nobody took a slice in 3 months, the machine tells the baker to stop baking the cake and saves you all your money.
+
+## Iteration 108: Digital Hoarding (S3 Glacier Enforcer)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+The easiest way to spot a startup that has never had a CFO is to look at their AWS S3 buckets.
+
+Most engineering teams treat S3 like a bottomless trash can. They dump 50 Terabytes of database backups, Apache access logs, and old user uploads into a bucket and never look at it again.
+
+The problem? They leave it in 'S3 Standard' storage, which costs about .023 per Gigabyte.
+
+If you transition data that is older than a year to 'Glacier Deep Archive', the cost drops by 95%. But nobody sets up the lifecycle rules, so you end up paying ,000 a year to host a PostgreSQL dump from 2021 that will literally never be opened again.
+
+I was sick of seeing this, so I vibe-coded the **Nexus S3 Glacier Enforcer**. You feed it your S3 inventory export. It rips through the manifest, finds every object older than 365 days still sitting in Standard storage, and mathematically calculates exactly how much money you are setting on fire every month. 
+
+Stop paying premium rates for digital hoarding. I open-sourced the script.
+
+#FinOps #AWS #CloudComputing #S3 #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS S3 Lifecycle Policies are often neglected because the cost of Standard storage scales linearly and silently, boiling the frog. The \
+exus-s3-glacier-enforcer\ provides an immediate, dollar-value impact analysis of missing lifecycle policies. By parsing the S3 Inventory CSV export, the script calculates the delta in cost per gigabyte between \STANDARD\ (.023) and \GLACIER_DEEP_ARCHIVE\ (.00099) for all objects exceeding a staleness threshold. This translates a mundane infrastructure misconfiguration into a hard financial metric, which is exactly how you compel an engineering organization to implement automated archival DAGs.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you rent a very expensive, climate-controlled storage unit in the middle of Manhattan.
+
+Instead of putting your valuable jewelry in it, you fill the entire unit to the ceiling with old newspapers from 5 years ago.
+
+Your friend owns a cheap barn in the middle of nowhere and says, 'I'll store your newspapers for pennies.' But you are too lazy to move them, so you keep paying Manhattan rent for trash.
+
+Instead of letting you burn your money, I built a machine that scans your storage unit and screams at you exactly how many dollars you are losing every month by being lazy.
