@@ -315,3 +315,36 @@ You are paying for the whole truck, even though the truck is 99% empty.
 If you do this 50 times, you go bankrupt.
 
 Instead of guessing how big of a truck you need, I built a machine that measures exactly how big your shoes are, and tells you to rent a tiny box instead. That way, you save all your money.
+
+## Iteration 106: The Vampire Dependency (NPM Vampire Hunter)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Every scaling startup complains about how long their CI/CD pipeline takes. 'Our Docker builds take 20 minutes! Let's pay GitHub ,000 for bigger runners!'
+
+I usually look at their \package.json\ and start laughing. They have 150 dependencies listed, and half of them are 'Vampire Dependencies.' They were installed by an intern two years ago, used once, and the code was deleted. But the dependency stayed in the \package.json\. 
+
+So on every single commit, the CI/CD pipeline spends 5 minutes downloading, extracting, and scanning Gigabytes of dead weight that the application never actually imports.
+
+Instead of paying GitHub for faster runners, I vibe-coded the **Nexus NPM Vampire Hunter**. It scans your entire \package.json\ and violently cross-references it against every single \.js\ and \.ts\ file in your codebase. If it finds a package that is never actually imported, it screams at you to delete it. 
+
+Stop paying for bigger CI runners until you delete your dead weight. I open-sourced the script.
+
+#Engineering #NodeJS #DevOps #CICD #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Dependency bloat is a silent killer of CI/CD velocity and Docker image size. The \
+exus-npm-vampire-hunter\ performs a static analysis of the dependency graph. It parses \package.json\ to construct an array of all installed modules. It then recursively aggregates the contents of all source files into a single continuous string in memory, and performs a rapid RegEx scan (testing for \equire()\ and \import\ statements). Any module that fails to match is mathematically confirmed to be dead code. This O(N) operation instantly identifies the modules causing unnecessary \
+pm install\ bloat and false-positive \
+pm audit\ security alerts.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you are packing your backpack for school every single day.
+
+Two years ago, your mom told you to pack a huge, heavy umbrella. You haven't used it once in two years. But every single day, you still pack it, carry it to school, and carry it home, complaining that your back hurts.
+
+Instead of buying a bigger backpack, I built a machine that checks if you actually opened the umbrella today. If you didn't, it takes the umbrella out of your bag and throws it in the trash.
