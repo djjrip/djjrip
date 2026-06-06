@@ -1,0 +1,20 @@
+{
+  "cluster_name": "prod-eks-cluster",
+  "pods": [
+    {
+      "name": "api-gateway-deployment-555abc",
+      "memory_requested_mb": 4096,
+      "memory_peak_used_mb": 512
+    },
+    {
+      "name": "background-worker-deployment-123xyz",
+      "memory_requested_mb": 8192,
+      "memory_peak_used_mb": 1024
+    },
+    {
+      "name": "cache-service-deployment-999def",
+      "memory_requested_mb": 1024,
+      "memory_peak_used_mb": 900
+    }
+  ]
+}

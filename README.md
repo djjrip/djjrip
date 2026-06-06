@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-k8s-pod-rightsizer](nexus-k8s-pod-rightsizer/index.js)** | FinOps CLI Tool | A wicked fast script that calculates the delta between Kubernetes pod memory requests and peak usage to violently flag compute hoarders burning EKS capital. |
 | **[nexus-saas-seat-sweeper](nexus-saas-seat-sweeper/index.js)** | FinOps CLI Tool | A wicked fast stream processor that cross-references HR payroll against downstream SaaS billing (GitHub, DataDog) to hunt down ghost seats and eliminate wasted license capital. |
 | **[nexus-subdomain-takeover-hunter](nexus-subdomain-takeover-hunter/index.js)** | DevSecOps CLI Tool | A wicked fast stream processor that cross-references DNS records against active AWS inventories to hunt down hijacked endpoints. |
 | **[nexus-pg-query-sniper](nexus-pg-query-sniper/index.js)** | DataOps CLI Tool | A wicked fast stream processor that aggregates PostgreSQL slow query logs to mathematically identify the missing B-Tree indexes burning your RDS compute. |

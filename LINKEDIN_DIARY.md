@@ -282,3 +282,36 @@ Imagine you pay  a month for a gym membership for everyone in your family.
 Your brother moves to another country, but you keep paying his gym membership for two years because you forgot to cancel it.
 
 Instead of checking the gym bill every month by hand, I built a robot that looks at who actually lives in your house, looks at the gym bill, and screams at you to cancel the memberships for people who moved out.
+
+## Iteration 105: The 'Just To Be Safe' Tax (K8s Pod Rightsizer)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Every startup moving to Kubernetes eventually looks at their AWS bill and starts sweating.
+
+The root cause is almost always the same: A developer writes a deployment manifest and says, 'I don't know how much RAM this API needs. Let's give it 8 Gigabytes... just to be safe.'
+
+When you deploy 50 of those pods, Kubernetes spins up massive EC2 instances to hold them, even if the API is only using 500 Megabytes of RAM in reality. You are literally paying AWS thousands of dollars to host empty air.
+
+Instead of manually checking Prometheus graphs all day, I vibe-coded the **Nexus K8s Pod Rightsizer**. You feed it your cluster metrics. It calculates exactly what every pod requested vs. what it actually used at peak, and violently flags the compute hoarders. I ran a test on a 3-pod mock cluster and found 10.5GB of wasted RAM instantly.
+
+Stop paying the 'just to be safe' tax. Fix your manifests. I open-sourced the script.
+
+#FinOps #Kubernetes #AWS #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Kubernetes scheduling is fundamentally bin-packing based on \esources.requests\. If a pod requests 8GB, the Kubernetes scheduler reserves that block on a node, forcing autoscalers (like Karpenter or Cluster Autoscaler) to provision more underlying EC2 instances, regardless of actual memory utilization. The \
+exus-k8s-pod-rightsizer\ calculates the delta between \memory_requested\ and \memory_peak_used\. Any delta exceeding 1.0GB is flagged as compute bloat. By programmatically identifying these deltas, FinOps teams can right-size the \deployment.yaml\ manifests, collapsing the underlying compute footprint and slashing the AWS EKS burn rate.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you rent a massive moving truck to carry a single pair of shoes.
+
+You are paying for the whole truck, even though the truck is 99% empty.
+
+If you do this 50 times, you go bankrupt.
+
+Instead of guessing how big of a truck you need, I built a machine that measures exactly how big your shoes are, and tells you to rent a tiny box instead. That way, you save all your money.
