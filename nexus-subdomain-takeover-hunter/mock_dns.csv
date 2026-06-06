@@ -1,0 +1,5 @@
+Type,Name,Content
+A,api.startup.com,192.168.1.1
+CNAME,assets.startup.com,startup-assets-prod.s3.amazonaws.com
+CNAME,old-marketing.startup.com,marketing-2023-campaign.s3.amazonaws.com
+CNAME,blog.startup.com,ghost.io

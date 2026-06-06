@@ -220,3 +220,36 @@ Imagine you own a huge library with a million books, but none of them are sorted
 Every time someone asks for a specific book, your librarian has to run around the entire building looking at every single cover. The librarian gets exhausted, so your boss says, 'Let's hire 10 more librarians!'
 
 Instead of hiring more people, I built a machine that watches the librarian and says: 'Hey, you spent 90% of your day looking for Harry Potter. Just put a sticky note on the shelf where Harry Potter lives.' That sticky note is an index.
+
+## Iteration 103: Handing Hackers Your Keys (Subdomain Takeover Hunter)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Startups launch marketing campaigns, spin up S3 buckets, point a shiny subdomain at them (like \campaign2023.startup.com\), and then completely forget about them.
+
+A year later, a DevOps engineer deletes the old S3 bucket to save money. But nobody deletes the DNS record in Cloudflare.
+
+Congratulations, you just gave every script kiddie on the internet a free pass to host a phishing site on your official startup domain. All they have to do is register an S3 bucket with the exact name you deleted, and your DNS will route traffic right to them. This is how massive data breaches start.
+
+I was sick of seeing companies get burned by this, so I vibe-coded the **Nexus Subdomain Takeover Hunter**. It’s a ruthless script that cross-references your entire DNS export against your active AWS inventory. If it finds a CNAME pointing to a dead bucket, it violently alerts you.
+
+I just ran it on a mock dataset and instantly found an orphaned marketing bucket. Delete your stale CNAMEs before a Russian bot steals your domain reputation. I open-sourced the script.
+
+#DevSecOps #Cybersecurity #DNS #VibeCoding #SubdomainTakeover
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Subdomain Takeovers are a classic dangling pointer vulnerability applied to distributed DNS. The \
+exus-subdomain-takeover-hunter\ solves this by establishing a zero-trust reconciliation between the DNS truth state (Cloudflare CSV) and the infrastructure truth state (AWS Resource API JSON). It parses the CNAME contents, aggressively extracts the target S3 bucket nomenclature, and performs an O(1) Set lookup against the active AWS inventory. Any miss is mathematically guaranteed to be a takeover vector. This programmatic approach replaces manual, error-prone DNS audits with deterministic security.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you painted a big sign on the highway that says: 'Buy lemonade at John's House, 123 Main Street!'
+
+But then John moves away, and an evil villain moves into 123 Main Street.
+
+You forgot to take down the sign on the highway. So now, everyone is driving to the villain's house, thinking it's your lemonade stand.
+
+Instead of driving down the highway every day to check my signs, I built a robot that constantly checks to make sure my friends still live at the addresses on my signs. If a villain moves in, the robot tears the sign down.
