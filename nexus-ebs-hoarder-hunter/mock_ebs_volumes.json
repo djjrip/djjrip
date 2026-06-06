@@ -1,0 +1,39 @@
+{
+    "Volumes": [
+        {
+            "Attachments": [
+                {
+                    "AttachTime": "2026-01-01T00:00:00.000Z",
+                    "Device": "/dev/sda1",
+                    "InstanceId": "i-0abcd1234efgh5678",
+                    "State": "attached",
+                    "VolumeId": "vol-0123456789abcdef0"
+                }
+            ],
+            "AvailabilityZone": "us-east-1a",
+            "CreateTime": "2026-01-01T00:00:00.000Z",
+            "Size": 100,
+            "State": "in-use",
+            "VolumeId": "vol-0123456789abcdef0",
+            "VolumeType": "gp3"
+        },
+        {
+            "Attachments": [],
+            "AvailabilityZone": "us-east-1b",
+            "CreateTime": "2025-06-15T12:00:00.000Z",
+            "Size": 500,
+            "State": "available",
+            "VolumeId": "vol-0deadbeefdeadbeef",
+            "VolumeType": "gp3"
+        },
+        {
+            "Attachments": [],
+            "AvailabilityZone": "us-east-1c",
+            "CreateTime": "2024-11-20T08:30:00.000Z",
+            "Size": 2000,
+            "State": "available",
+            "VolumeId": "vol-0ghostvolghostvol",
+            "VolumeType": "gp2"
+        }
+    ]
+}

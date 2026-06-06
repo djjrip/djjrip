@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-ebs-hoarder-hunter](nexus-ebs-hoarder-hunter/index.js)** | FinOps CLI Tool | A wicked fast script that parses AWS describe-volumes output to violently flag unattached Phantom SSDs burning EC2 capital. |
 | **[nexus-s3-glacier-enforcer](nexus-s3-glacier-enforcer/index.js)** | FinOps CLI Tool | A wicked fast stream processor that audits S3 inventories to calculate the financial waste of digital hoarding in STANDARD storage vs GLACIER_DEEP_ARCHIVE. |
 | **[nexus-data-warehouse-sweeper](nexus-data-warehouse-sweeper/index.js)** | DataOps/FinOps Tool | A wicked fast script that reconciles Snowflake/BigQuery table costs against query logs to violently flag dead dashboards burning VC capital. |
 | **[nexus-npm-vampire-hunter](nexus-npm-vampire-hunter/index.js)** | DevOps CLI Tool | A wicked fast static analysis tool that cross-references package.json against your codebase to violently flag unimported Vampire Dependencies sucking up CI/CD build time. |

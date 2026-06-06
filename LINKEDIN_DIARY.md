@@ -416,3 +416,34 @@ Instead of putting your valuable jewelry in it, you fill the entire unit to the 
 Your friend owns a cheap barn in the middle of nowhere and says, 'I'll store your newspapers for pennies.' But you are too lazy to move them, so you keep paying Manhattan rent for trash.
 
 Instead of letting you burn your money, I built a machine that scans your storage unit and screams at you exactly how many dollars you are losing every month by being lazy.
+
+## Iteration 109: The Phantom SSDs (EBS Hoarder Hunter)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+When engineers spin up a new EC2 instance, they attach a massive 2-Terabyte EBS volume (SSD) to it 'just in case'.
+
+Six months later, they terminate the EC2 instance. But because they forgot to check the little 'Delete on Termination' box in the AWS console, the EC2 instance dies, but the 2TB SSD stays alive forever.
+
+It's literally an SSD plugged into absolutely nothing, sitting in an AWS data center, billing you  a month. I have seen mid-stage startups with thousands of these 'Phantom SSDs' burning tens of thousands of dollars a year.
+
+I was tired of paying the 'we forgot to check the box' tax, so I vibe-coded the **Nexus EBS Hoarder Hunter**. You feed it your AWS EBS volume export. It rips through the JSON, finds every single volume whose state is 'available' (meaning unattached), calculates the exact gigabyte waste, and screams at you to delete them.
+
+Stop leaving Terabytes of SSDs on the floor. I open-sourced the script.
+
+#FinOps #AWS #CloudComputing #EBS #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Orphaned Elastic Block Store (EBS) volumes are a classic Infrastructure-as-Code (IaC) failure. When Terraform or CloudFormation scripts omit the \DeleteOnTermination\ flag for root block devices, destroying the compute layer leaves the persistence layer intact. The \
+exus-ebs-hoarder-hunter\ serves as a deterministic FinOps auditor. It parses the \describe-volumes\ API response and filters purely on the \State === 'available'\ attribute, which is AWS's internal flag for an unattached volume. By multiplying the total orphaned gigabytes by the \gp3\ baseline cost of .08/GB-month, it provides an immediate, actionable hit-list for aggressive cloud cost optimization.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you rent an expensive parking space for your car.
+
+One day, you sell the car. But you forget to tell the parking garage, so they keep charging you  a month for an empty parking space.
+
+Instead of paying for empty parking spaces, I built a machine that walks around the parking garage, finds all the empty spots you are paying for, and instantly cancels the lease.
