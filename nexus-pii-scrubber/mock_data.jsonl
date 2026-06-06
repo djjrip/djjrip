@@ -1,0 +1,4 @@
+{"prompt": "Summarize this resume.", "completion": "The candidate has experience in Python."}
+{"prompt": "Extract entities from this text.", "completion": "User John Doe, SSN: 123-45-6789."}
+{"prompt": "Generate a fake profile.", "completion": "Here is a profile for Alice."}
+{"prompt": "Parse this receipt.", "completion": "Paid with card ending in 4111 1111 1111 1111."}

@@ -162,3 +162,32 @@ Imagine you own a high-security bank. You gave a master key to a security guard 
 Now, Dave's key is just sitting in a drawer at his house. If a thief breaks into Dave's house, they can take the key and walk right into your bank vault.
 
 Instead of manually calling every single person who has a key to check if they still work here, I built a robot that scans the bank's records and instantly flags anyone who hasn't swiped their key in 3 months. Then, we change the locks.
+
+## Iteration 101: Toxic Training Data (AI PII Scrubber)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Every AI startup is in a mad dash to train their models on as much proprietary data as possible. But nobody looks at what's actually inside those massive JSONL payloads.
+
+If you dump your raw customer support logs into an LLM training pipeline, I guarantee you are accidentally training your model on Social Security Numbers and Credit Card data. When (not if) your model memorizes that data and spits it back out to another user, your startup is dead.
+
+Instead of hoping for the best, I vibe-coded the **Nexus AI PII Scrubber**. It’s a ruthless, streaming CLI tool. You feed it your massive 50GB JSONL training payload, and it violently rips through every line, hunting for SSN and CC regex patterns. If it finds a toxic payload, it flags the exact line and tells you to drop it before it poisons your model.
+
+Stop training AI on your customers' credit cards. I open-sourced the script.
+
+#AI #DataOps #Cybersecurity #LLMs #VibeCoding #StartupBurn
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Data sanitization for AI pipelines is critical. Loading massive JSONL datasets into memory (JSON.parse across an entire array) will immediately OOM crash a Node process. The \
+exus-pii-scrubber\ solves this by leveraging Node's \eadline\ stream interface and \s.createReadStream\ to parse the payload line-by-line, maintaining a negligible memory footprint. It runs strict regex checks against the stringified payload to catch any un-sanitized PII before the data is vectorized or fed into an LLM context window.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you are building a giant dictionary for a very smart robot to read.
+
+But before you hand the dictionary to the robot, you want to make sure nobody accidentally wrote down the nuclear launch codes inside it.
+
+Instead of reading every single page of the dictionary yourself, I built a fast machine that flips through the pages and screams if it sees anything that looks like a secret code.

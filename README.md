@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-pii-scrubber](nexus-pii-scrubber/index.js)** | DataOps/AI CLI Tool | A wicked fast stream processor that rips through massive AI JSONL training payloads to sanitize leaked SSNs and Credit Card data. |
 | **[nexus-iam-ghost-hunter](nexus-iam-ghost-hunter/index.js)** | DevSecOps CLI Tool | A wicked fast stream processor that parses AWS IAM Credential Reports to hunt down dormant access keys (Ghost Principals) and flag SOC2 MFA violations. |
 | **[nexus-revenue-leak-hunter](nexus-revenue-leak-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that cross-references internal databases against Stripe/Adyen exports to flag Ghost Money and revenue leakage. |
 | **[nexus-aws-billing-shredder](nexus-aws-billing-shredder/index.js)** | FinOps CLI Tool | A wicked fast Node.js stream processor that rips through AWS CSV exports to flag digital hoarding and wasted capital. |
