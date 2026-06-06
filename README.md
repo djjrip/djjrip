@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 # Jayson B. Quindao
 ### Founder & Principal Architect, Nexus Operating Agency
@@ -150,6 +150,8 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 ## 📬 Connect
 I am open to engineering leadership roles, technical founder partnerships, and B2B SaaS collaborations. 
+
+**🚀 For Founders/CEOs:** If your AWS/Cloud bills are scaling out of control, read my performance-based [Nexus FinOps Consulting Proposal](FINOPS_CONSULTING_PROPOSAL.md). I will cut your infrastructure burn by 20%, or my audit is free.
 
 **Email:** jquindao1@icloud.com
 
