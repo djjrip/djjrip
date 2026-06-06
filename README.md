@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-cloudwatch-hoarder-hunter](nexus-cloudwatch-hoarder-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS CloudWatch log groups to violently flag 'Never Expire' retention policies burning AWS storage capital. |
 | **[nexus-llm-token-shredder](nexus-llm-token-shredder/index.js)** | AI FinOps Tool | A wicked fast stream processor that parses LLM Gateway logs to violently flag lazy RAG pipelines treating the context window like a trash can. |
 | **[nexus-ebs-hoarder-hunter](nexus-ebs-hoarder-hunter/index.js)** | FinOps CLI Tool | A wicked fast script that parses AWS describe-volumes output to violently flag unattached Phantom SSDs burning EC2 capital. |
 | **[nexus-s3-glacier-enforcer](nexus-s3-glacier-enforcer/index.js)** | FinOps CLI Tool | A wicked fast stream processor that audits S3 inventories to calculate the financial waste of digital hoarding in STANDARD storage vs GLACIER_DEEP_ARCHIVE. |

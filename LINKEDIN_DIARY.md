@@ -482,3 +482,36 @@ Instead of just handing someone page 3, you hand them the entire 7-book series a
 You have to pay them for reading all 7 books, and it takes them 5 hours.
 
 Instead of letting you do this, I built a machine that watches how many books you hand to people. If you hand someone 7 books just to ask a yes/no question, the machine yells at you to stop wasting everyone's time and money.
+
+## Iteration 111: The CloudWatch Black Hole (CloudWatch Hoarder Hunter)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Here is a fun fact about AWS CloudWatch: By default, when you create a new Log Group, the retention policy is set to 'Never Expire'.
+
+Because engineers almost never change the default settings, startups end up logging terabytes of HTTP 200 API responses, container health checks, and debug statements, and they pay AWS .03 per gigabyte per month to store them. Forever.
+
+Nobody on earth needs to read an HTTP 200 access log from three years ago. But you are paying thousands of dollars a year to host them.
+
+I vibe-coded the **Nexus CloudWatch Hoarder Hunter**. You feed it your \describe-log-groups\ JSON. It rips through the export, violently flags any log group over 10GB that has a retention policy of 'Never Expire' (or > 30 days), and calculates exactly how much money you are burning.
+
+Stop paying AWS for digital hoarding. Set a 14-day retention policy. I open-sourced the script.
+
+#FinOps #AWS #CloudComputing #CloudWatch #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+CloudWatch Logs storage costs are the ultimate example of the 'Boiled Frog' problem in FinOps. The defaults (\etentionInDays: undefined\) silently accumulate state over years. For high-throughput services like API Gateways or ECS containers, this results in massive linear cost growth that Finance only notices when the bill crosses a psychological threshold. The \
+exus-cloudwatch-hoarder-hunter\ programmatically enforces Infrastructure lifecycle hygiene by targeting the \etentionInDays\ attribute. By mathematically exposing the annualized carrying cost of these default configurations, it forces engineering teams to adopt explicit retention strategies in their IaC (Terraform/CDK) modules.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you write down everything you do every day in a notebook. 'I ate a sandwich. I tied my shoes.'
+
+After a month, the notebook is full. So you rent a storage unit to keep it.
+
+Ten years later, you are renting 50 storage units just to hold old notebooks about eating sandwiches. You never read them. You just keep paying rent.
+
+Instead of paying rent for old notebooks, I built a machine that finds out exactly how much rent you are paying, yells at you, and tells you to throw away notebooks that are older than 14 days.
