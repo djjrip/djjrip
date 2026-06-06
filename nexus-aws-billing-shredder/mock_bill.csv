@@ -1,0 +1,6 @@
+Service,UnblendedCost,ItemDescription
+Amazon EC2,3.60,Elastic IP address not attached to a running instance
+Amazon EC2,150.00,NAT Gateway DataProcessing-Bytes
+Amazon CloudFront,500.00,DataTransfer-Out-Bytes
+Amazon EC2,200.00,EBS:SnapshotUsage
+Amazon RDS,1200.00,Relational Database Service

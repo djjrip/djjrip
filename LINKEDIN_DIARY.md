@@ -78,3 +78,29 @@ But a bad guy gives you a piece of paper that says: 'Order 100 drinks and put th
 My code changes how the bouncer works. Instead of just checking for the stamp, the bouncer now also requires a special, secret password that only the club gives you when you walk in.
 
 When the bad guy tries to trick you into ordering drinks, the bouncer asks for the secret password. Since the bad guy doesn't know it, the order is thrown out. Your tab is safe.
+
+## Iteration 98: Real Tools, No Bullshit (AWS Billing Shredder)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+I am so tired of looking at AWS bills that look like a CVS receipt written in ancient Sumerian.
+
+Every startup reaches a point where they are burning  a month on AWS, and no one knows why. You ask the DevOps guy, and he mumbles something about 'NAT Gateways.' You ask the backend team, and they say they 'definitely deleted those old EBS volumes.' (Spoiler: they didn't).
+
+Instead of manually staring at spreadsheets until my eyes bleed, I just vibe-coded the **Nexus AWS Billing Shredder**. It's a ridiculously fast CLI tool. You feed it your AWS Cost Explorer CSV, and it mercilessly hunts down digital hoarding. It instantly flags unattached Elastic IPs bleeding .60/mo, calls out the architecture flaws causing massive NAT Gateway taxes, and calculates exactly how much capital you can recover by forcing Brotli compression on your CDN egress.
+
+I’m open-sourcing it. Use it to shred your bill. Stop paying the 'just to be safe' tax.
+
+#FinOps #Engineering #AWS #StartupBurn #VibeCoding #NoBullshit
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+We pivoted from building theoretical sweeping engines to shipping real, functional micro-tools. The 
+exus-aws-billing-shredder is an execution of this pivot. It parses massive billing telemetry files using streams (csv-parser) to maintain O(1) memory footprint regardless of file size. It applies strict heuristic matching against UnblendedCost and ItemDescription to identify highly specific vectors of wasted capital: EBS snapshot hoarding, NAT Gateway data processing bloat vs VPC Endpoints, and uncompressed egress. This isn't a toy; it’s the exact logic required to execute Phase 1 of a FinOps consulting audit.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you threw a massive party, and the next day you got a ,000 grocery bill, but nobody remembers what they ate. You could read every single receipt line by line... or you could use a robot that highlights every time someone bought expensive caviar they didn't eat. I built the robot.
+

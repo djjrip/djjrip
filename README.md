@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-aws-billing-shredder](nexus-aws-billing-shredder/index.js)** | FinOps CLI Tool | A wicked fast Node.js stream processor that rips through AWS CSV exports to flag digital hoarding and wasted capital. |
 | **[war-room-ops](https://github.com/djjrip/war-room-ops)** | The central execution core. | Orchestrates deployment pipelines, circuit-breakers, and the Immutable Ledger. |
 | **[jayson-career-hub](https://github.com/djjrip/jayson-career-hub)** | The external visualization. | A live Next.js dashboard polling the engine's telemetry and enterprise valuation. |
 | **[sql-reconciliation-engine](#)** | The financial vault. | Enterprise schema auditing to prevent SaaS revenue leakage. |
