@@ -348,3 +348,36 @@ Imagine you are packing your backpack for school every single day.
 Two years ago, your mom told you to pack a huge, heavy umbrella. You haven't used it once in two years. But every single day, you still pack it, carry it to school, and carry it home, complaining that your back hurts.
 
 Instead of buying a bigger backpack, I built a machine that checks if you actually opened the umbrella today. If you didn't, it takes the umbrella out of your bag and throws it in the trash.
+
+## Iteration 107: The Data Warehouse Black Hole (Data Warehouse Sweeper)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+The biggest FinOps black hole at any mid-stage startup isn't EC2 or Kubernetes. It's the data warehouse.
+
+Data Engineers set up massive dbt cron jobs that run every night, chewing through tens of thousands of Snowflake compute credits to build beautiful, highly-optimized tables for marketing dashboards.
+
+The problem? Marketing stopped looking at that dashboard 8 months ago. But the cron job is still running.
+
+You are paying AWS/Snowflake ,000 a year to update a table that literally no human being has queried since last August. It's the ultimate form of digital hoarding.
+
+Instead of paying the 'data hoarding' tax, I vibe-coded the **Nexus Data Warehouse Sweeper**. You feed it your table query logs and your compute costs. It instantly cross-references them and violently flags any table costing you money that hasn't been touched in 90 days. I ran a mock audit and found ,600 in wasted annual compute in three seconds. 
+
+Stop building tables for ghosts. I open-sourced the script.
+
+#FinOps #DataEngineering #Snowflake #BigQuery #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Data warehouse cost bloat stems from a fundamental disconnect between data production (dbt/Airflow pipelines) and data consumption (Looker/Tableau queries). The \
+exus-data-warehouse-sweeper\ creates an automated feedback loop between the two. It ingests the warehouse \query_history\ logs to establish a timestamp of the last \SELECT\ statement executed against a table. It then reconciles this timestamp against the monthly storage/compute cost of maintaining that table. If the \current_date - last_queried_date\ exceeds a predefined threshold (e.g., 90 days), it calculates the annualized waste. This empowers CTOs to safely pause upstream DAGs without fear of breaking active downstream dependencies.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you pay a baker  a week to bake a fresh wedding cake every single morning.
+
+But nobody has eaten the wedding cake in six months. The baker just bakes it, puts it on the counter, and throws it in the trash the next day.
+
+Instead of paying the baker to bake cakes for ghosts, I built a machine that checks if anyone actually took a slice. If nobody took a slice in 3 months, the machine tells the baker to stop baking the cake and saves you all your money.

@@ -1,0 +1,5 @@
+TableName,MonthlyComputeCostUSD
+fact_revenue_daily,1500.00
+dim_users,500.00
+marketing_campaign_attribution_2024,850.00
+legacy_v1_transactions,1200.00

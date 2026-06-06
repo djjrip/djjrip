@@ -1,0 +1,5 @@
+TableName,LastQueried
+fact_revenue_daily,2026-06-05
+dim_users,2026-06-01
+marketing_campaign_attribution_2024,2025-08-15
+legacy_v1_transactions,2024-02-10

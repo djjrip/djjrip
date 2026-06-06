@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-data-warehouse-sweeper](nexus-data-warehouse-sweeper/index.js)** | DataOps/FinOps Tool | A wicked fast script that reconciles Snowflake/BigQuery table costs against query logs to violently flag dead dashboards burning VC capital. |
 | **[nexus-npm-vampire-hunter](nexus-npm-vampire-hunter/index.js)** | DevOps CLI Tool | A wicked fast static analysis tool that cross-references package.json against your codebase to violently flag unimported Vampire Dependencies sucking up CI/CD build time. |
 | **[nexus-k8s-pod-rightsizer](nexus-k8s-pod-rightsizer/index.js)** | FinOps CLI Tool | A wicked fast script that calculates the delta between Kubernetes pod memory requests and peak usage to violently flag compute hoarders burning EKS capital. |
 | **[nexus-saas-seat-sweeper](nexus-saas-seat-sweeper/index.js)** | FinOps CLI Tool | A wicked fast stream processor that cross-references HR payroll against downstream SaaS billing (GitHub, DataDog) to hunt down ghost seats and eliminate wasted license capital. |
