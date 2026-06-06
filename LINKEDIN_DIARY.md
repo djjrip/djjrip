@@ -191,3 +191,32 @@ Imagine you are building a giant dictionary for a very smart robot to read.
 But before you hand the dictionary to the robot, you want to make sure nobody accidentally wrote down the nuclear launch codes inside it.
 
 Instead of reading every single page of the dictionary yourself, I built a fast machine that flips through the pages and screams if it sees anything that looks like a secret code.
+
+## Iteration 102: The B-Tree Index Tax (PG Slow Query Sniper)
+*Date: 2026-06-06*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+The loudest alarm bell at any startup is when the main PostgreSQL database hits 100% CPU. The site goes down, everyone panics, and the immediate knee-jerk reaction is to throw money at the problem: 'Just upgrade the RDS instance to an \db.r5.24xlarge\!'
+
+Congratulations, you just increased your AWS burn by ,000 a month because a junior engineer wrote an N+1 query and forgot to add a B-Tree index.
+
+Instead of paying the AWS 'we don't know how to write SQL' tax, I vibe-coded the **Nexus PG Slow Query Sniper**. You feed it your raw PostgreSQL slow query logs. It instantly parses the telemetry, strips out the dynamic variables, groups the queries by architectural pattern, and violently flags the exact query that is burning your compute. 
+
+Stop scaling your database vertically. Write a damn index. I open-sourced the script.
+
+#FinOps #Engineering #PostgreSQL #DatabaseScaling #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Database compute optimization is the highest ROI FinOps activity for scaling architectures. The \
+exus-pg-query-sniper\ automates the tedious process of log aggregation. By applying regex pattern normalization (\eplace(/= \\d+/g, '= ')\), it collapses thousands of distinct queries into their root execution plans. It then calculates the sum of \durationMs\ across all instances of that plan. This provides an immediate, empirically verified hit-list of which specific query structures require composite indexing or application-layer caching, effectively neutralizing the need for expensive vertical scaling.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you own a huge library with a million books, but none of them are sorted alphabetically.
+
+Every time someone asks for a specific book, your librarian has to run around the entire building looking at every single cover. The librarian gets exhausted, so your boss says, 'Let's hire 10 more librarians!'
+
+Instead of hiring more people, I built a machine that watches the librarian and says: 'Hey, you spent 90% of your day looking for Harry Potter. Just put a sticky note on the shelf where Harry Potter lives.' That sticky note is an index.

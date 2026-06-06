@@ -1,0 +1,5 @@
+duration: 1250.50 ms  statement: SELECT * FROM users WHERE email = 'jayson@example.com';
+duration: 850.12 ms  statement: SELECT * FROM users WHERE email = 'foo@bar.com';
+duration: 3500.00 ms  statement: SELECT * FROM orders WHERE user_id = 452 AND status = 'PENDING';
+duration: 3400.00 ms  statement: SELECT * FROM orders WHERE user_id = 999 AND status = 'PENDING';
+duration: 900.00 ms  statement: UPDATE accounts SET balance = 500 WHERE id = 10;
