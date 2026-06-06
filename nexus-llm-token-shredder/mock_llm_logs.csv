@@ -1,0 +1,4 @@
+Endpoint,PromptTokens,CompletionTokens,LatencyMs
+/v1/chat/completions,500,200,800
+/v1/chat/completions,125000,5,15000
+/v1/chat/completions,85000,2,11000
