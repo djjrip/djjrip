@@ -1,0 +1,31 @@
+{
+    "Domains": [
+        {
+            "DomainName": "prod-ecommerce-search",
+            "InstanceType": "r6g.4xlarge.search",
+            "InstanceCount": 3,
+            "Metrics": {
+                "SearchRate30Days": 15000,
+                "IndexingRate30Days": 8000
+            }
+        },
+        {
+            "DomainName": "legacy-analytics-cluster",
+            "InstanceType": "r6g.xlarge.search",
+            "InstanceCount": 6,
+            "Metrics": {
+                "SearchRate30Days": 0.5,
+                "IndexingRate30Days": 1.2
+            }
+        },
+        {
+            "DomainName": "dev-log-archive",
+            "InstanceType": "t3.medium.search",
+            "InstanceCount": 2,
+            "Metrics": {
+                "SearchRate30Days": 0.1,
+                "IndexingRate30Days": 0.0
+            }
+        }
+    ]
+}

@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-opensearch-zombie-hunter](nexus-opensearch-zombie-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS OpenSearch metrics to violently flag 'Zombie Clusters' burning database capital on dead search indexes. |
 | **[nexus-macie-over-scanner](nexus-macie-over-scanner/index.js)** | DevSecOps/FinOps Tool | A wicked fast stream processor that parses AWS Macie jobs to violently flag 'Machine Learning Gluttons' burning AI capital on system logs. |
 | **[nexus-secretsmanager-ghost-hunter](nexus-secretsmanager-ghost-hunter/index.js)** | DevSecOps/FinOps Tool | A wicked fast stream processor that parses AWS Secrets Manager metrics to violently flag 'Ghost Secrets' burning capital on digital trash. |
 | **[nexus-eni-leech-hunter](nexus-eni-leech-hunter/index.js)** | DevSecOps CLI Tool | A wicked fast stream processor that parses AWS EC2 network interfaces to violently flag 'Network Leeches' holding IPs hostage and preventing auto-scaling. |

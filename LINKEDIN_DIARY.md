@@ -1313,3 +1313,44 @@ Instead of telling him to search the jewelry store, you tell him to search the e
 The detective spends a month digging through actual garbage, billing you  an hour the entire time.
 
 Instead of letting you pay detectives to look at garbage, I built a machine that sees where the detective is working, yells at you, and tells you to pull him out of the dumpster.
+
+## Iteration 134: Zombie Clusters (OpenSearch Zombie Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS OpenSearch (formerly ElasticSearch) is incredible for full-text search and massive log analytics.
+
+It is also a black hole for your startup's runway.
+
+To run OpenSearch, you have to provision underlying servers (EC2 instances). A production cluster with massive memory requirements can easily cost ,000 to ,000 a month.
+
+Here is what happens: A startup builds a new search feature and spins up a massive OpenSearch cluster. A year later, they deprecate the feature. The developers delete the frontend code, delete the data pipelines, and consider the project 'done'.
+
+But no one remembers to delete the OpenSearch cluster.
+
+Because AWS bills OpenSearch by the hour for provisioned instances, that cluster will sit completely idle—with 0 searches and 0 indexing operations—and continue to burn ,000 a month.
+
+I vibe-coded the **Nexus OpenSearch Zombie Hunter**. You feed it your AWS OpenSearch metrics. It parses your 30-day telemetry, looks for massive clusters doing absolutely nothing, and violently flags the 'Zombie Clusters'.
+
+Stop paying ,000 a month to run a search engine for a product that doesn't exist. I open-sourced the script.
+
+#FinOps #AWS #OpenSearch #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Unlike Serverless architectures (e.g., DynamoDB On-Demand or serverless Lambda), AWS OpenSearch utilizes a provisioned instance model. You are billed hourly for the underlying EC2 instances (data nodes, master nodes, and ultrawarm nodes) regardless of utilization. When logging architectures are migrated (e.g., to DataDog) or product features are deprecated, the data ingestion pipelines are severed, but the infrastructure-as-code representing the OpenSearch domain frequently remains untouched. An idle \6g.4xlarge.search\ cluster will burn massive amounts of capital while executing exactly zero queries. The \
+exus-opensearch-zombie-hunter\ acts as a deterministic FinOps auditor. By evaluating \SearchRate\ and \IndexingRate\ telemetry across a 30-day window, it mathematically isolates domains with near-zero throughput. This provides absolute confidence for infrastructure engineers to execute terminal \	erraform destroy\ commands, instantly eliminating 5-figure annual architectural waste.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you rent a massive, high-speed printing press for ,000 a month to print a daily newspaper.
+
+A year later, you decide to stop making the newspaper.
+
+You stop buying ink, you stop buying paper, and you fire the writers.
+
+But you forget to cancel the ,000 a month rental contract for the printing press. So the massive machine just sits in an empty room, doing absolutely nothing, draining your bank account.
+
+Instead of letting you burn money on empty machines, I built a robot that checks to see if the machine is actually printing anything. If it isn't, the robot yells at you and forces you to cancel the contract.
