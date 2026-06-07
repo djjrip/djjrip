@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-ec2-zombie-hunter](nexus-ec2-zombie-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that cross-references AWS EC2 instances with CloudWatch to violently flag 'Zombie Servers' burning compute capital. |
 | **[nexus-alb-orphan-hunter](nexus-alb-orphan-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS Load Balancers to violently flag empty 'Bridges to Nowhere' burning AWS base capital. |
 | **[nexus-eip-leech-hunter](nexus-eip-leech-hunter/index.js)** | FinOps CLI Tool | A wicked fast script that parses AWS Elastic IPs to violently flag unassociated 'Lost Key' IPs burning AWS networking capital. |
 | **[nexus-rds-snapshot-sweeper](nexus-rds-snapshot-sweeper/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS RDS snapshots to violently flag ancient manual backups burning AWS storage capital. |

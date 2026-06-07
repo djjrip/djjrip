@@ -688,3 +688,38 @@ A year later, the shopping mall goes bankrupt and gets torn down.
 But you forgot to tear down the bridge. So now you have a giant, expensive bridge that goes to a dirt lot, and you are still paying taxes on the bridge.
 
 Instead of paying taxes on a bridge to nowhere, I built a machine that finds all the bridges that don't connect to anything, yells at you, and tells you to tear them down.
+
+## Iteration 117: The Zombie Server Epidemic (EC2 Zombie Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Every Friday afternoon, an engineer somewhere in the world says, 'I'm just going to spin up an m5.xlarge server to test this script real quick.'
+
+They test the script. They go home for the weekend. And they never think about that server again.
+
+A year later, the startup has paid AWS ,680 for a massive server that has literally been sitting there doing absolutely nothing. The CPU utilization is 0.1%. It is a 'Zombie Server'.
+
+I vibe-coded the **Nexus EC2 Zombie Hunter**. You feed it your AWS EC2 metrics. It rips through the JSON, joins the instances with their CloudWatch CPU metrics, and violently flags any server that has an average CPU utilization of less than 1%.
+
+It calculates exactly how much money you are setting on fire and tells you to terminate it.
+
+Stop leaving massive servers running over the weekend. I open-sourced the script.
+
+#FinOps #AWS #CloudComputing #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Orphaned compute resources (Zombies) are the most expensive form of cloud waste due to the high hourly cost of modern EC2 instances. While Auto Scaling Groups manage production compute efficiently, ad-hoc developer environments and legacy staging servers often escape lifecycle policies. The \
+exus-ec2-zombie-hunter\ acts as a deterministic FinOps auditor by coupling \describe-instances\ metadata with CloudWatch \AverageCpuUtilization\ metrics. By mathematically flagging instances where \State === 'running'\ but \AverageCpuUtilization < 1.0%\ over a sustained period, it provides undeniable, data-backed evidence for termination, bypassing the usual 'I might need that server later' developer friction.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you rent a massive delivery truck to move a single box across town.
+
+When you are done, instead of returning the truck, you just leave it parked in your driveway with the engine running.
+
+You leave the engine running for a whole year. You have to keep paying for the truck and the gas, even though you aren't using it.
+
+Instead of letting you pay for a truck you aren't using, I built a machine that checks all your trucks, finds the ones with the engine running but nobody inside, yells at you, and tells you to turn them off.

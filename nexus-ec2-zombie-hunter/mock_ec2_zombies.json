@@ -1,0 +1,32 @@
+{
+    "Instances": [
+        {
+            "InstanceId": "i-0abcd1234prodapp",
+            "InstanceType": "c5.2xlarge",
+            "State": "running",
+            "AverageCpuUtilization": 65.4,
+            "MonthlyCost": 245.28
+        },
+        {
+            "InstanceId": "i-0efgh5678devtest",
+            "InstanceType": "m5.large",
+            "State": "running",
+            "AverageCpuUtilization": 0.05,
+            "MonthlyCost": 70.08
+        },
+        {
+            "InstanceId": "i-0ijkl9012staging",
+            "InstanceType": "t3.medium",
+            "State": "running",
+            "AverageCpuUtilization": 0.12,
+            "MonthlyCost": 30.36
+        },
+        {
+            "InstanceId": "i-0mnop3456legacy",
+            "InstanceType": "m5.xlarge",
+            "State": "running",
+            "AverageCpuUtilization": 0.00,
+            "MonthlyCost": 140.16
+        }
+    ]
+}
