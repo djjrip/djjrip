@@ -1,0 +1,22 @@
+{
+    "DataTransferOut": [
+        {
+            "DestinationName": "Datadog Log Ingestion",
+            "TargetType": "PublicInternet",
+            "KnownSaaSDestination": true,
+            "Usage_GB_30d": 125000
+        },
+        {
+            "DestinationName": "Snowflake Data Warehouse",
+            "TargetType": "PublicInternet",
+            "KnownSaaSDestination": true,
+            "Usage_GB_30d": 45000
+        },
+        {
+            "DestinationName": "User Video Streams",
+            "TargetType": "PublicInternet",
+            "KnownSaaSDestination": false,
+            "Usage_GB_30d": 8000
+        }
+    ]
+}

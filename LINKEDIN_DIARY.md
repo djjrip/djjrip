@@ -1710,3 +1710,44 @@ But you forget to return the secondary refrigerator.
 So you are still paying  a month to rent a giant refrigerator that has exactly zero sandwiches inside it, in a restaurant that has exactly zero customers.
 
 Instead of letting you pay rent on empty refrigerators, I built a machine that checks if you have any customers. If you have no customers, the machine unplugs the refrigerator and sends it back.
+
+## Iteration 143: Egress Vampires (AWS Egress Vampire Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS charges you a massive premium for 'Data Transfer Out' to the public internet (.09 per GB).
+
+Here is the FinOps disaster:
+
+A startup uses a 3rd party SaaS vendor, like Datadog for logs, Snowflake for data warehousing, or MongoDB Atlas.
+
+To send their data to the vendor, they route it out through their NAT Gateway and over the public internet.
+
+If they are sending 125 Terabytes of application logs a month, they are paying AWS ,250 a month *just for the bandwidth* to leave the AWS network. This is on top of what they pay the actual vendor.
+
+If they simply used an AWS PrivateLink (VPC Endpoint), it would cost .01 per GB. An 800% discount. And the data would never touch the public internet, making it infinitely more secure.
+
+I vibe-coded the **Nexus Egress Vampire Hunter**. You feed it your AWS billing telemetry. It hunts for massive data flows leaving your network over the public internet to known SaaS vendors, violently flags the 'Egress Vampires', and calculates exactly how much capital you are burning on the public internet tax.
+
+Stop paying an 800% markup for bandwidth. Use PrivateLink. I open-sourced the script.
+
+#FinOps #AWS #Networking #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+The AWS Data Transfer pricing model heavily penalizes egress to the public internet (.09/GB) compared to intra-region or PrivateLink routing (.01/GB data processing). Startups frequently integrate heavily with managed SaaS platforms (Datadog, Snowflake, Confluent, MongoDB Atlas) operating in disparate AWS accounts. Without explicit architectural intent, infrastructure teams default to routing this telemetry/data over the public internet via NAT Gateways. At scale, this results in catastrophic bandwidth OpEx. AWS PrivateLink allows consumers to establish a VPC Endpoint that privately connects their VPC to supported AWS services, services hosted by other AWS accounts, and supported AWS Marketplace partner services. The \
+exus-egress-vampire-hunter\ parses Cost & Usage Reports (CUR) to isolate high-volume \DataTransfer-Out-Bytes\ traffic flows destined for recognized SaaS provider IP ranges. By highlighting the delta between the .09/GB internet premium and the .01/GB PrivateLink baseline, it provides FinOps teams with the deterministic proof required to mandate a PrivateLink cutover, simultaneously securing the data perimeter and slashing network transit costs.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you run a factory that produces 125,000 boxes of shoes every month.
+
+You need to send all of these shoes to a warehouse that is literally right next door.
+
+Instead of building a cheap tunnel between the two buildings for ,000, you hire a fleet of expensive delivery trucks to drive the shoes out of your parking lot, onto the public highway, turn around, and drive into the warehouse's parking lot next door.
+
+You are paying the trucking company ,000 a month to drive your shoes in a circle.
+
+Instead of letting you pay for unnecessary trucks, I built a machine that looks at your shipping bills, points at the warehouse next door, and yells at you to build the tunnel.
