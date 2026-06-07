@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-eni-leech-hunter](nexus-eni-leech-hunter/index.js)** | DevSecOps CLI Tool | A wicked fast stream processor that parses AWS EC2 network interfaces to violently flag 'Network Leeches' holding IPs hostage and preventing auto-scaling. |
 | **[nexus-ecr-image-hoarder-hunter](nexus-ecr-image-hoarder-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS ECR metrics to violently flag 'Digital Landfills' burning storage capital on outdated Docker images. |
 | **[nexus-fargate-rightsizer](nexus-fargate-rightsizer/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS Fargate metrics to violently flag 'Serverless Gluttons' burning compute capital on unused padding. |
 | **[nexus-cloudtrail-duplication-hunter](nexus-cloudtrail-duplication-hunter/index.js)** | DevSecOps/FinOps CLI Tool | A wicked fast stream processor that parses AWS CloudTrail metrics to violently flag 'Echo Chambers' burning logging capital on duplicated data events. |

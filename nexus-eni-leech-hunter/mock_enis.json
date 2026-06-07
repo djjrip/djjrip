@@ -1,0 +1,36 @@
+{
+    "NetworkInterfaces": [
+        {
+            "NetworkInterfaceId": "eni-0123456789abcdef0",
+            "SubnetId": "subnet-0a1b2c3d",
+            "VpcId": "vpc-01234567",
+            "Status": "in-use",
+            "PrivateIpAddress": "10.0.1.15",
+            "Description": "Primary network interface"
+        },
+        {
+            "NetworkInterfaceId": "eni-0fedcba9876543210",
+            "SubnetId": "subnet-0a1b2c3d",
+            "VpcId": "vpc-01234567",
+            "Status": "available",
+            "PrivateIpAddress": "10.0.1.42",
+            "Description": "Created by failed Lambda deployment"
+        },
+        {
+            "NetworkInterfaceId": "eni-0a1b2c3d4e5f6g7h8",
+            "SubnetId": "subnet-0x9y8z7w",
+            "VpcId": "vpc-09876543",
+            "Status": "available",
+            "PrivateIpAddress": "10.0.2.100",
+            "Description": "Dangling ECS container interface"
+        },
+        {
+            "NetworkInterfaceId": "eni-0987654321abcdef0",
+            "SubnetId": "subnet-0x9y8z7w",
+            "VpcId": "vpc-09876543",
+            "Status": "in-use",
+            "PrivateIpAddress": "10.0.2.215",
+            "Description": "Primary network interface"
+        }
+    ]
+}

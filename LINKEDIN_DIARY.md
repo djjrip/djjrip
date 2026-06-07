@@ -1192,3 +1192,44 @@ Instead of throwing away your old shoes, you rent a massive warehouse to store t
 After 3 years, you are paying ,000 a month to store 1,000 pairs of shoes you will never wear again.
 
 Instead of letting you rent massive warehouses, I built a machine that checks your closet, finds all the old shoes, yells at you, and tells you to throw them in the trash.
+
+## Iteration 131: Network Leeches (ENI Leech Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Every time a startup spins up a new server or a serverless container in AWS, AWS creates an 'Elastic Network Interface' (ENI). It's essentially a virtual network card.
+
+Every single ENI reserves one IP address from your private network.
+
+When you delete the server, AWS is *supposed* to delete the ENI.
+
+But because of failed deployments or buggy Terraform code, the server gets deleted, but the ENI is left behind in a 'detached' state. This detached ENI sits there, totally useless, but it permanently holds onto its IP address.
+
+If your CI/CD pipeline deploys 100 times a day and leaves these 'Network Leeches' behind, you will eventually run out of IP addresses.
+
+When you run out of IP addresses, your production app can't scale up. The entire platform crashes, not because of a code bug, but because of digital garbage hoarding your IP addresses.
+
+I vibe-coded the **Nexus ENI Leech Hunter**. You feed it your AWS Network Interface metrics. It rips through the JSON, finds the detached ENIs holding IPs hostage, and violently flags the network leeches.
+
+Stop letting garbage network cards crash your production app. I open-sourced the script.
+
+#DevSecOps #AWS #Networking #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Subnet IP exhaustion is a silent killer in dynamic AWS architectures. Modern containerized workloads (like ECS Fargate) or serverless architectures (like VPC-attached Lambdas) rapidly provision and de-provision Elastic Network Interfaces (ENIs). Due to lifecycle hooks failing, IAM permission boundaries, or aborted Terraform applies, ENIs frequently become 'orphaned'—their \Status\ remains \vailable\ instead of \in-use\. While unattached ENIs do not incur direct hourly costs, they permanently reserve a Private IP Address from the subnet's CIDR block. In a /24 subnet (256 IPs), a few dozen leaked ENIs can completely halt auto-scaling events, leading to catastrophic production outages during traffic spikes. The \
+exus-eni-leech-hunter\ acts as a deterministic infrastructure auditor, parsing ENI telemetry to isolate detached network interfaces, providing a zero-risk vector to purge network leeches and reclaim critical IP space.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you own a parking lot with 100 spaces.
+
+Every time a car leaves, they are supposed to take their parking cone with them so a new car can park there.
+
+But some people are lazy and just leave their cones in the middle of the empty parking spot.
+
+Eventually, you have a completely empty parking lot, but no one can park because there are cones everywhere.
+
+Instead of letting your business shut down because of plastic cones, I built a machine that finds all the abandoned cones, yells at you, and tells you to throw them in the trash.
