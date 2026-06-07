@@ -1,0 +1,42 @@
+{
+    "GlobalTables": [
+        {
+            "TableName": "prod-user-profiles",
+            "Replicas": [
+                {
+                    "RegionName": "us-east-1",
+                    "Metrics": {
+                        "ConsumedReadCapacityUnits_30d": 45000000,
+                        "ReplicatedWriteCapacityUnits_30d": 18000000
+                    }
+                },
+                {
+                    "RegionName": "eu-west-1",
+                    "Metrics": {
+                        "ConsumedReadCapacityUnits_30d": 12,
+                        "ReplicatedWriteCapacityUnits_30d": 18000000
+                    }
+                }
+            ]
+        },
+        {
+            "TableName": "prod-financial-transactions",
+            "Replicas": [
+                {
+                    "RegionName": "us-west-2",
+                    "Metrics": {
+                        "ConsumedReadCapacityUnits_30d": 90000000,
+                        "ReplicatedWriteCapacityUnits_30d": 500000000
+                    }
+                },
+                {
+                    "RegionName": "ap-northeast-1",
+                    "Metrics": {
+                        "ConsumedReadCapacityUnits_30d": 0,
+                        "ReplicatedWriteCapacityUnits_30d": 500000000
+                    }
+                }
+            ]
+        }
+    ]
+}

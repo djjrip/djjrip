@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-dynamodb-global-table-shredder](nexus-dynamodb-global-table-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS DynamoDB metrics to violently flag 'The Multi-Region Mirage' burning database capital on empty replicas. |
 | **[nexus-s3-multipart-hoarder-hunter](nexus-s3-multipart-hoarder-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS S3 Multipart Uploads to violently flag 'Invisible Data Trash' burning storage capital. |
 | **[nexus-cloudfront-invalidation-shredder](nexus-cloudfront-invalidation-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS CloudFront logs to violently flag 'The Loop of Death' burning CDN capital on explicit path invalidations. |
 | **[nexus-opensearch-zombie-hunter](nexus-opensearch-zombie-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS OpenSearch metrics to violently flag 'Zombie Clusters' burning database capital on dead search indexes. |
