@@ -585,3 +585,38 @@ Instead of renting a normal Honda Civic, you pay an extra ,300 a month to rent a
 You never drive 200 miles per hour, but you keep paying for the race car anyway.
 
 Instead of letting you waste your money, I built a machine that checks what car you rented, yells at you for renting a race car to buy groceries, and tells you to return it.
+
+## Iteration 114: The Graveyard of 'Final Snapshots' (RDS Snapshot Sweeper)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Every time an engineer deletes an AWS Relational Database, a little prompt pops up asking: 'Would you like to take a final snapshot?'
+
+Every engineer clicks 'Yes'. It feels safe. It feels responsible.
+
+Five years later, the startup is paying AWS thousands of dollars a month to store 15 terabytes of 'final snapshots' for testing and staging databases that literally no one on the team remembers.
+
+Nobody is going to restore a staging database from 2021.
+
+AWS charges about .095 per gigabyte per month for snapshot storage. I vibe-coded the **Nexus RDS Snapshot Sweeper**. You feed it your AWS RDS Snapshots export and a threshold (e.g., 90 days). It rips through the JSON, finds every manual snapshot older than 3 months, calculates exactly how much money you are setting on fire, and violently flags them for deletion.
+
+Stop paying AWS to be a graveyard for dead databases. I open-sourced the script.
+
+#FinOps #AWS #CloudComputing #Databases #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+RDS manual snapshots (which include 'final snapshots' created upon instance deletion) represent an unbounded liability in AWS billing. Unlike automated backups, which enforce a strict retention lifecycle (1-35 days), manual snapshots persist indefinitely until explicitly deleted. At .095/GB-month, a forgotten 5TB production snapshot costs over ,700 annually. The \
+exus-rds-snapshot-sweeper\ programmatically solves this by querying the \describe-db-snapshots\ API, filtering for \SnapshotType === 'manual'\, computing the temporal delta against \SnapshotCreateTime\, and exposing the annualized carrying cost of snapshots exceeding the organizational retention policy (e.g., 90 days). This forces engineering to adopt active data lifecycle management.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you take a picture of your dinner every single night before you throw the leftovers away.
+
+After a few years, your phone is completely full of pictures of old dinners. You have to pay Apple  a month for extra iCloud storage just to hold pictures of spaghetti from 2022.
+
+You are never going to look at those pictures again.
+
+Instead of letting you pay for iCloud storage for old spaghetti, I built a machine that finds all your dinner pictures older than 3 months, yells at you for wasting money, and tells you to delete them.

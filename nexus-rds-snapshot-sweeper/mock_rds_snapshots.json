@@ -1,0 +1,32 @@
+{
+    "DBSnapshots": [
+        {
+            "DBSnapshotIdentifier": "prod-db-final-snapshot-2022",
+            "SnapshotCreateTime": "2022-01-15T12:00:00Z",
+            "SnapshotType": "manual",
+            "AllocatedStorage": 5000,
+            "Status": "available"
+        },
+        {
+            "DBSnapshotIdentifier": "staging-db-final-snapshot-2023",
+            "SnapshotCreateTime": "2023-06-20T14:30:00Z",
+            "SnapshotType": "manual",
+            "AllocatedStorage": 1500,
+            "Status": "available"
+        },
+        {
+            "DBSnapshotIdentifier": "rds:prod-db-2026-06-05-00-00",
+            "SnapshotCreateTime": "2026-06-05T00:00:00Z",
+            "SnapshotType": "automated",
+            "AllocatedStorage": 5500,
+            "Status": "available"
+        },
+        {
+            "DBSnapshotIdentifier": "dev-db-test-snapshot-recent",
+            "SnapshotCreateTime": "2026-06-01T09:00:00Z",
+            "SnapshotType": "manual",
+            "AllocatedStorage": 200,
+            "Status": "available"
+        }
+    ]
+}
