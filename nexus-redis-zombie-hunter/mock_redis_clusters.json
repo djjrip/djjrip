@@ -1,0 +1,32 @@
+{
+    "Clusters": [
+        {
+            "ClusterId": "prod-session-cache",
+            "Engine": "redis",
+            "NodeType": "cache.r5.large",
+            "MonthlyCost": 150.38,
+            "MaxConnections30Days": 4500
+        },
+        {
+            "ClusterId": "dev-jayson-test",
+            "Engine": "redis",
+            "NodeType": "cache.t3.medium",
+            "MonthlyCost": 50.00,
+            "MaxConnections30Days": 0
+        },
+        {
+            "ClusterId": "staging-legacy-cache",
+            "Engine": "redis",
+            "NodeType": "cache.r5.xlarge",
+            "MonthlyCost": 300.76,
+            "MaxConnections30Days": 0
+        },
+        {
+            "ClusterId": "qa-testing-cache",
+            "Engine": "memcached",
+            "NodeType": "cache.t3.micro",
+            "MonthlyCost": 12.50,
+            "MaxConnections30Days": 12
+        }
+    ]
+}

@@ -935,3 +935,36 @@ But only 2 customers show up.
 Now you have to pay 500 waiters to stand around and do nothing.
 
 Instead of letting you pay hundreds of waiters to stare at the wall, I built a machine that watches your restaurant, figures out how many waiters you actually need, yells at you, and tells you to fire the rest.
+
+## Iteration 124: Zombie Caches (Redis Zombie Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Because Redis is an 'in-memory' database, AWS ElastiCache provisions instances with massive amounts of expensive RAM.
+
+Engineers love spinning up these massive Redis clusters for dev environments or staging tests. Then they switch projects and forget they exist.
+
+A forgotten cache.r5.xlarge instance will sit there in AWS, completely empty, answering zero queries, and charging your startup  every single month.
+
+I vibe-coded the **Nexus Redis Zombie Hunter**. You feed it your AWS ElastiCache metrics. It rips through the JSON, checks the 'Current Connections' over the last 30 days, finds the caches with literally zero traffic, and violently flags the Zombies.
+
+Stop paying  a month for empty RAM. I open-sourced the script.
+
+#FinOps #AWS #Redis #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS ElastiCache (Redis/Memcached) relies on high-memory compute instances (e.g., the r5 and r6g families) which command a significant price premium over general-purpose compute. Because caches are frequently treated as ephemeral infrastructure in lower environments, they are highly susceptible to becoming orphaned resources when development cycles end. The \
+exus-redis-zombie-hunter\ parses CloudWatch telemetry—specifically looking for \MaxConnections30Days === 0\. By mathematically isolating high-cost memory infrastructure that is receiving zero network traffic, it provides a deterministic vector to terminate zombie infrastructure and reclaim wasted compute capital.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you rent a giant, expensive warehouse to store ice.
+
+But you don't actually put any ice in it. And nobody ever visits the warehouse.
+
+You just pay rent for an empty, cold building every single month for years.
+
+Instead of letting you pay rent for an empty cold building, I built a machine that checks all your warehouses, finds the empty ones, yells at you, and tells you to cancel the lease.
