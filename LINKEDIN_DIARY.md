@@ -1573,3 +1573,50 @@ Your landlord doesn't charge you extra rent for keeping trash in your closet. Bu
 Your automatic deployment system is currently hoarding 20,000 old calendars, and it is making your computer run incredibly slowly.
 
 Instead of letting you live in a closet full of trash, I built a robot that finds the old calendars, throws them in the dumpster, and lets you find your shoes in 5 seconds.
+
+## Iteration 140: Phantom Firewalls (WAF Rule Shredder)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS WAF (Web Application Firewall) is incredible for blocking malicious traffic and DDoS attacks.
+
+AWS charges a base fee of  per month for every firewall (WebACL), PLUS  per month for every custom security rule you write.
+
+Here is the FinOps disaster:
+
+A security engineer builds a 'Mega Firewall' with 150 highly complex, custom regex rules (costing /month). They attach this firewall to an Application Load Balancer in a staging environment.
+
+A year later, the staging environment is deprecated. The servers are deleted. The Load Balancer receives absolutely zero traffic.
+
+But no one deletes the Mega Firewall.
+
+The startup continues paying  a month for a firewall that is actively blocking 0 attacks on a load balancer that receives 0 requests.
+
+Multiply this across 50 deprecated microservices and old staging environments, and you are burning thousands of dollars a month on Phantom Firewalls.
+
+I vibe-coded the **Nexus WAF Rule Shredder**. You feed it your AWS WAF telemetry. It parses your WebACLs, hunts for highly complex rule sets that have processed zero requests in the last 30 days, violently flags the 'Phantom Firewalls', and calculates the wasted security capital.
+
+Stop paying for security guards to watch empty parking lots. I open-sourced the script.
+
+#FinOps #AWS #CyberSecurity #DevSecOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS WAF billing mechanics abstract away the correlation between throughput and infrastructure cost. While data processing is billed per million requests, the baseline configuration overhead—.00 per WebACL and .00 per individual Rule—is fixed, regardless of traffic volume. When DevOps teams deprecate backend services (e.g., terminating ECS clusters or EC2 auto-scaling groups), they frequently fail to untether and delete the associated WAF WebACLs from the edge (CloudFront/ALB/API Gateway). This results in complex, high-rule-count WAF configurations surviving in a zombie state. The \
+exus-waf-rule-shredder\ correlates WAF configuration states against CloudWatch \AllowedRequests\ and \BlockedRequests\ metrics over a 30-day trailing window. By deterministically identifying \RuleCount > 0\ with \TotalRequests == 0\, it exposes unattached or orphaned security infrastructure, allowing FinOps teams to execute targeted \DeleteWebACL\ API calls and reclaim wasted security OPEX.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you own a bank.
+
+You hire 150 highly trained security guards to stand outside the front door and check everyone's ID.
+
+A year later, you close the bank. You board up the windows, you lock the doors, and you move to a new building.
+
+But you forget to fire the 150 security guards.
+
+So they are still standing outside the boarded-up, empty building every single day, and you are still paying all of their salaries.
+
+Instead of letting you pay security guards to protect a pile of dirt, I built a machine that checks if the bank is actually open. If the bank is closed, the machine fires the guards.

@@ -1,0 +1,28 @@
+{
+    "WebACLs": [
+        {
+            "Name": "prod-main-api-firewall",
+            "RuleCount": 25,
+            "Metrics": {
+                "AllowedRequests_30d": 15000000,
+                "BlockedRequests_30d": 450000
+            }
+        },
+        {
+            "Name": "staging-v1-deprecated-firewall",
+            "RuleCount": 150,
+            "Metrics": {
+                "AllowedRequests_30d": 0,
+                "BlockedRequests_30d": 0
+            }
+        },
+        {
+            "Name": "dev-internal-tools-firewall",
+            "RuleCount": 42,
+            "Metrics": {
+                "AllowedRequests_30d": 0,
+                "BlockedRequests_30d": 0
+            }
+        }
+    ]
+}
