@@ -1,0 +1,32 @@
+{
+    "Functions": [
+        {
+            "FunctionName": "ProcessStripeWebhooks",
+            "ProvisionedMemoryMB": 2048,
+            "MaxMemoryUsedMB": 115,
+            "MonthlyInvocations": 5000000,
+            "AverageDurationMS": 200
+        },
+        {
+            "FunctionName": "GeneratePDFReports",
+            "ProvisionedMemoryMB": 3008,
+            "MaxMemoryUsedMB": 2800,
+            "MonthlyInvocations": 50000,
+            "AverageDurationMS": 4500
+        },
+        {
+            "FunctionName": "DailyETLJobSync",
+            "ProvisionedMemoryMB": 10240,
+            "MaxMemoryUsedMB": 120,
+            "MonthlyInvocations": 30,
+            "AverageDurationMS": 150000
+        },
+        {
+            "FunctionName": "AuthTokenValidator",
+            "ProvisionedMemoryMB": 1024,
+            "MaxMemoryUsedMB": 65,
+            "MonthlyInvocations": 50000000,
+            "AverageDurationMS": 50
+        }
+    ]
+}

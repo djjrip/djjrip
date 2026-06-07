@@ -863,3 +863,36 @@ Imagine your company buys a giant, 50-room office building for the engineering t
 But instead of putting different teams in different rooms, every single developer demands you buy them their own personal 50-room office building, just so they can work in one room and leave 49 empty.
 
 Instead of buying 20 empty office buildings, I built a machine that finds all the developers hiding in their empty buildings, yells at them, and forces them to work in different rooms of the main building.
+
+## Iteration 122: Serverless Memory Gluttons (Lambda Memory Rightsizer)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS Lambda is the ultimate 'pay-as-you-go' computing model. You upload a script, and AWS charges you based on how many seconds it runs and how much memory (RAM) it uses.
+
+But when an engineer writes a basic script, they often just drag the 'Memory' slider to the absolute maximum 'just to be safe', or because they think it will make the script run 10x faster.
+
+If you allocate 2GB of RAM to a script that only ever uses 120MB, you are literally paying 16x more per invocation than you need to.
+
+I vibe-coded the **Nexus Lambda Memory Rightsizer**. You feed it your AWS Lambda metrics export. It rips through the JSON, compares the 'Provisioned Memory' to the 'Actual Peak Usage' over the last 30 days, calculates exactly how much money you are setting on fire, and violently flags the Serverless Gluttons.
+
+Stop paying for RAM your code literally never touches. I open-sourced the script.
+
+#FinOps #AWS #Serverless #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS Lambda pricing is derived from GB-seconds (a multiplier of invocation duration and allocated memory). While increasing memory linearly increases allocated CPU (which can reduce duration and therefore cost), this inflection point flattens rapidly for IO-bound workloads. A common startup anti-pattern is defaulting to 1024MB or 2048MB for lightweight NodeJS stream processors that peak at ~100MB of resident set size (RSS). The \
+exus-lambda-memory-rightsizer\ calculates the deterministic \MaxMemoryUsedMB / ProvisionedMemoryMB\ ratio. By mathematically identifying functions operating at < 33% memory utilization and calculating their invocation footprint, it targets the specific high-frequency workloads where a simple configuration update yields an immediate 60-80% compute cost reduction.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you rent a moving truck every day to drive a single pizza to a customer.
+
+The truck holds 500 pizzas, but you only ever put 1 pizza in it.
+
+You are paying for the whole truck every single trip.
+
+Instead of letting you rent giant moving trucks for single pizzas, I built a machine that watches all your deliveries, finds the trucks carrying only one pizza, yells at you, and tells you to just buy a bicycle.
