@@ -896,3 +896,42 @@ The truck holds 500 pizzas, but you only ever put 1 pizza in it.
 You are paying for the whole truck every single trip.
 
 Instead of letting you rent giant moving trucks for single pizzas, I built a machine that watches all your deliveries, finds the trucks carrying only one pizza, yells at you, and tells you to just buy a bicycle.
+
+## Iteration 123: Guessing Game Databases (DynamoDB Capacity Rightsizer)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+When you create an AWS DynamoDB table, AWS asks you how you want to pay for it. You can either pay per request ('On-Demand'), or you can pay to reserve a fixed amount of server capacity upfront ('Provisioned').
+
+Most engineers choose 'Provisioned', because they think they know how much traffic their app will get. So they guess. They type in '500 Read Capacity Units' and '500 Write Capacity Units' just to be safe.
+
+Then the app launches. Nobody uses it. The database handles 2 requests a day.
+
+But AWS still charges you  a month because you *reserved* the capacity to handle thousands of requests.
+
+I constantly audit startups paying tens of thousands of dollars a year for database capacity they have never once used.
+
+I vibe-coded the **Nexus DynamoDB Capacity Rightsizer**. You feed it your DynamoDB metrics. It rips through the JSON, compares your Provisioned Capacity to your Actual Peak Usage, and violently flags the 'Capacity Hoarders'.
+
+Stop playing guessing games with your database. Switch to On-Demand billing. I open-sourced the script.
+
+#FinOps #AWS #Databases #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+DynamoDB Provisioned Capacity mode requires upfront reservation of RCUs and WCUs, shifting the risk of under-utilization entirely onto the customer. In modern serverless architectures with highly variable or completely unknown traffic patterns (especially in staging/dev environments), Provisioned mode is a catastrophic anti-pattern. The \
+exus-dynamodb-capacity-rightsizer\ acts as a deterministic FinOps auditor by parsing \MaxConsumedReadCapacityUnits\ against \ProvisionedReadCapacityUnits\. By mathematically identifying tables operating at < 10% utilization and calculating their exact waste using standard AWS pricing formulas (.09/RCU, .47/WCU), it provides a zero-risk vector to convert idle tables to \PAY_PER_REQUEST\ billing, yielding immediate 90%+ cost reductions.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you own a restaurant.
+
+You hire 500 waiters because you think you're going to be really busy on opening night.
+
+But only 2 customers show up.
+
+Now you have to pay 500 waiters to stand around and do nothing.
+
+Instead of letting you pay hundreds of waiters to stare at the wall, I built a machine that watches your restaurant, figures out how many waiters you actually need, yells at you, and tells you to fire the rest.

@@ -1,0 +1,36 @@
+{
+    "Tables": [
+        {
+            "TableName": "Users-Production",
+            "BillingMode": "PROVISIONED",
+            "ProvisionedReadCapacityUnits": 100,
+            "ProvisionedWriteCapacityUnits": 100,
+            "MaxConsumedReadCapacityUnits": 85,
+            "MaxConsumedWriteCapacityUnits": 70
+        },
+        {
+            "TableName": "AuditLogs-Staging",
+            "BillingMode": "PROVISIONED",
+            "ProvisionedReadCapacityUnits": 500,
+            "ProvisionedWriteCapacityUnits": 500,
+            "MaxConsumedReadCapacityUnits": 5,
+            "MaxConsumedWriteCapacityUnits": 2
+        },
+        {
+            "TableName": "SessionCache-Dev",
+            "BillingMode": "PROVISIONED",
+            "ProvisionedReadCapacityUnits": 250,
+            "ProvisionedWriteCapacityUnits": 250,
+            "MaxConsumedReadCapacityUnits": 0,
+            "MaxConsumedWriteCapacityUnits": 0
+        },
+        {
+            "TableName": "Telemetry-Production",
+            "BillingMode": "PAY_PER_REQUEST",
+            "ProvisionedReadCapacityUnits": 0,
+            "ProvisionedWriteCapacityUnits": 0,
+            "MaxConsumedReadCapacityUnits": 1000,
+            "MaxConsumedWriteCapacityUnits": 5000
+        }
+    ]
+}

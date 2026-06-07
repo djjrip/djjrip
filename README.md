@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-dynamodb-capacity-rightsizer](nexus-dynamodb-capacity-rightsizer/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS DynamoDB metrics to violently flag 'Capacity Hoarders' burning database capital on unused provisioning. |
 | **[nexus-lambda-memory-rightsizer](nexus-lambda-memory-rightsizer/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS Lambda metrics to violently flag 'Serverless Gluttons' burning compute capital on unused RAM. |
 | **[nexus-eks-cluster-sweeper](nexus-eks-cluster-sweeper/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS EKS to violently flag 'Control Plane Hoarders' burning Kubernetes base capital. |
 | **[nexus-rds-multiaz-shredder](nexus-rds-multiaz-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS RDS to violently flag 'High-Availability Paranoia' burning database capital in non-prod environments. |
