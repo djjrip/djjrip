@@ -1,0 +1,32 @@
+{
+    "MacieJobs": [
+        {
+            "JobId": "macie-job-001abc",
+            "JobType": "ONE_TIME",
+            "Status": "ACTIVE",
+            "TargetBucketName": "prod-user-uploads-data",
+            "BucketSizeGB": 50
+        },
+        {
+            "JobId": "macie-job-002def",
+            "JobType": "SCHEDULED",
+            "Status": "ACTIVE",
+            "TargetBucketName": "aws-cloudtrail-logs-123456789",
+            "BucketSizeGB": 15000
+        },
+        {
+            "JobId": "macie-job-003ghi",
+            "JobType": "SCHEDULED",
+            "Status": "ACTIVE",
+            "TargetBucketName": "vpc-flow-logs-archive-prod",
+            "BucketSizeGB": 45000
+        },
+        {
+            "JobId": "macie-job-004jkl",
+            "JobType": "SCHEDULED",
+            "Status": "PAUSED",
+            "TargetBucketName": "system-metrics-archive",
+            "BucketSizeGB": 100000
+        }
+    ]
+}
