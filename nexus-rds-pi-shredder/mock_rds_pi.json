@@ -1,0 +1,22 @@
+{
+    "DBInstances": [
+        {
+            "DBInstanceIdentifier": "prod-main-db-cluster",
+            "DBInstanceClass": "db.r6g.16xlarge",
+            "PerformanceInsightsEnabled": true,
+            "PerformanceInsightsRetentionPeriod": 731
+        },
+        {
+            "DBInstanceIdentifier": "prod-analytics-replica",
+            "DBInstanceClass": "db.r6g.8xlarge",
+            "PerformanceInsightsEnabled": true,
+            "PerformanceInsightsRetentionPeriod": 731
+        },
+        {
+            "DBInstanceIdentifier": "dev-sandbox-db",
+            "DBInstanceClass": "db.t4g.micro",
+            "PerformanceInsightsEnabled": true,
+            "PerformanceInsightsRetentionPeriod": 7
+        }
+    ]
+}

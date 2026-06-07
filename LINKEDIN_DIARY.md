@@ -1620,3 +1620,48 @@ But you forget to fire the 150 security guards.
 So they are still standing outside the boarded-up, empty building every single day, and you are still paying all of their salaries.
 
 Instead of letting you pay security guards to protect a pile of dirt, I built a machine that checks if the bank is actually open. If the bank is closed, the machine fires the guards.
+
+## Iteration 141: The Time Traveler's Tax (RDS PI Shredder)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS RDS Performance Insights is an incredible tool for finding slow database queries.
+
+By default, AWS retains this performance data for 7 days. This is completely free.
+
+Here is the FinOps disaster:
+
+An engineer debugging a critical production issue at 3:00 AM clicks a dropdown and changes the Performance Insights retention from 7 days to 24 months.
+
+They fix the issue. They go to sleep. They forget they changed the dropdown.
+
+AWS charges .015 per vCPU *per month of retention*. For a massive production database with 64 vCPUs, paying for 24 months of retention costs thousands of dollars a year.
+
+But no engineer ever goes back to look at database performance metrics from 2 years ago.
+
+I vibe-coded the **Nexus RDS PI Shredder**. You feed it your AWS RDS telemetry. It parses your database clusters, hunts for 'PerformanceInsightsRetentionPeriod' set to 731 days, violently flags 'The Time Traveler's Tax', and calculates exactly how much capital you are burning on ancient metrics.
+
+Stop paying to store logs that no one will ever read. I open-sourced the script.
+
+#FinOps #AWS #Databases #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS RDS Performance Insights (PI) leverages a tiered retention pricing model. The default 7-day retention tier is included at no additional charge. However, extended retention tiers (e.g., 24 months) incur charges based on the allocated compute capacity of the underlying instance (.015 per vCPU per month). During severe operational incidents, database administrators frequently extend PI retention to capture transient performance degradation for post-mortem analysis. When these modifications are made outside of declarative Infrastructure-as-Code (IaC) pipelines via the AWS Console, they drift from the baseline configuration and become permanent stealth costs. Given that 99% of query performance tuning utilizes telemetry from the past 72 hours, maintaining 731 days of high-fidelity vCPU metrics is mathematically unjustifiable. The \
+exus-rds-pi-shredder\ deterministically isolates database instances operating outside the free tier, allowing FinOps teams to execute \ModifyDBInstance\ API calls and instantly collapse the retention window back to 7 days, eliminating the architectural drift.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you have a security camera outside your house.
+
+The camera company gives you 7 days of video recording for free.
+
+One night, a raccoon knocks over your trash can. To make sure you catch the raccoon, you tell the camera company to save your video recordings for 2 full years. They charge you ,500 a year for this.
+
+You catch the raccoon the next day. But you forget to call the camera company.
+
+So you keep paying ,500 a year to save 2 years of completely boring video of your empty driveway.
+
+Instead of letting you pay for old videos you will never watch, I built a machine that calls the camera company and switches you back to the free plan.
