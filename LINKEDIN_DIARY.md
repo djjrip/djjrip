@@ -1233,3 +1233,44 @@ But some people are lazy and just leave their cones in the middle of the empty p
 Eventually, you have a completely empty parking lot, but no one can park because there are cones everywhere.
 
 Instead of letting your business shut down because of plastic cones, I built a machine that finds all the abandoned cones, yells at you, and tells you to throw them in the trash.
+
+## Iteration 132: Digital Trash Vaults (Secrets Manager Ghost Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS Secrets Manager is a highly secure vault for your database passwords, API keys, and third-party tokens.
+
+It is also incredibly expensive. AWS charges .40 per secret, per month.
+
+Here is the problem: Startups create a microservice. They create a secure password in Secrets Manager. Two years later, the microservice is deprecated, and the database is deleted. But no one deletes the secret.
+
+Over 4 years, a startup might accumulate 5,000+ of these 'Ghost Secrets'. They haven't been accessed in over 90 days. The applications that needed them literally no longer exist.
+
+5,000 unused secrets cost ,000 a year.
+
+You are paying AWS twenty-four thousand dollars a year to mathematically encrypt and securely guard digital trash.
+
+I vibe-coded the **Nexus Secrets Manager Ghost Hunter**. You feed it your AWS Secrets JSON. It cross-references the \LastAccessedDate\, violently flags the 'Ghost Secrets' that haven't been touched in over 90 days, and highlights exactly how much you are paying to guard garbage.
+
+Stop securing trash. I open-sourced the script.
+
+#DevSecOps #AWS #Security #FinOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS Secrets Manager pricing is notoriously punitive for high-volume, low-value storage, charging .40 per secret per month, plus .05 per 10,000 API calls. In microservice architectures, secrets lifecycle management is rarely coupled perfectly with compute infrastructure teardowns. When an EKS deployment or Lambda function is destroyed via Terraform, the associated secrets often persist, leading to a sprawling 'Ghost Secret' surface area. Beyond the sheer financial waste, this represents a severe security anti-pattern—maintaining thousands of unrotated, unmonitored credentials expands the potential blast radius of a breach for zero business value. The \
+exus-secretsmanager-ghost-hunter\ parses \LastAccessedDate\ telemetry to deterministically identify credentials that exceed a 90-day hibernation threshold, providing an immediate FinOps and DevSecOps dual-win by pruning unused secrets.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you rent a highly secure, laser-guarded bank vault for  a month to store a very important key.
+
+Three years later, you throw away the lock that the key goes to.
+
+But you forget to take the key out of the bank vault.
+
+You continue paying  a month to heavily armed guards to protect a key that goes to absolutely nothing.
+
+Instead of letting you burn money on bank vaults, I built a machine that checks all your keys, sees which ones haven't been touched in years, yells at you, and forces you to cancel the vault.
