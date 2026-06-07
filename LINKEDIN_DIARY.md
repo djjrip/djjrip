@@ -1040,3 +1040,38 @@ Imagine you have two houses right next to each other, and you want to walk from 
 Instead of just walking across the lawn for free, you pay a taxi driver ,500 to drive you around the entire city and drop you off next door.
 
 Instead of letting you pay for the taxi, I built a machine that watches you travel, yells at you, and tells you to just walk across the lawn.
+
+## Iteration 127: Tunnels to Nowhere (VPC Endpoint Shredder)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+To keep their infrastructure safe from hackers, startups create 'VPC Endpoints'—secure, private tunnels that let their servers talk to AWS without going over the public internet.
+
+But these tunnels aren't free. AWS charges a flat fee of .30 per month, per Availability Zone, just to keep the tunnel open.
+
+If a DevOps engineer copy-pastes a massive Terraform block into a Dev environment, they might accidentally build 21 secure tunnels to services like SQS, SNS, and Secrets Manager that the Dev environment doesn't even use.
+
+That's  a month in base fees for secure tunnels that literally no one ever walks through.
+
+I vibe-coded the **Nexus VPC Endpoint Shredder**. You feed it your AWS Endpoint metrics. It rips through the JSON, cross-references CloudWatch for endpoints that have processed zero bytes over 30 days, violently flags the 'Tunnels to Nowhere', and calculates the base-fee waste.
+
+Stop paying  a month for empty tunnels. I open-sourced the script.
+
+#FinOps #AWS #Networking #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS PrivateLink (Interface VPC Endpoints) incur an hourly charge per Elastic Network Interface (ENI) provisioned, which correlates directly to the number of subnets/Availability Zones the endpoint spans. A single interface endpoint in a standard 3-AZ architecture costs ~.90/month before data processing fees. In Infrastructure as Code (IaC) environments, developers frequently utilize centralized networking modules that blanket-provision endpoints across all environments (Dev, Staging, Prod) indiscriminately. The \
+exus-vpc-endpoint-shredder\ identifies this architectural bloat by parsing \BytesProcessed\ telemetry. By mathematically isolating interface endpoints with a 30-day trailing throughput of exactly 0 bytes, it exposes unnecessary network infrastructure, allowing teams to surgically remove idle PrivateLink connections without impacting availability.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you build a highly secure, private tunnel from your house to the grocery store so you don't have to walk on the sidewalk.
+
+And you pay the tunnel company  every month just to keep the tunnel open.
+
+But you never actually walk through the tunnel. You just order UberEats.
+
+Instead of letting you pay  a month for an empty hole in the ground, I built a machine that finds all your unused tunnels, yells at you, and tells you to fill them with dirt.
