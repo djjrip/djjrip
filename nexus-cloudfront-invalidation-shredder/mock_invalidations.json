@@ -1,0 +1,34 @@
+{
+    "InvalidationBatches": [
+        {
+            "Id": "I1A2B3C4D5E6F7",
+            "DistributionId": "E1234567890",
+            "Paths": {
+                "Quantity": 1,
+                "Items": ["/*"]
+            }
+        },
+        {
+            "Id": "I8G9H0I1J2K3L4",
+            "DistributionId": "E0987654321",
+            "Paths": {
+                "Quantity": 15000,
+                "Items": [
+                    "/static/js/main.123.js",
+                    "/static/css/styles.456.css"
+                ]
+            }
+        },
+        {
+            "Id": "I5M6N7O8P9Q0R1",
+            "DistributionId": "E5555555555",
+            "Paths": {
+                "Quantity": 25000,
+                "Items": [
+                    "/images/hero.jpg",
+                    "/images/logo.png"
+                ]
+            }
+        }
+    ]
+}

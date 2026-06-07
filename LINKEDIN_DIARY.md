@@ -1354,3 +1354,50 @@ You stop buying ink, you stop buying paper, and you fire the writers.
 But you forget to cancel the ,000 a month rental contract for the printing press. So the massive machine just sits in an empty room, doing absolutely nothing, draining your bank account.
 
 Instead of letting you burn money on empty machines, I built a robot that checks to see if the machine is actually printing anything. If it isn't, the robot yells at you and forces you to cancel the contract.
+
+## Iteration 135: The Loop of Death (CloudFront Invalidation Shredder)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS CloudFront is a Content Delivery Network (CDN) that makes your website load incredibly fast worldwide.
+
+When you deploy new frontend code, you have to 'invalidate' the old files so users see the new version. AWS gives you 1,000 free invalidations a month. After that, they charge .005 *per file*.
+
+Here is the FinOps disaster:
+
+A junior DevOps engineer sets up your GitHub Actions pipeline. Instead of invalidating the cache using a wildcard (/*)—which counts as exactly 1 request—they write a script that loops through *every single file* in the build folder and invalidates them individually.
+
+If your React app has 10,000 files, the pipeline requests 10,000 invalidations per deployment.
+
+At 10 deployments a day, you are making 100,000 invalidation requests.
+
+A wildcard invalidation (/*) costs .00.
+
+A loop invalidation costs  a day for the exact same result.
+
+I vibe-coded the **Nexus CloudFront Invalidation Shredder**. You feed it your AWS CloudFront telemetry. It parses your invalidation batches, hunts for arrays containing thousands of explicit file paths instead of wildcards, and violently flags 'The Loop of Death' burning your CI/CD capital.
+
+Stop paying  to clear a cache. I open-sourced the script.
+
+#FinOps #AWS #CloudFront #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS CloudFront invalidation pricing operates on a per-path model, charging .005 for every path requested beyond the 1,000 free tier. However, AWS treats a wildcard path (e.g., \/*\) as a single invalidation request, regardless of how many thousands of objects it actually purges from the edge locations. A remarkably common anti-pattern in CI/CD pipelines (specifically in poorly configured \ws s3 sync\ followed by iterative cache clears) involves programmatic loops that execute explicit invalidation requests for every newly uploaded artifact. For modern Single Page Applications (SPAs) with thousands of chunked Webpack or Vite assets, a single deployment can trigger a 10,000+ path invalidation batch. Multiplied across daily staging and production deployments, this 'Loop of Death' induces massive, silent billing spikes. The \
+exus-cloudfront-invalidation-shredder\ analyzes \InvalidationBatches\ to deterministically flag requests exceeding 100 paths without a wildcard signature, providing immediate FinOps visibility into broken pipeline logic.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you own a massive library with 10,000 books, and you want to tell the librarian to throw them all away.
+
+You can either:
+1. Walk up to the librarian and say, 'Throw away all the books in the library.' (This takes 5 seconds).
+2. Walk up to the librarian and read the title of all 10,000 books, one by one. (This takes 10 hours).
+
+AWS charges you every time you open your mouth to talk to the librarian.
+
+Your automatic deployment system is currently reading all 10,000 book titles one by one, and AWS is billing you thousands of dollars for the conversation.
+
+Instead of letting you burn money talking to the librarian, I built a machine that catches your system reading the titles, unplugs it, and forces it to use the 5-second method.
