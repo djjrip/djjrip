@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-eip-leech-hunter](nexus-eip-leech-hunter/index.js)** | FinOps CLI Tool | A wicked fast script that parses AWS Elastic IPs to violently flag unassociated 'Lost Key' IPs burning AWS networking capital. |
 | **[nexus-rds-snapshot-sweeper](nexus-rds-snapshot-sweeper/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS RDS snapshots to violently flag ancient manual backups burning AWS storage capital. |
 | **[nexus-ebs-iops-shredder](nexus-ebs-iops-shredder/index.js)** | FinOps CLI Tool | A wicked fast script that parses AWS describe-volumes output to violently flag overprovisioned io2 IOPS burning database capital. |
 | **[nexus-nat-gateway-shredder](nexus-nat-gateway-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS VPC configurations to violently flag redundant NAT Gateways burning base capital in non-prod environments. |

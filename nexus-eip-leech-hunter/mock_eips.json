@@ -1,0 +1,33 @@
+{
+    "Addresses": [
+        {
+            "PublicIp": "203.0.113.10",
+            "AllocationId": "eipalloc-0123456789abcde01",
+            "Domain": "vpc",
+            "InstanceId": "i-0abcdef1234567890",
+            "AssociationId": "eipassoc-0abcdef1234567890"
+        },
+        {
+            "PublicIp": "203.0.113.20",
+            "AllocationId": "eipalloc-0234567890bcdef02",
+            "Domain": "vpc"
+        },
+        {
+            "PublicIp": "203.0.113.30",
+            "AllocationId": "eipalloc-0345678901cdefa03",
+            "Domain": "vpc",
+            "InstanceId": "i-1bcdef2345678901",
+            "AssociationId": "eipassoc-1bcdef2345678901"
+        },
+        {
+            "PublicIp": "203.0.113.40",
+            "AllocationId": "eipalloc-0456789012defab04",
+            "Domain": "vpc"
+        },
+        {
+            "PublicIp": "203.0.113.50",
+            "AllocationId": "eipalloc-0567890123efabc05",
+            "Domain": "vpc"
+        }
+    ]
+}

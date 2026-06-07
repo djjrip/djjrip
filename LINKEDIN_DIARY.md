@@ -620,3 +620,38 @@ After a few years, your phone is completely full of pictures of old dinners. You
 You are never going to look at those pictures again.
 
 Instead of letting you pay for iCloud storage for old spaghetti, I built a machine that finds all your dinner pictures older than 3 months, yells at you for wasting money, and tells you to delete them.
+
+## Iteration 115: The Lost Keys Tax (EIP Leech Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+When an engineer needs a public IP address for an AWS server, they reserve an 'Elastic IP'.
+
+When they are done testing, they terminate the server. But they almost always forget to release the Elastic IP.
+
+AWS charges you .60 a month for every Elastic IP that is just sitting in your account, unattached to anything. It's basically a 'Lost Keys Tax'.
+
+I've seen startups paying thousands of dollars a year for hundreds of public IP addresses that go literally nowhere.
+
+I vibe-coded the **Nexus EIP Leech Hunter**. You feed it your AWS Elastic IPs export. It rips through the JSON, finds every IP address that isn't connected to a server, and violently flags them as a leech on your cloud budget.
+
+Stop holding onto public IP addresses like a digital hoarder. I open-sourced the script.
+
+#FinOps #AWS #CloudComputing #Networking #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Unassociated Elastic IPs (EIPs) represent a classic example of decoupled resource lifecycle management. Because an EIP exists independently of the EC2 instance it is attached to, terminating the instance does not automatically release the IP back to the AWS pool. AWS enforces a punitive hourly charge (~.005/hr) for unassociated EIPs to prevent IPv4 exhaustion. The \
+exus-eip-leech-hunter\ programmatically identifies these orphaned resources by querying the \describe-addresses\ API and filtering for objects lacking an \AssociationId\. By surfacing these 'leeches' deterministically, it provides an immediate, zero-risk vector for cloud cost reduction and enforces better Infrastructure-as-Code hygiene.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you rent a very nice parking spot in the city.
+
+Every day, you park your car there. But one day, you sell your car. You don't have a car anymore.
+
+But you forgot to tell the parking garage, so they keep charging you .60 every month for an empty parking spot.
+
+Instead of letting you pay for empty parking spots, I built a machine that checks all your parking spots, finds the empty ones, yells at you, and tells you to cancel the lease.
