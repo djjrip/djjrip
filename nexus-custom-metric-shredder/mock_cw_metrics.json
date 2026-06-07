@@ -1,0 +1,19 @@
+{
+    "Namespaces": [
+        {
+            "NamespaceName": "Custom/UserLogins",
+            "UniqueMetricCount": 1450000,
+            "HighestCardinalityDimension": "UserId"
+        },
+        {
+            "NamespaceName": "Custom/PaymentGateway",
+            "UniqueMetricCount": 42000,
+            "HighestCardinalityDimension": "TransactionId"
+        },
+        {
+            "NamespaceName": "Custom/API_Latency",
+            "UniqueMetricCount": 120,
+            "HighestCardinalityDimension": "EndpointName"
+        }
+    ]
+}

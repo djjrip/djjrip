@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-custom-metric-shredder](nexus-custom-metric-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS CloudWatch metrics to violently flag 'The Cardinality Trap' burning monitoring capital on unqueryable data trash. |
 | **[nexus-egress-vampire-hunter](nexus-egress-vampire-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS metrics to violently flag 'Egress Vampires' burning network capital on the public internet. |
 | **[nexus-api-gateway-cache-shredder](nexus-api-gateway-cache-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS API Gateway metrics to violently flag 'Cache Zombies' burning networking capital on dead endpoints. |
 | **[nexus-rds-pi-shredder](nexus-rds-pi-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS RDS configurations to violently flag 'The Time Traveler's Tax' burning capital on ancient performance metrics. |
