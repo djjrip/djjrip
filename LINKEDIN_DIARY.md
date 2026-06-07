@@ -968,3 +968,38 @@ But you don't actually put any ice in it. And nobody ever visits the warehouse.
 You just pay rent for an empty, cold building every single month for years.
 
 Instead of letting you pay rent for an empty cold building, I built a machine that checks all your warehouses, finds the empty ones, yells at you, and tells you to cancel the lease.
+
+## Iteration 125: Ghost Keys (KMS Ghost Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Every time a startup provisions a secure database or storage bucket on AWS, they generate a 'KMS Key'—a digital padlock to encrypt the data. AWS charges .00 per month for every key.
+
+Eventually, the engineers delete the database or the storage bucket. The door is destroyed.
+
+But because AWS puts a scary 30-day waiting period on deleting encryption keys, engineers just... leave them.
+
+I regularly audit startups that have 5,000 active KMS keys, but only 200 actual databases. They are paying ,800 a month for 4,800 digital padlocks securing absolutely nothing.
+
+I vibe-coded the **Nexus KMS Ghost Hunter**. You feed it your AWS security metrics. It rips through the JSON, checks the 'Cryptographic Operations' over the last 90 days, finds the padlocks that haven't been used a single time, and violently flags the Ghost Keys.
+
+Stop paying to guard empty space. Schedule the deletion. I open-sourced the script.
+
+#FinOps #AWS #CyberSecurity #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS Key Management Service (KMS) Customer Managed Keys incur a flat base cost of .00/month regardless of usage. In mature Infrastructure as Code (IaC) environments, the lifecycle of a KMS key is often intentionally decoupled from its underlying resource (e.g., S3, RDS, EBS) to prevent accidental cryptographic erasure. This decoupling reliably results in 'Ghost Keys'—active keys paying the .00/mo tax despite the target data being long destroyed. The \
+exus-kms-ghost-hunter\ parses CloudWatch telemetry for \CryptographicOperations\ over a 90-day trailing window. By mathematically isolating keys with \ \ operations that remain in an \Enabled\ state, it provides a deterministic, zero-risk vector for security teams to invoke \ScheduleKeyDeletion\, yielding immediate cost reductions while adhering to compliance frameworks.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you buy a really expensive padlock to lock the front door of your house.
+
+A year later, you demolish the house.
+
+But instead of throwing away the padlock, you just leave it sitting in the dirt, and you keep paying a security guard  every month to watch it.
+
+Instead of letting you pay to guard a padlock in the dirt, I built a machine that finds all your useless padlocks, yells at you, and tells you to finally throw them away.

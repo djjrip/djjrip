@@ -1,0 +1,28 @@
+{
+    "Keys": [
+        {
+            "KeyId": "00001111-2222-3333-4444-555566667777",
+            "Alias": "alias/prod-rds-encryption",
+            "KeyState": "Enabled",
+            "CryptographicOperations90Days": 15000000
+        },
+        {
+            "KeyId": "88889999-aaaa-bbbb-cccc-ddddeeeeffff",
+            "Alias": "alias/dev-legacy-s3-bucket",
+            "KeyState": "Enabled",
+            "CryptographicOperations90Days": 0
+        },
+        {
+            "KeyId": "12345678-1234-1234-1234-123456789012",
+            "Alias": "alias/staging-ebs-volume-2023",
+            "KeyState": "Enabled",
+            "CryptographicOperations90Days": 0
+        },
+        {
+            "KeyId": "abcdefab-abcd-abcd-abcd-abcdefabcdef",
+            "Alias": "alias/prod-secrets-manager",
+            "KeyState": "Enabled",
+            "CryptographicOperations90Days": 45000
+        }
+    ]
+}
