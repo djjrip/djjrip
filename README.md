@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-cloudtrail-duplication-hunter](nexus-cloudtrail-duplication-hunter/index.js)** | DevSecOps/FinOps CLI Tool | A wicked fast stream processor that parses AWS CloudTrail metrics to violently flag 'Echo Chambers' burning logging capital on duplicated data events. |
 | **[nexus-vpc-endpoint-shredder](nexus-vpc-endpoint-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS VPC Endpoint metrics to violently flag 'Tunnels to Nowhere' burning network base fees. |
 | **[nexus-nat-data-transfer-hunter](nexus-nat-data-transfer-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS NAT metrics to violently flag 'Data Vampires' burning network capital on internal traffic. |
 | **[nexus-kms-ghost-hunter](nexus-kms-ghost-hunter/index.js)** | DevSecOps CLI Tool | A wicked fast stream processor that parses AWS KMS metrics to violently flag 'Ghost Keys' burning security capital on destroyed infrastructure. |

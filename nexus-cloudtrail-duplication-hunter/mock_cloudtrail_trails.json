@@ -1,0 +1,39 @@
+{
+    "Trails": [
+        {
+            "TrailName": "org-global-security-trail",
+            "DataEventResources": [
+                {
+                    "Arn": "arn:aws:s3:::prod-customer-uploads-2026",
+                    "MonthlyEvents": 5000000000
+                },
+                {
+                    "Arn": "arn:aws:s3:::dev-testing-bucket-xyz",
+                    "MonthlyEvents": 15000
+                }
+            ]
+        },
+        {
+            "TrailName": "data-engineering-local-trail",
+            "DataEventResources": [
+                {
+                    "Arn": "arn:aws:s3:::prod-customer-uploads-2026",
+                    "MonthlyEvents": 5000000000
+                },
+                {
+                    "Arn": "arn:aws:s3:::ml-training-data-raw",
+                    "MonthlyEvents": 18000000000
+                }
+            ]
+        },
+        {
+            "TrailName": "legacy-compliance-trail-do-not-delete",
+            "DataEventResources": [
+                {
+                    "Arn": "arn:aws:s3:::prod-customer-uploads-2026",
+                    "MonthlyEvents": 5000000000
+                }
+            ]
+        }
+    ]
+}
