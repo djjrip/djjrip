@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-nat-data-transfer-hunter](nexus-nat-data-transfer-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS NAT metrics to violently flag 'Data Vampires' burning network capital on internal traffic. |
 | **[nexus-kms-ghost-hunter](nexus-kms-ghost-hunter/index.js)** | DevSecOps CLI Tool | A wicked fast stream processor that parses AWS KMS metrics to violently flag 'Ghost Keys' burning security capital on destroyed infrastructure. |
 | **[nexus-redis-zombie-hunter](nexus-redis-zombie-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS ElastiCache metrics to violently flag 'Zombie Caches' burning memory capital. |
 | **[nexus-dynamodb-capacity-rightsizer](nexus-dynamodb-capacity-rightsizer/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS DynamoDB metrics to violently flag 'Capacity Hoarders' burning database capital on unused provisioning. |

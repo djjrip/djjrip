@@ -1003,3 +1003,40 @@ A year later, you demolish the house.
 But instead of throwing away the padlock, you just leave it sitting in the dirt, and you keep paying a security guard  every month to watch it.
 
 Instead of letting you pay to guard a padlock in the dirt, I built a machine that finds all your useless padlocks, yells at you, and tells you to finally throw them away.
+
+## Iteration 126: Data Vampires (NAT Data Transfer Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS NAT Gateways are designed to let your secure, private servers access the public internet to download updates.
+
+They charge a base fee of  a month. But they also charge .045 for every single Gigabyte of data that passes through them.
+
+Here is how startups accidentally burn ,000 a year:
+
+They spin up an AI training server in a private subnet. That server downloads 100 Terabytes of machine learning data from an AWS S3 bucket. Because the startup didn't configure their network properly, that traffic leaves the private server, routes through the NAT Gateway, goes out to the public internet, and comes back into AWS S3.
+
+AWS just charged them ,500 to move their own data between two of their own servers.
+
+If they had clicked one button to create a 'VPC Gateway Endpoint', that same 100 Terabytes would route internally for exactly .00.
+
+I vibe-coded the **Nexus NAT Data Transfer Hunter**. You feed it your NAT metrics. It rips through the JSON, finds the Data Vampires processing Terabytes of data, calculates the massive financial waste, and tells you to build an endpoint.
+
+Stop paying AWS to route traffic to itself. I open-sourced the script.
+
+#FinOps #AWS #Networking #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Data transfer costs are frequently the most opaque line item in an AWS bill. By default, resources in a private subnet accessing public AWS APIs (like S3 or DynamoDB) must traverse a NAT Gateway. NAT Gateways meter data processing at ~.045/GB. For data-intensive workloads (ML training, big data ETLs), this architectural oversight generates catastrophic bills. AWS provides 'Gateway VPC Endpoints' for S3 and DynamoDB entirely free of charge, allowing traffic to route internally via the AWS backbone. The \
+exus-nat-data-transfer-hunter\ parses \MonthlyDataProcessedBytes\ against a 1TB threshold. By mathematically isolating high-throughput NAT Gateways, it provides a deterministic FinOps vector to identify missing Gateway Endpoints and immediately arrest 5-figure monthly data processing hemorrhages.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you have two houses right next to each other, and you want to walk from one house to the other.
+
+Instead of just walking across the lawn for free, you pay a taxi driver ,500 to drive you around the entire city and drop you off next door.
+
+Instead of letting you pay for the taxi, I built a machine that watches you travel, yells at you, and tells you to just walk across the lawn.
