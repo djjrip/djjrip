@@ -1401,3 +1401,48 @@ AWS charges you every time you open your mouth to talk to the librarian.
 Your automatic deployment system is currently reading all 10,000 book titles one by one, and AWS is billing you thousands of dollars for the conversation.
 
 Instead of letting you burn money talking to the librarian, I built a machine that catches your system reading the titles, unplugs it, and forces it to use the 5-second method.
+
+## Iteration 136: Invisible Data Trash (S3 Multipart Hoarder Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS S3 allows you to upload massive files (like 50GB database backups or machine learning datasets) in smaller 'chunks'. This is called a Multipart Upload.
+
+But here is the massive FinOps disaster:
+
+If an upload fails halfway through—because of a network error or a script crashing—the 25GB of data that *did* upload successfully stays in the bucket as an 'Incomplete Multipart Upload'.
+
+These broken files are literally invisible.
+
+They do not show up in the AWS Console UI. They do not show up when you run an \ws s3 ls\ command.
+
+But AWS continues to bill you .023 per GB, per month, for them. Forever.
+
+Startups with massive data pipelines routinely have hundreds of terabytes of these invisible, broken files silently sitting in their buckets. They are paying thousands of dollars a month to store failed file uploads that they didn't even know existed.
+
+I vibe-coded the **Nexus S3 Multipart Hoarder Hunter**. You feed it your S3 upload telemetry. It parses the \Initiated\ timestamps, hunts down incomplete multipart uploads older than 7 days, violently flags the 'Invisible Data Trash', and calculates exactly how much capital you are burning on ghosts.
+
+Stop paying AWS for invisible trash. I open-sourced the script.
+
+#FinOps #AWS #CloudStorage #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+The AWS S3 \ListMultipartUploads\ API reveals a notorious vector for silent infrastructure waste. When utilizing high-throughput SDK operations or the AWS CLI to transfer large objects, the client initiates a Multipart Upload, transmitting object parts in parallel. If the client process terminates unexpectedly without executing an \AbortMultipartUpload\ command, the transmitted chunks are orphaned. Crucially, these orphaned parts are completely omitted from standard \ListObjectsV2\ responses and AWS Management Console views, meaning infrastructure engineers remain completely blind to the bloat. Without an explicit S3 Bucket Lifecycle Rule configured to \AbortIncompleteMultipartUpload\, this orphaned data accumulates indefinitely at standard \$0.023/GB\ pricing. The \
+exus-s3-multipart-hoarder-hunter\ serves as an active auditing mechanism, mathematically filtering for orphaned uploads exceeding a 7-day TTL and quantifying the financial hemorrhage to force immediate FinOps remediation.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you are building a massive LEGO castle.
+
+You order 100 boxes of LEGOs to be delivered to your house.
+
+The delivery guy brings 50 boxes, drops them in your basement, and then quits his job. The other 50 boxes never arrive.
+
+You can't build the castle, so you forget about it.
+
+But your landlord charges you  a month to rent the space in your basement where those useless 50 boxes are sitting. And because you never go in the basement, you have no idea they are there.
+
+Instead of letting you pay rent for half a LEGO castle you can't see, I built a robot that goes into your basement, finds the broken boxes, yells at you, and tells you to throw them in the trash.

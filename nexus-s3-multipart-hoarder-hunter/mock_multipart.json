@@ -1,0 +1,25 @@
+{
+    "Uploads": [
+        {
+            "Bucket": "prod-user-video-uploads",
+            "Key": "users/123/massive_raw_footage.mp4",
+            "UploadId": "up123456789",
+            "Initiated": "2026-06-06T14:30:00.000Z",
+            "StoredBytes": 5368709120
+        },
+        {
+            "Bucket": "prod-database-backups-archive",
+            "Key": "rds/2022/full_dump_01.sql.gz",
+            "UploadId": "up098765432",
+            "Initiated": "2022-04-15T09:00:00.000Z",
+            "StoredBytes": 107374182400
+        },
+        {
+            "Bucket": "prod-machine-learning-datasets",
+            "Key": "training/epoch_5_weights_backup.pt",
+            "UploadId": "up555555555",
+            "Initiated": "2025-11-20T18:45:00.000Z",
+            "StoredBytes": 536870912000
+        }
+    ]
+}
