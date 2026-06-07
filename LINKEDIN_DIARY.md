@@ -1532,3 +1532,44 @@ Only 5 people visit your park every day.
 But you forgot to return the water slides. So you are still paying rent on 500 giant water slides, and you are paying to pump water through all of them, all day, every day, even though 495 of them are completely empty.
 
 Instead of letting you pay for empty water slides, I built a machine that counts how many people are actually in your park, turns off the water to the empty slides, and forces you to return them.
+
+## Iteration 139: Digital Plaque (ECS Task Hoarder Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS Elastic Container Service (ECS) uses 'Task Definitions' to describe how your Docker containers should run.
+
+Every time your CI/CD pipeline deploys a new version of an app, it creates a new Task Definition revision. Over a few years, a fast-moving startup can easily accumulate 20,000+ inactive Task Definition revisions.
+
+AWS does not charge you money to store these dead revisions.
+
+But here is the massive infrastructure disaster:
+
+They act as 'Digital Plaque' clogging the arteries of your AWS account. As you accumulate tens of thousands of dead deployments, the AWS Control Plane has to paginate through all of them every time you query the API. This bloats your account, hits service quotas, and massively slows down your infrastructure-as-code deployments. Terraform applies that used to take 10 seconds start taking 15 minutes because Terraform has to read 20,000 dead JSON files.
+
+I vibe-coded the **Nexus ECS Task Hoarder Hunter**. You feed it your ECS telemetry. It hunts for Task Families hoarding thousands of INACTIVE revisions, violently flags the 'Digital Plaque', and forces you to execute a bulk delete script.
+
+Stop throttling your own deployment speed. I open-sourced the script.
+
+#FinOps #AWS #ECS #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+The proliferation of \INACTIVE\ AWS ECS Task Definition revisions presents a unique operational hazard that does not directly manifest on the monthly billing console. Continuous deployment pipelines frequently generate multiple task definition revisions per day. Without a deterministic cleanup mechanism, an ECS cluster will hoard tens of thousands of dormant configurations. While technically free, this 'Digital Plaque' induces severe API pagination degradation. Infrastructure-as-code tools (Terraform, Pulumi) executing \ws_ecs_task_definition\ data source lookups or state refreshes will experience geometric latency increases as the AWS Control Plane struggles to traverse the bloat. Furthermore, accounts rapidly approach the hidden \TaskDefinitionRevisionsPerFamily\ service quotas, resulting in unexpected deployment failures during critical release windows. The \
+exus-ecs-task-hoarder-hunter\ actively parses task families to identify massive \INACTIVE\ revision imbalances, enforcing proactive cluster hygiene before Control Plane throttling impacts developer velocity.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you buy a new calendar every single day.
+
+You put the new calendar on your desk, and you throw the old calendar in your closet.
+
+After 5 years, you have 1,800 old calendars in your closet.
+
+Your landlord doesn't charge you extra rent for keeping trash in your closet. But one day, you need to find your shoes, and you have to dig through 1,800 old calendars just to find them. It takes you 3 hours to get dressed.
+
+Your automatic deployment system is currently hoarding 20,000 old calendars, and it is making your computer run incredibly slowly.
+
+Instead of letting you live in a closet full of trash, I built a robot that finds the old calendars, throws them in the dumpster, and lets you find your shoes in 5 seconds.

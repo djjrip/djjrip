@@ -1,0 +1,16 @@
+{
+    "TaskFamilies": {
+        "prod-backend-api": {
+            "ACTIVE": 2,
+            "INACTIVE": 14502
+        },
+        "prod-frontend-renderer": {
+            "ACTIVE": 1,
+            "INACTIVE": 8304
+        },
+        "dev-cron-jobs": {
+            "ACTIVE": 5,
+            "INACTIVE": 45
+        }
+    }
+}

@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-ecs-task-hoarder-hunter](nexus-ecs-task-hoarder-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS ECS Task Definitions to violently flag 'Digital Plaque' clogging the infrastructure control plane. |
 | **[nexus-kinesis-shard-rightsizer](nexus-kinesis-shard-rightsizer/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS Kinesis metrics to violently flag 'The Black Friday Hangover' burning capital on empty shards. |
 | **[nexus-dynamodb-global-table-shredder](nexus-dynamodb-global-table-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS DynamoDB metrics to violently flag 'The Multi-Region Mirage' burning database capital on empty replicas. |
 | **[nexus-s3-multipart-hoarder-hunter](nexus-s3-multipart-hoarder-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS S3 Multipart Uploads to violently flag 'Invisible Data Trash' burning storage capital. |
