@@ -1116,3 +1116,40 @@ Then, your roommate forgets you hired a security guard, and he hires a second se
 Now you are paying ,000 a day for the exact same list of names.
 
 Instead of letting you pay two security guards to do the exact same job, I built a machine that checks your payroll, finds the duplicate guards, yells at you, and tells you to fire one.
+
+## Iteration 129: Serverless Gluttony (Fargate Rightsizer)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS Fargate is magic. It's 'Serverless Compute' for Docker containers. You tell AWS exactly how much CPU and RAM your container needs, and they charge you for exactly that amount.
+
+But here is the problem: Developers are terrified of Out-Of-Memory (OOM) crashes.
+
+If their Node.js script actually needs 1GB of RAM, they will request 8GB of RAM and 4 vCPUs 'just to be safe'.
+
+If they run 50 copies of this background worker, the startup is now paying for 400GB of RAM and 200 vCPUs, while only actually using 50GB of RAM and 12 vCPUs.
+
+Because Fargate runs 24/7, this 'just to be safe' padding easily burns ,000+ a year.
+
+I vibe-coded the **Nexus Fargate Rightsizer**. You feed it your AWS Fargate metrics. It rips through the JSON, cross-references CloudWatch to find the 'Serverless Gluttons' whose peak usage hasn't exceeded 15% in 30 days, mathematically calculates the optimal downsize, and violently flags the financial waste.
+
+Stop paying for 8GB of RAM when you only need 1GB. I open-sourced the script.
+
+#FinOps #AWS #Fargate #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS Fargate shifts the compute abstraction layer from EC2 instance provisioning to task-level resource allocation. While this removes instance management overhead, it frequently introduces severe over-provisioning because developers blindly pad their task definitions to avoid \OutOfMemoryError\ crashes in production. At ~.14/vCPU and ~.20/GB per month, running an over-provisioned task definition (e.g., 4 vCPU / 16 GB) at a replica count of 50 results in catastrophic compute waste. The \
+exus-fargate-rightsizer\ acts as an automated FinOps governor. It parses \MaxMemoryUtilization\ and \MaxCpuUtilization\ telemetry across a trailing 30-day window. By deterministically identifying services that peak below a 15% utilization threshold, it generates precise right-sizing vectors to slash Fargate compute bills without introducing performance degradation or memory-exhaustion risks.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you are going to the grocery store to buy a gallon of milk.
+
+Instead of driving a Honda Civic, you rent a massive 18-wheeler semi-truck 'just to be safe' in case you decide to buy 5,000 gallons of milk instead.
+
+Then, you do this every single day for a year, paying for an 18-wheeler to transport one gallon of milk.
+
+Instead of letting you rent semi-trucks, I built a machine that watches what you buy, yells at you, and forces you to drive a Honda Civic.

@@ -1,0 +1,37 @@
+{
+    "Services": [
+        {
+            "ServiceName": "ml-data-parser-worker",
+            "ClusterName": "prod-data-cluster",
+            "Provisioned_vCPU": 4,
+            "Provisioned_MemoryGB": 16,
+            "RunningTaskCount": 50,
+            "Metrics": {
+                "MaxMemoryUtilization30Days": 8.5,
+                "MaxCpuUtilization30Days": 12.0
+            }
+        },
+        {
+            "ServiceName": "api-gateway-proxy",
+            "ClusterName": "prod-web-cluster",
+            "Provisioned_vCPU": 2,
+            "Provisioned_MemoryGB": 4,
+            "RunningTaskCount": 20,
+            "Metrics": {
+                "MaxMemoryUtilization30Days": 75.0,
+                "MaxCpuUtilization30Days": 60.5
+            }
+        },
+        {
+            "ServiceName": "legacy-batch-job",
+            "ClusterName": "prod-data-cluster",
+            "Provisioned_vCPU": 8,
+            "Provisioned_MemoryGB": 32,
+            "RunningTaskCount": 10,
+            "Metrics": {
+                "MaxMemoryUtilization30Days": 4.2,
+                "MaxCpuUtilization30Days": 5.1
+            }
+        }
+    ]
+}
