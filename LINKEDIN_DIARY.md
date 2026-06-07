@@ -760,3 +760,38 @@ One day, your neighbor moves away. The house is torn down. It is just an empty d
 But you forgot to tell the guy to stop. So he just keeps walking up to the dirt lot every single day, knocking on the air, and charging you .
 
 Instead of paying a guy to knock on thin air, I built a machine that finds all the guys knocking on empty dirt lots, yells at you, and tells you to fire them.
+
+## Iteration 119: Invisible Trash (S3 Version Hoarder Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+When a startup sets up an AWS S3 bucket, they usually turn on 'Versioning' so they don't accidentally delete a file forever.
+
+But here is the catch: every time a script updates a file, S3 saves the old version. It just hides it. If you have a 1GB file that gets overwritten every day for a year, you aren't storing 1GB of data. You are storing 365GB of identical, invisible trash.
+
+And if you forget to set a rule to delete those old versions, AWS charges you full price for all 365GB.
+
+I've seen startups paying thousands of dollars a month for petabytes of invisible trash.
+
+I vibe-coded the **Nexus S3 Version Hoarder Hunter**. You feed it your AWS S3 export. It rips through the JSON, finds buckets storing massive amounts of 'Noncurrent' data without a Lifecycle Deletion Rule, calculates exactly how much money you are setting on fire, and violently flags the bucket.
+
+Stop paying AWS to store your invisible trash. I open-sourced the script.
+
+#FinOps #AWS #CloudComputing #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+S3 Versioning without corresponding Lifecycle Policies represents the most insidious vector for unbounded cloud spend. Because noncurrent object versions are hidden from standard \ls\ operations, the bloat is completely invisible to developers until the AWS bill arrives. Storage costs scale linearly with churn, meaning high-frequency overwrite operations (like state files or daily database dumps) trigger catastrophic compounding costs. The \
+exus-s3-version-hoarder-hunter\ acts as a deterministic FinOps auditor by parsing \NoncurrentVersionBytes\ against the presence of \HasNoncurrentLifecycleRule\. By programmatically identifying buckets lacking lifecycle management, it highlights an immediate, zero-risk vector for massive cost reduction.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you buy a newspaper every day.
+
+When you are done reading it, instead of throwing it in the recycling bin, you just stack it in the corner of your living room. You do this for years.
+
+Eventually, your living room is completely full of old newspapers, and you have to rent a second apartment just to hold all your trash.
+
+Instead of letting you pay rent for a room full of trash, I built a machine that finds all your old newspapers, yells at you, and tells you to finally take out the recycling.

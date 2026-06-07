@@ -23,6 +23,7 @@ My open-source ecosystem is not a collection of disjointed side projects. It is 
 
 | Subsystem | Objective | Architecture |
 | :--- | :--- | :--- |
+| **[nexus-s3-version-hoarder-hunter](nexus-s3-version-hoarder-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS S3 buckets to violently flag 'Invisible Trash' (noncurrent versions) burning storage capital. |
 | **[nexus-route53-healthcheck-shredder](nexus-route53-healthcheck-shredder/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS Route 53 to violently flag 'Dangling Pingers' burning networking capital. |
 | **[nexus-ec2-zombie-hunter](nexus-ec2-zombie-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that cross-references AWS EC2 instances with CloudWatch to violently flag 'Zombie Servers' burning compute capital. |
 | **[nexus-alb-orphan-hunter](nexus-alb-orphan-hunter/index.js)** | FinOps CLI Tool | A wicked fast stream processor that parses AWS Load Balancers to violently flag empty 'Bridges to Nowhere' burning AWS base capital. |

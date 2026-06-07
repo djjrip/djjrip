@@ -1,0 +1,28 @@
+{
+    "Buckets": [
+        {
+            "Name": "prod-database-backups",
+            "VersioningEnabled": true,
+            "NoncurrentVersionBytes": 15032385536000,
+            "HasNoncurrentLifecycleRule": false
+        },
+        {
+            "Name": "staging-assets-bucket",
+            "VersioningEnabled": true,
+            "NoncurrentVersionBytes": 858993459200,
+            "HasNoncurrentLifecycleRule": false
+        },
+        {
+            "Name": "dev-log-archive",
+            "VersioningEnabled": true,
+            "NoncurrentVersionBytes": 536870912000,
+            "HasNoncurrentLifecycleRule": true
+        },
+        {
+            "Name": "public-website-assets",
+            "VersioningEnabled": false,
+            "NoncurrentVersionBytes": 0,
+            "HasNoncurrentLifecycleRule": false
+        }
+    ]
+}
