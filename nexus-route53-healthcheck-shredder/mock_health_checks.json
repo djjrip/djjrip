@@ -1,0 +1,28 @@
+{
+    "HealthChecks": [
+        {
+            "Id": "hc-a1b2c3d4-0001",
+            "TargetDomainName": "api.prod.startup.com",
+            "Status": "SUCCESS",
+            "ConsecutiveFailureCount": 0
+        },
+        {
+            "Id": "hc-e5f6g7h8-0002",
+            "TargetDomainName": "api.staging.startup.com",
+            "Status": "FAILURE",
+            "ConsecutiveFailureCount": 42055
+        },
+        {
+            "Id": "hc-i9j0k1l2-0003",
+            "TargetIpAddress": "203.0.113.15",
+            "Status": "FAILURE",
+            "ConsecutiveFailureCount": 18400
+        },
+        {
+            "Id": "hc-m3n4o5p6-0004",
+            "TargetDomainName": "dashboard.dev.startup.com",
+            "Status": "FAILURE",
+            "ConsecutiveFailureCount": 105000
+        }
+    ]
+}

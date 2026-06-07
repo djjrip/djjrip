@@ -723,3 +723,40 @@ When you are done, instead of returning the truck, you just leave it parked in y
 You leave the engine running for a whole year. You have to keep paying for the truck and the gas, even though you aren't using it.
 
 Instead of letting you pay for a truck you aren't using, I built a machine that checks all your trucks, finds the ones with the engine running but nobody inside, yells at you, and tells you to turn them off.
+
+## Iteration 118: Dangling Pingers (Route 53 Health Check Shredder)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+When an engineer sets up a new staging environment, they usually add an AWS Route 53 Health Check so they know if the server crashes.
+
+Three months later, the project is done. They delete the server. They delete the database. They delete the DNS record.
+
+But they forget to delete the Health Check.
+
+So AWS just keeps pinging a dead IP address every 30 seconds. Forever. And they charge you .75 a month to do it.
+
+I've seen startups paying thousands of dollars a year to ping thousands of servers that haven't existed since 2023.
+
+I vibe-coded the **Nexus Route 53 Health Check Shredder**. You feed it your AWS health checks export. It rips through the JSON and violently flags any health check that has failed 1,000 times in a row. It calculates the waste, and demands you delete the dangling pinger.
+
+Stop paying AWS to knock on an empty door. I open-sourced the script.
+
+#FinOps #AWS #CloudComputing #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Route 53 Health Checks represent a classic 'dangling resource' vulnerability in Infrastructure as Code. Because health checks are often provisioned globally outside the lifecycle of regional VPC resources (like ALBs or EC2 instances), they are frequently orphaned when the target infrastructure is destroyed. At ~.75 per month (base) and up to .00+ for HTTPS and fast-routing checks, a large microservices organization can accumulate significant baseline cost entropy. The \
+exus-route53-healthcheck-shredder\ script mitigates this by querying the \list-health-checks\ API and parsing the \Status\ and \ConsecutiveFailureCount\. By programmatically identifying checks with massive consecutive failure streaks, it provides a 100% safe vector for base cost reduction.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you pay a guy  a month to knock on your neighbor's door to see if they are home.
+
+One day, your neighbor moves away. The house is torn down. It is just an empty dirt lot.
+
+But you forgot to tell the guy to stop. So he just keeps walking up to the dirt lot every single day, knocking on the air, and charging you .
+
+Instead of paying a guy to knock on thin air, I built a machine that finds all the guys knocking on empty dirt lots, yells at you, and tells you to fire them.
