@@ -1,0 +1,22 @@
+{
+    "Repositories": [
+        {
+            "RepositoryName": "api-gateway-proxy",
+            "HasLifecyclePolicy": false,
+            "ImageCount": 15000,
+            "AverageImageSizeGB": 1.2
+        },
+        {
+            "RepositoryName": "ml-data-parser-worker",
+            "HasLifecyclePolicy": false,
+            "ImageCount": 45000,
+            "AverageImageSizeGB": 2.5
+        },
+        {
+            "RepositoryName": "frontend-react-app",
+            "HasLifecyclePolicy": true,
+            "ImageCount": 30,
+            "AverageImageSizeGB": 0.5
+        }
+    ]
+}

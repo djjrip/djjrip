@@ -1153,3 +1153,42 @@ Instead of driving a Honda Civic, you rent a massive 18-wheeler semi-truck 'just
 Then, you do this every single day for a year, paying for an 18-wheeler to transport one gallon of milk.
 
 Instead of letting you rent semi-trucks, I built a machine that watches what you buy, yells at you, and forces you to drive a Honda Civic.
+
+## Iteration 130: Digital Landfills (ECR Image Hoarder Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Every time a software engineer pushes code to GitHub, an automated robot builds a 'Docker Image'—a packaged version of the app—and stores it in AWS ECR.
+
+If a startup has 50 engineers, they might push 200 images a day.
+
+If the images are 2GB each, that's 400GB of storage *per day*.
+
+AWS charges .10 per GB per month for that storage.
+
+Here is how startups accidentally burn ,000 a year:
+
+They forget to turn on a 'Lifecycle Policy'—a rule that automatically deletes images older than 30 days. So they end up storing 100,000+ outdated Docker images, paying AWS thousands of dollars a month to store failed code from 2021 that will literally never be run again.
+
+I vibe-coded the **Nexus ECR Image Hoarder Hunter**. You feed it your AWS ECR metrics. It rips through the JSON, finds the 'Digital Landfills' hoarding tens of thousands of images without a Lifecycle Policy, and violently flags the financial waste.
+
+Stop paying AWS to store your mistakes. I open-sourced the script.
+
+#FinOps #AWS #Docker #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS Elastic Container Registry (ECR) storage costs scale linearly at .10/GB/month. In modern CI/CD pipelines, every commit to the main branch typically triggers a new container build and push. Without aggressive pruning, this CI/CD velocity transforms ECR into a Digital Landfill. A standard ML inference container (often 2.5GB+ due to CUDA dependencies) pushed 50 times a day will consume ~3.7TB of storage in a single month (/mo). Left unchecked for a year, a single repository can cost ,400/month. The \
+exus-ecr-image-hoarder-hunter\ acts as a deterministic FinOps auditor. It parses \ImageCount\ and \AverageImageSizeGB\ telemetry while evaluating \HasLifecyclePolicy\ booleans. By mathematically isolating high-volume repositories lacking automated expiration rules, it provides a zero-risk vector to implement aggressive \expire\ policies, immediately arresting 5-to-6-figure annual storage hemorrhages.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you buy a new pair of shoes every single day.
+
+Instead of throwing away your old shoes, you rent a massive warehouse to store them forever.
+
+After 3 years, you are paying ,000 a month to store 1,000 pairs of shoes you will never wear again.
+
+Instead of letting you rent massive warehouses, I built a machine that checks your closet, finds all the old shoes, yells at you, and tells you to throw them in the trash.
