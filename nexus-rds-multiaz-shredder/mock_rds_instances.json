@@ -1,0 +1,24 @@
+{
+    "DBInstances": [
+        {
+            "DBInstanceIdentifier": "prod-main-db",
+            "MultiAZ": true,
+            "MonthlyInstanceCost": 1360.00
+        },
+        {
+            "DBInstanceIdentifier": "dev-sandbox-db",
+            "MultiAZ": true,
+            "MonthlyInstanceCost": 680.00
+        },
+        {
+            "DBInstanceIdentifier": "staging-read-replica",
+            "MultiAZ": true,
+            "MonthlyInstanceCost": 1360.00
+        },
+        {
+            "DBInstanceIdentifier": "qa-analytics-db",
+            "MultiAZ": false,
+            "MonthlyInstanceCost": 340.00
+        }
+    ]
+}
