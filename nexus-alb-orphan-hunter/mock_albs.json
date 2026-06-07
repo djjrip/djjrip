@@ -1,0 +1,28 @@
+{
+    "LoadBalancers": [
+        {
+            "LoadBalancerName": "k8s-default-prodapi-1234abcd",
+            "State": { "Code": "active" },
+            "HealthyTargetCount": 5,
+            "Type": "application"
+        },
+        {
+            "LoadBalancerName": "k8s-dev-stagingapi-5678efgh",
+            "State": { "Code": "active" },
+            "HealthyTargetCount": 0,
+            "Type": "application"
+        },
+        {
+            "LoadBalancerName": "k8s-dev-testservice-9012ijkl",
+            "State": { "Code": "active" },
+            "HealthyTargetCount": 0,
+            "Type": "application"
+        },
+        {
+            "LoadBalancerName": "k8s-system-ingress-3456mnop",
+            "State": { "Code": "active" },
+            "HealthyTargetCount": 2,
+            "Type": "application"
+        }
+    ]
+}

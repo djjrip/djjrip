@@ -655,3 +655,36 @@ Every day, you park your car there. But one day, you sell your car. You don't ha
 But you forgot to tell the parking garage, so they keep charging you .60 every month for an empty parking spot.
 
 Instead of letting you pay for empty parking spots, I built a machine that checks all your parking spots, finds the empty ones, yells at you, and tells you to cancel the lease.
+
+## Iteration 116: Bridges to Nowhere (ALB Orphan Hunter)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Kubernetes is amazing, right until an engineer deletes a namespace and the cloud provider forgets to delete the Load Balancer.
+
+I see this at almost every startup I audit. They have dozens of AWS Application Load Balancers (ALBs) just sitting there, routing traffic to absolutely nowhere.
+
+AWS charges you  a month just for the Load Balancer to exist, even if it does literally nothing. If you have 50 of these 'bridges to nowhere' from old dev and staging tests, you are paying nearly ,000 a year for an empty highway.
+
+I vibe-coded the **Nexus ALB Orphan Hunter**. You feed it your AWS Load Balancers export. It rips through the JSON, finds every ALB that has exactly zero healthy targets attached to it, and violently flags them as orphans.
+
+Stop paying AWS for empty highways. Clean up your ingress controllers. I open-sourced the script.
+
+#FinOps #AWS #Kubernetes #CloudComputing #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Orphaned Application Load Balancers (ALBs) are a systemic symptom of Kubernetes Finalizer failures. When a \Service\ of type \LoadBalancer\ or an \Ingress\ resource is deleted, the AWS Load Balancer Controller is supposed to de-provision the underlying infrastructure. However, race conditions, namespace force-deletions, or controller crashes frequently leave the AWS ALB intact while the K8s targets are destroyed. At ~.0225/hour, these decoupled resources become permanent base-cost anomalies. The \
+exus-alb-orphan-hunter\ resolves this by querying the \describe-target-health\ API. By deterministically flagging ALBs where \HealthyTargetCount === 0\, it provides immediate visibility into decoupled state between the cloud control plane and the Kubernetes cluster state.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you build a giant, expensive bridge so cars can drive to a new shopping mall.
+
+A year later, the shopping mall goes bankrupt and gets torn down.
+
+But you forgot to tear down the bridge. So now you have a giant, expensive bridge that goes to a dirt lot, and you are still paying taxes on the bridge.
+
+Instead of paying taxes on a bridge to nowhere, I built a machine that finds all the bridges that don't connect to anything, yells at you, and tells you to tear them down.
