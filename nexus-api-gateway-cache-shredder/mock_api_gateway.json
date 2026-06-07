@@ -1,0 +1,43 @@
+{
+    "APIStages": [
+        {
+            "ApiName": "prod-mobile-backend",
+            "StageName": "prod",
+            "MethodSettings": {
+                "CachingEnabled": true,
+                "CacheClusterSize": "58.2",
+                "EstimatedMonthlyCost": 580.00
+            },
+            "Metrics": {
+                "CacheHitCount_30d": 45000000,
+                "CacheMissCount_30d": 1200000
+            }
+        },
+        {
+            "ApiName": "dev-legacy-v1-api",
+            "StageName": "staging",
+            "MethodSettings": {
+                "CachingEnabled": true,
+                "CacheClusterSize": "13.5",
+                "EstimatedMonthlyCost": 138.70
+            },
+            "Metrics": {
+                "CacheHitCount_30d": 0,
+                "CacheMissCount_30d": 0
+            }
+        },
+        {
+            "ApiName": "test-load-generator-api",
+            "StageName": "test",
+            "MethodSettings": {
+                "CachingEnabled": true,
+                "CacheClusterSize": "1.6",
+                "EstimatedMonthlyCost": 28.00
+            },
+            "Metrics": {
+                "CacheHitCount_30d": 0,
+                "CacheMissCount_30d": 0
+            }
+        }
+    ]
+}

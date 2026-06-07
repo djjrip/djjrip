@@ -1665,3 +1665,48 @@ You catch the raccoon the next day. But you forget to call the camera company.
 So you keep paying ,500 a year to save 2 years of completely boring video of your empty driveway.
 
 Instead of letting you pay for old videos you will never watch, I built a machine that calls the camera company and switches you back to the free plan.
+
+## Iteration 142: Cache Zombies (API Gateway Cache Shredder)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS API Gateway allows you to enable 'Caching' to make your APIs faster.
+
+AWS charges you by the hour based on the physical size of the cache you provision (from 0.5 GB up to 237 GB). They charge you this hourly rate *regardless of whether anyone actually calls your API*.
+
+Here is the FinOps disaster:
+
+A developer wants to test the performance of a new microservice. They deploy it to a 'staging' environment and enable a 13.5 GB API Cache (/month).
+
+They finish their test in 20 minutes. They abandon the staging environment.
+
+The cache sits there for the next 8 months, answering absolutely zero API requests, burning over ,100 of startup capital.
+
+Multiply this across 30 abandoned staging environments and developer sandboxes, and you have thousands of dollars a month evaporating into thin air.
+
+I vibe-coded the **Nexus API Gateway Cache Shredder**. You feed it your API Gateway telemetry. It parses your provisioned caches, hunts for environments that have processed zero Cache Hits and zero Cache Misses in the last 30 days, violently flags the 'Cache Zombies', and calculates your wasted capital.
+
+Stop paying rent on empty memory banks. I open-sourced the script.
+
+#FinOps #AWS #APIGateway #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+AWS API Gateway caching introduces a decoupled billing vector from the standard request-based pricing model. While API Gateway invocations are billed per million requests, the associated cache clusters are billed at a fixed hourly rate based on allocated RAM, regardless of throughput. In high-velocity engineering cultures utilizing ephemeral environments (e.g., dynamically provisioning API Gateway stages per PR or per developer sandbox), the failure to execute a deterministic \	eardown\ script results in orphaned infrastructure. These 'Cache Zombies' persist indefinitely, as they are rarely flagged by standard utilization alarms which monitor CPU/Memory rather than throughput. The \
+exus-api-gateway-cache-shredder\ correlates API Stage configuration parameters (\CachingEnabled: true\) against 30-day trailing CloudWatch metrics (\CacheHitCount\ and \CacheMissCount\). By identifying caches with a \TotalRequests == 0\ signature, it exposes decoupled, high-cost infrastructure waste, enabling FinOps teams to execute targeted \UpdateStage\ API calls to disable caching on dormant endpoints.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you own a restaurant.
+
+To make sure you can serve food really fast, you rent a giant secondary refrigerator for  a month just to hold pre-made sandwiches.
+
+But your restaurant goes out of business. You lock the doors and go home.
+
+But you forget to return the secondary refrigerator.
+
+So you are still paying  a month to rent a giant refrigerator that has exactly zero sandwiches inside it, in a restaurant that has exactly zero customers.
+
+Instead of letting you pay rent on empty refrigerators, I built a machine that checks if you have any customers. If you have no customers, the machine unplugs the refrigerator and sends it back.
