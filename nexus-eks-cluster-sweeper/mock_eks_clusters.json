@@ -1,0 +1,34 @@
+{
+    "Clusters": [
+        {
+            "Name": "prod-main-eks",
+            "Status": "ACTIVE",
+            "ActiveWorkerNodes": 24,
+            "Tags": { "Environment": "production" }
+        },
+        {
+            "Name": "staging-eks",
+            "Status": "ACTIVE",
+            "ActiveWorkerNodes": 3,
+            "Tags": { "Environment": "staging" }
+        },
+        {
+            "Name": "dev-jayson-test",
+            "Status": "ACTIVE",
+            "ActiveWorkerNodes": 1,
+            "Tags": { "Environment": "personal-dev" }
+        },
+        {
+            "Name": "dev-legacy-cluster",
+            "Status": "ACTIVE",
+            "ActiveWorkerNodes": 0,
+            "Tags": { "Environment": "dev" }
+        },
+        {
+            "Name": "qa-sarah-sandbox",
+            "Status": "ACTIVE",
+            "ActiveWorkerNodes": 2,
+            "Tags": { "Environment": "personal-dev" }
+        }
+    ]
+}

@@ -830,3 +830,36 @@ That makes sense if you are the President.
 But you also bought a very expensive, bulletproof car for your 5-year-old's remote-controlled toy.
 
 Instead of letting you buy bulletproof armor for a toy car, I built a machine that checks all your cars, finds the toys with military armor, yells at you, and tells you to return the armor for a refund.
+
+## Iteration 121: Control Plane Hoarders (EKS Cluster Sweeper)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+Kubernetes has a brilliant feature called 'Namespaces' that lets dozens of developers safely share a single cluster.
+
+But at most startups I audit, developers just spin up an entirely new AWS EKS Cluster for every single test they run.
+
+AWS charges  a month just for the EKS 'Control Plane' to exist, before you even add a single server to it.
+
+If you have 20 engineers spinning up their own personal sandbox clusters, you are paying ,000 a year just for empty management APIs.
+
+I vibe-coded the **Nexus EKS Cluster Sweeper**. You feed it your AWS EKS export. It rips through the JSON, finds any cluster that has zero active worker nodes or is tagged as a 'personal dev' environment, and violently flags it.
+
+Stop paying  a month for empty APIs. Tell your team to use Namespaces. I open-sourced the script.
+
+#FinOps #AWS #Kubernetes #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Amazon EKS introduces a fixed control plane tax (~.10/hour or /month) per cluster, independent of worker node compute. This makes single-tenant or environment-per-cluster architectures highly inefficient at scale. The 'Control Plane Hoarding' anti-pattern emerges when teams fail to adopt native Kubernetes multi-tenancy constructs (Namespaces, RBAC, NetworkPolicies). The \
+exus-eks-cluster-sweeper\ programmatically audits this architectural flaw by parsing the \list-clusters\ and \describe-cluster\ APIs. By identifying clusters with \ActiveWorkerNodes === 0\ or non-compliant \Environment\ tags, it provides a deterministic vector to consolidate workloads, dramatically lowering the Kubernetes baseline tax without impacting deployment velocity.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine your company buys a giant, 50-room office building for the engineering team.
+
+But instead of putting different teams in different rooms, every single developer demands you buy them their own personal 50-room office building, just so they can work in one room and leave 49 empty.
+
+Instead of buying 20 empty office buildings, I built a machine that finds all the developers hiding in their empty buildings, yells at them, and forces them to work in different rooms of the main building.
