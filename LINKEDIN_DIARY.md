@@ -1487,3 +1487,48 @@ But you never travel to London. You never read the copy in London. You don't eve
 You are paying a guy  a month to lock a book in a room that no one will ever look at.
 
 Instead of letting you burn money on flights to London, I built a machine that checks if anyone actually opened the vault. If no one opened it, the machine yells at you and fires the guy.
+
+## Iteration 138: The Black Friday Hangover (Kinesis Shard Rightsizer)
+*Date: 2026-06-07*
+
+### [SECTION 1: THE GRITTY, HUMAN LINKEDIN DRAFT]
+AWS Kinesis is an incredible system for streaming massive amounts of real-time data.
+
+To handle the data, you provision 'Shards'. Each shard gives you a specific amount of throughput. You are billed hourly for every active shard.
+
+Here is the FinOps disaster:
+
+A startup builds an analytics pipeline for Black Friday. They anticipate massive traffic, so they scale their Kinesis stream to 500 shards.
+
+Black Friday comes and goes.
+
+The startup forgets about it. The stream continues running at 500 shards for the next 6 months, even though normal daily traffic only requires 5 shards.
+
+Because Kinesis does not auto-scale down natively without complex custom lambda functions, the over-provisioned shards just sit there, spinning the meter. 500 shards costs over ,000 a month.
+
+I vibe-coded the **Nexus Kinesis Shard Rightsizer**. You feed it your AWS Kinesis telemetry. It parses your peak incoming records, compares it against your provisioned shard count, and violently flags 'The Black Friday Hangover', calculating exactly how much capital you are burning on empty pipes.
+
+Stop paying for 500 shards when you only need 5. I open-sourced the script.
+
+#FinOps #AWS #DataEngineering #DevOps #VibeCoding #CTO
+
+***
+
+### [SECTION 2: REAL ARCHITECTURE THOUGHTS]
+Unlike Serverless architectures (e.g., SQS or DynamoDB On-Demand) that scale automatically based on throughput, AWS Kinesis Data Streams utilize a provisioned throughput model based on Shards. A single shard provides 1MB/s or 1,000 records/s of ingestion capacity, billed continuously at ~.015 per shard hour. While AWS provides an \UpdateShardCount\ API, Kinesis does not natively auto-scale *down* based on sustained low utilization without the implementation of custom Application Auto Scaling policies and CloudWatch Alarms. Consequently, infrastructure teams frequently over-provision shards for peak events (e.g., product launches, holiday traffic) and fail to execute a \MergeShards\ operation post-event. This 'Black Friday Hangover' results in severe under-utilization, where streams operate at <1% capacity while billing at 100%. The \
+exus-kinesis-shard-rightsizer\ ingests 30-day \PeakIncomingRecordsPerSec\ telemetry, calculates the true shard requirement (including a 50% safety buffer), and exposes the exact delta of empty shards draining infrastructure OPEX.
+
+***
+
+### [SECTION 3: EXPLAIN LIKE I'M 5]
+Imagine you own a water park.
+
+For the 4th of July, you know a million people are going to show up, so you rent 500 giant water slides.
+
+The 4th of July ends. It is now October.
+
+Only 5 people visit your park every day.
+
+But you forgot to return the water slides. So you are still paying rent on 500 giant water slides, and you are paying to pump water through all of them, all day, every day, even though 495 of them are completely empty.
+
+Instead of letting you pay for empty water slides, I built a machine that counts how many people are actually in your park, turns off the water to the empty slides, and forces you to return them.

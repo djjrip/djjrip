@@ -1,0 +1,25 @@
+{
+    "Streams": [
+        {
+            "StreamName": "prod-clickstream-analytics",
+            "OpenShardCount": 500,
+            "Metrics": {
+                "PeakIncomingRecordsPerSec_30d": 2500
+            }
+        },
+        {
+            "StreamName": "prod-sensor-telemetry-ingest",
+            "OpenShardCount": 800,
+            "Metrics": {
+                "PeakIncomingRecordsPerSec_30d": 12000
+            }
+        },
+        {
+            "StreamName": "prod-user-logins",
+            "OpenShardCount": 5,
+            "Metrics": {
+                "PeakIncomingRecordsPerSec_30d": 400
+            }
+        }
+    ]
+}
