@@ -1,49 +1,51 @@
 # Hi, I'm Jayson Quindao 👋
+**Lead Systems Architect & Founder at [GG Loop LLC](https://djjrip.github.io/gaming-for-groceries/)**  
+*Cloud Infrastructure • Real-Time Telemetry • Distributed AI Agents • Payment Resilience*
 
-**Forward Deployed Engineer · AI Systems Builder · Founder @ GG Loop LLC**
-
-I build production AI systems, autonomous agent frameworks, and enterprise SaaS — solo, end to end.
-
-🔗 **Portfolio:** [djjrip.github.io/jaysonquindao.github.io](https://djjrip.github.io/jaysonquindao.github.io)
-📧 **Contact:** jquindao1@icloud.com
-💼 **LinkedIn:** [linkedin.com/in/jaysonquindao](https://linkedin.com/in/jaysonquindao)
-🏢 **Company:** [ggloop.io](https://ggloop.io)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://linkedin.com/in/jaysonquindao)
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GG%20Loop-ea4aaa?style=flat&logo=github-sponsors)](https://github.com/djjrip)
+[![Website](https://img.shields.io/badge/Platform-Gaming%20for%20Groceries-emerald?style=flat)](https://djjrip.github.io/gaming-for-groceries/)
 
 ---
 
-## 🛠 Tech Stack
+## 💼 Fixed-Price 48-Hour Technical Sprints
 
-### Cloud & Infrastructure
-![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+I help venture-backed startups, SaaS founders, and indie hackers build, harden, and scale production systems.
 
-### AI & Agents
-![Claude](https://img.shields.io/badge/Claude_API-D97757?style=for-the-badge&logo=anthropic&logoColor=white) ![AWS Bedrock](https://img.shields.io/badge/AWS_Bedrock-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
-
-### Software Engineering
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-
----
-
-## 🚀 What I've Built
-
-### GG Loop LLC — Founder & Lead Engineer
-**Stack:** AWS (App Runner, RDS, Kinesis, S3), Node.js, PostgreSQL, MCP, Claude API, Docker
-- 45-table PostgreSQL data warehouse on AWS RDS
-- Real-time AWS Kinesis telemetry pipeline
-- Autonomous MCP AI agent framework on AWS Bedrock
-- Zero-trust IAM architecture, CI/CD via GitHub Actions
-- 33,800+ lines of production code, solo
-
-### NCR Atleos — Financial Operations Engineer
-- Managed multi-million dollar ATM transaction settlement networks at 99.9% accuracy
-- Built SQL automation pipelines cutting reconciliation time by 40%
-- Deployed zero-downtime monitoring across enterprise ATM infrastructure
+```
+┌───────────────────────────────────────┬──────────────┬──────────────┬────────────────────────────────────────────────┐
+│ SERVICE OFFERING                      │ TURNAROUND   │ FLAT PRICE   │ DELIVERABLE & GUARANTEE                        │
+├───────────────────────────────────────┼──────────────┼──────────────┼────────────────────────────────────────────────┤
+│ 🛡️ Stripe Webhook & Payment Rescue    │ 24–48 Hours  │ $250.00      │ Zero-loss idempotency, HMAC validation, retries│
+│ 🤖 Production AI / MCP Agent Sprint   │ 48 Hours     │ $500.00      │ Claude/GPT-4o agent with database tool-calling │
+│ 🔍 SaaS Technical Due Diligence Audit │ 48 Hours     │ $299.00      │ 4-page codebase, security & AWS cost audit     │
+│ 🚀 Custom Full-Stack Data Sprint      │ 3–5 Days     │ $1,000.00    │ End-to-end telemetry, PostgreSQL, API backend  │
+└───────────────────────────────────────┴──────────────┴──────────────┴────────────────────────────────────────────────┘
+```
+👉 **Inquiries & Direct Booking:** [jquindao1@icloud.com](mailto:jquindao1@icloud.com?subject=Technical%20Sprint%20Inquiry%20from%20GitHub)
 
 ---
 
-## 📈 Philosophy
+## 🛠️ Featured Open-Source Repositories
 
-I operate at the intersection of AI engineering, cloud architecture, and business outcomes.
-I don't just write code — I understand the business layer it's solving for.
+* **[🛡️ stripe-webhook-guard](https://github.com/djjrip/stripe-webhook-guard)** — Production-grade TypeScript toolkit for zero-loss Stripe webhook idempotency, cryptographic verification, and duplicate-suppression with automated test suite and interactive CLI.
+* **[🤖 nexus-agent-framework](https://github.com/djjrip/nexus-agent-framework)** — Modular TypeScript multi-agent orchestration framework with topological task queues, inter-agent pub/sub messaging, and token-cost-optimized AWS Bedrock/Claude routing.
+* **[🎮 gaming-for-groceries](https://github.com/djjrip/gaming-for-groceries)** — Live tournament bracket, Discord webhook broadcaster, and grocery reward verification engine for competitive gaming.
+* **[⚡ anti-cheat-sdk](https://github.com/djjrip/anti-cheat-sdk)** — High-performance Rust Ring 3 game session tracking and telemetry SDK without kernel drivers or invasive memory scanning.
 
-**Currently open to:** Forward Deployed Engineer · Applied AI Engineer · Solutions Architect · Founding Engineer
+---
+
+## 🏗️ Technical Architecture & Core Stack
+
+* **Languages & Frameworks:** TypeScript, Node.js, Python, Rust, Express, Fastify, React.
+* **Databases & Telemetry:** PostgreSQL (Supabase, RDS, pgvector), Redis, AWS Kinesis Data Streams.
+* **Cloud & DevOps:** AWS (ECS Fargate, Lambda, S3, CloudFront, RDS), Docker, GitHub Actions CI/CD.
+* **AI & Agentic Systems:** Anthropic Claude 3.5 Sonnet, OpenAI API, Model Context Protocol (MCP), LangChain.
+* **Fintech & Security:** Stripe Connect, Webhook Reconciliation, HMAC SHA256 Signature Verification, Zero-Trust IAM.
+
+---
+
+## 📬 Contact & Engagements
+* **Email:** [jquindao1@icloud.com](mailto:jquindao1@icloud.com)
+* **LinkedIn:** [linkedin.com/in/jaysonquindao](https://linkedin.com/in/jaysonquindao)
+* **Location:** Dallas–Fort Worth, TX (Available for remote global engagements & local DFW consulting)
