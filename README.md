@@ -41,7 +41,7 @@ Instead of building a simple CRUD app, I architected GG LOOP to handle enterpris
 I don't rely on traditional academic proxies. I believe in **Proof of Work**. 
 I build real systems, automate operational bottlenecks, and utilize AI as a force multiplier to engineer solutions that typically require a team of five. 
 
-If you are looking for an engineer or operations manager who thinks like a founder, understands financial reconciliation at scale (from my time managing multi-million-dollar datasets at NCR Atleos), and can independently execute complex cloud deployments under pressure—you're in the right place.
+If you are looking for an engineer or operations manager who thinks like a founder, understands financial reconciliation at scale (from managing multi-million-dollar enterprise datasets), and can independently execute complex cloud deployments under pressure—you're in the right place.
 
 ---
 
