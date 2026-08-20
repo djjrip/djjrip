@@ -16,9 +16,10 @@ I help venture-backed startups, SaaS founders, and indie hackers build, harden, 
 ┌───────────────────────────────────────┬──────────────┬──────────────┬────────────────────────────────────────────────┐
 │ SERVICE OFFERING                      │ TURNAROUND   │ FLAT PRICE   │ DELIVERABLE & GUARANTEE                        │
 ├───────────────────────────────────────┼──────────────┼──────────────┼────────────────────────────────────────────────┤
+│ ☁️ 48-Hour AWS Cost & Waste Audit     │ 48 Hours     │ $500.00      │ Telemetry sweep for orphaned EBS, NAT, RDS     │
 │ 🛡️ Stripe Webhook & Payment Rescue    │ 24–48 Hours  │ $250.00      │ Zero-loss idempotency, HMAC validation, retries│
 │ 🤖 Production AI / MCP Agent Sprint   │ 48 Hours     │ $500.00      │ Claude/GPT-4o agent with database tool-calling │
-│ 🔍 SaaS Technical Due Diligence Audit │ 48 Hours     │ $299.00      │ 4-page codebase, security & AWS cost audit     │
+│ 🔍 SaaS Technical Due Diligence Audit │ 48 Hours     │ $299.00      │ 4-page codebase, security & architecture audit │
 │ 🚀 Custom Full-Stack Data Sprint      │ 3–5 Days     │ $1,000.00    │ End-to-end telemetry, PostgreSQL, API backend  │
 └───────────────────────────────────────┴──────────────┴──────────────┴────────────────────────────────────────────────┘
 ```
@@ -26,8 +27,9 @@ I help venture-backed startups, SaaS founders, and indie hackers build, harden, 
 
 ---
 
-## 🛠️ Featured Open-Source Repositories
+## 🛠️ Featured Open-Source Repositories & Tooling
 
+* **[🔥 48 AWS FinOps Shredders](https://github.com/djjrip/djjrip)** — 48 modular TypeScript/Node agents designed to detect and eliminate dead-weight cloud infrastructure (orphaned EBS volumes, idle NAT gateways, unattached Elastic IPs, and unindexed database IOPS bloat).
 * **[🛡️ stripe-webhook-guard](https://github.com/djjrip/stripe-webhook-guard)** — Production-grade TypeScript toolkit for zero-loss Stripe webhook idempotency, cryptographic verification, and duplicate-suppression with automated test suite and interactive CLI.
 * **[🤖 nexus-agent-framework](https://github.com/djjrip/nexus-agent-framework)** — Modular TypeScript multi-agent orchestration framework with topological task queues, inter-agent pub/sub messaging, and token-cost-optimized AWS Bedrock/Claude routing.
 * **[🎮 gaming-for-groceries](https://github.com/djjrip/gaming-for-groceries)** — Live tournament bracket, Discord webhook broadcaster, and grocery reward verification engine for competitive gaming.
