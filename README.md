@@ -38,6 +38,8 @@ I don't just write code—I architect systems from bare metal to global CDN, sca
 
 | Project | Description | Tech Stack |
 |---------|-------------|------------|
+| ⚡ **[railway-orchestrator](https://github.com/djjrip/railway-orchestrator)** | Zero-trust container control plane & runtime telemetry using Railway GraphQL v2. | `Next.js 14`, `TypeScript`, `GraphQL v2` |
+| ☁️ **[ggloop-cloud](https://github.com/djjrip/ggloop-cloud)** | Distributed backend cloud engine for live-service esports telemetry and real-time event streaming. | `Node.js`, `AWS Lambda`, `Rust` |
 | 🛡️ **[anti-cheat-sdk](https://github.com/djjrip/anti-cheat-sdk)** | High-performance C++/Node.js game session tracking & telemetry SDK without invasive kernel drivers. | `C++`, `Node.js`, `Rust` |
 | 🤖 **[nexus-agent-framework](https://github.com/djjrip/nexus-agent-framework)** | Modular TypeScript multi-agent orchestration framework utilizing AWS Bedrock and MCP for autonomous tool-calling. | `TypeScript`, `AWS Bedrock`, `MCP` |
 | 💳 **[stripe-webhook-guard](https://github.com/djjrip/stripe-webhook-guard)** | Production-grade toolkit for zero-loss Stripe webhook idempotency, HMAC SHA256 validation, and retry suppression. | `TypeScript`, `Express`, `Stripe API` |
