@@ -1,49 +1,51 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=250&section=header&text=Jayson%20Quindao&fontSize=70&desc=Founder%20%7C%20Principal%20Systems%20Architect&descAlignY=75" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=250&section=header&text=Jayson%20Quindao&fontSize=70&desc=TypeScript%20%7C%20Node.js%20%7C%20Systems%20Engineer&descAlignY=75" />
 </div>
 
 <div align="center">
   <a href="https://linkedin.com/in/jaysonquindao"><img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" /></a>
-  <a href="mailto:jquindao1@icloud.com"><img src="https://img.shields.io/badge/Email-Contact%20Me-ea4aaa?style=for-the-badge&logo=apple" /></a>
+  <a href="mailto:jquindao1@icloud.com"><img src="https://img.shields.io/badge/Email-jquindao1%40icloud.com-ea4aaa?style=for-the-badge&logo=apple" /></a>
   <a href="https://ggloop.io"><img src="https://img.shields.io/badge/Platform-GGLoop.io-emerald?style=for-the-badge" /></a>
+  <img src="https://img.shields.io/badge/Available%20for%20Contract-NOW-brightgreen?style=for-the-badge" />
 </div>
 
 <br />
 
-## 🚀 About Me
+## 🔥 17/17 Green. Every repo compiles. No theatre.
 
-I am a **Principal Systems Architect and the Solo Technical Founder of [GG Loop LLC](https://ggloop.io)**. 
-I specialize in building globally distributed, ultra-low latency infrastructure for gaming, enterprise data pipelines, and AI agentic systems.
+I build backend systems that ship, stay running, and don't break under load. TypeScript, Node.js, Next.js, PostgreSQL — spec-first, compiler-gated, test-verified before any commit lands.
 
-I don't just write code—I architect systems from bare metal to global CDN, scaling from zero to millions of events with $0 idle cloud burn.
-
-**Core Expertise:**
-- ⚡ **Real-Time Telemetry:** AWS Kinesis, WebSockets, sub-50ms event ingestion pipelines.
-- 🛡️ **Integrity & Security:** C++/Node.js anti-cheat SDKs, Ring 3 memory auditing, Stripe webhook idempotency.
-- 🤖 **Agentic AI Systems:** AWS Bedrock, Model Context Protocol (MCP), pgvector RAG, multi-agent orchestration.
-- ☁️ **Cloud Native:** Serverless AWS (ECS Fargate, Lambda, App Runner, CloudFront), Docker, CI/CD.
+**Currently available for contract work.** [\$75/hr · Remote · jquindao1@icloud.com](mailto:jquindao1@icloud.com)
 
 ---
 
-## 🏗️ Flagship Architecture: GG Loop
-**[GG Loop](https://ggloop.io)** is a B2B SaaS infrastructure platform for live-service gaming and esports telemetry.
+## 💻 What I Actually Build
 
-* **The Problem:** Studios pay massive enterprise fees for bloated telemetry platforms or risk using invasive kernel-level (Ring 0) anti-cheat drivers that violate user privacy.
-* **The Solution:** I built a real-time event pipeline on AWS (Kinesis + Lambda + WebSockets) paired with a native C++ user-space (Ring 3) SDK. 
-* **The Result:** Sub-50ms global telemetry ingestion, real-time client memory auditing without kernel drivers, and a serverless architecture that scales down to exactly **$0.00** when idle.
+| Project | What It Does | Stack |
+|---------|-------------|-------|
+| ⚡ **[railway-orchestrator](https://github.com/djjrip/railway-orchestrator)** | Zero-trust container control plane — real-time GraphQL v2 telemetry, log streaming, 3/3 Jest passing | `Next.js 14` `TypeScript` `GraphQL` |
+| 💳 **[stripe-webhook-guard](https://github.com/djjrip/stripe-webhook-guard)** | Sliding-window idempotency guard — zero duplicate charges on Stripe webhook replay | `TypeScript` `Express` `Stripe` |
+| 🔁 **[temporal-deployment-engine](https://github.com/djjrip/temporal-deployment-engine)** | Distributed deployment saga with exponential backoff + compensation workflows | `Temporal.io` `TypeScript` |
+| 📊 **[sql-reconciliation-engine](https://github.com/djjrip/sql-reconciliation-engine)** | Financial variance ledger — sub-5ms queries, SOX-adjacent audit reports | `TypeScript` `SQLite` `Drizzle` |
+| 🛡️ **[anti-cheat-sdk](https://github.com/djjrip/anti-cheat-sdk)** | User-space game integrity SDK — no kernel drivers, Ring 3 memory auditing | `C++` `Node.js` |
+| 🤖 **[nexus-agent-framework](https://github.com/djjrip/nexus-agent-framework)** | Multi-agent orchestration with AWS Bedrock + MCP tool-calling | `TypeScript` `AWS Bedrock` |
+| ☁️ **[ggloop-cloud](https://github.com/djjrip/ggloop-cloud)** | Live-service esports backend — Kinesis event pipeline, sub-50ms ingestion | `Node.js` `AWS Lambda` |
+
+**Full scoreboard: 17/17 repositories — `tsc --noEmit` Exit 0.**
 
 ---
 
-## 💻 Featured Repositories
+## 🛠️ Stack
 
-| Project | Description | Tech Stack |
-|---------|-------------|------------|
-| ⚡ **[railway-orchestrator](https://github.com/djjrip/railway-orchestrator)** | Zero-trust container control plane & runtime telemetry using Railway GraphQL v2. | `Next.js 14`, `TypeScript`, `GraphQL v2` |
-| ☁️ **[ggloop-cloud](https://github.com/djjrip/ggloop-cloud)** | Distributed backend cloud engine for live-service esports telemetry and real-time event streaming. | `Node.js`, `AWS Lambda`, `Rust` |
-| 🛡️ **[anti-cheat-sdk](https://github.com/djjrip/anti-cheat-sdk)** | High-performance C++/Node.js game session tracking & telemetry SDK without invasive kernel drivers. | `C++`, `Node.js`, `Rust` |
-| 🤖 **[nexus-agent-framework](https://github.com/djjrip/nexus-agent-framework)** | Modular TypeScript multi-agent orchestration framework utilizing AWS Bedrock and MCP for autonomous tool-calling. | `TypeScript`, `AWS Bedrock`, `MCP` |
-| 💳 **[stripe-webhook-guard](https://github.com/djjrip/stripe-webhook-guard)** | Production-grade toolkit for zero-loss Stripe webhook idempotency, HMAC SHA256 validation, and retry suppression. | `TypeScript`, `Express`, `Stripe API` |
-| ☁️ **[aws-infrastructure-playbook](https://github.com/djjrip/aws-infrastructure-playbook)** | FinOps automation to detect and terminate orphaned EBS volumes, idle NAT gateways, and unattached Elastic IPs. | `Python`, `AWS Boto3`, `Lambda` |
+```
+Languages:   TypeScript · JavaScript · Python · C++
+Backend:     Node.js · Express · Next.js App Router · REST · GraphQL
+Database:    PostgreSQL · Drizzle ORM · SQLite · Neon
+Infra:       Railway · AWS (Lambda, Kinesis, ECS) · Cloudflare · Docker
+Payments:    Stripe · PayPal · Webhook idempotency
+Testing:     Jest · React Testing Library · TDD
+AI/Agents:   Google Antigravity · AWS Bedrock · MCP · Temporal.io
+```
 
 ---
 
@@ -55,11 +57,13 @@ I don't just write code—I architect systems from bare metal to global CDN, sca
 
 ---
 
-## 🤝 Open for Engineering Roles & Ventures
+## 🤝 Let's Work
 
-I am actively open to:
-- **Principal / Staff Engineering Roles** at Tier-1 Gaming Studios (Sony, Blizzard, Riot, Epic).
-- **Solutions Architect / Forward Deployed Engineering** at AI & Cloud Infrastructure platforms (AWS, Scale AI, Databricks).
-- **Seed Funding / VC Conversations** for GG Loop's enterprise SDK rollout.
+**Available now for:**
+- Contract backend engineering ($75/hr, remote)
+- Stripe / payment pipeline audits and hardening
+- Next.js App Router builds and rewrites
+- Railway / container infrastructure
+- Founding engineer contracts at early-stage startups
 
-📬 **Reach out directly:** [jquindao1@icloud.com](mailto:jquindao1@icloud.com)
+📬 **jquindao1@icloud.com · (469) 371-8556**
