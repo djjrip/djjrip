@@ -1,51 +1,53 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=250&section=header&text=Jayson%20Quindao&fontSize=70&desc=TypeScript%20%7C%20Node.js%20%7C%20Systems%20Engineer&descAlignY=75" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=220&section=header&text=Jayson%20Quindao&fontSize=65&desc=Forward%20Deployed%20AI%20Engineer%20%7C%20Cloud%20Systems%20Architect&descAlignY=75" />
 </div>
 
 <div align="center">
   <a href="https://linkedin.com/in/jaysonquindao"><img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" /></a>
-  <a href="mailto:jquindao1@icloud.com"><img src="https://img.shields.io/badge/Email-jquindao1%40icloud.com-ea4aaa?style=for-the-badge&logo=apple" /></a>
-  <a href="https://ggloop.io"><img src="https://img.shields.io/badge/Platform-GGLoop.io-emerald?style=for-the-badge" /></a>
-  <img src="https://img.shields.io/badge/Available%20for%20Contract-NOW-brightgreen?style=for-the-badge" />
+  <a href="mailto:jquindao1@icloud.com"><img src="https://img.shields.io/badge/Email-Direct-ea4aaa?style=for-the-badge&logo=apple" /></a>
+  <a href="https://jaysonquindao-com.pages.dev"><img src="https://img.shields.io/badge/Portfolio-Live-emerald?style=for-the-badge" /></a>
+  <a href="https://ggloop.io"><img src="https://img.shields.io/badge/Platform-GGLoop.io-violet?style=for-the-badge" /></a>
 </div>
 
 <br />
 
-## 🔥 17/17 Green. Every repo compiles. No theatre.
+## 🚀 About Me
 
-I build backend systems that ship, stay running, and don't break under load. TypeScript, Node.js, Next.js, PostgreSQL — spec-first, compiler-gated, test-verified before any commit lands.
+I am a **Forward Deployed AI Engineer and Cloud Systems Architect**, and the technical founder of **[GG Loop LLC](https://ggloop.io)**. I specialize in building real-time event telemetry streaming pipelines, agentic LLM architectures (MCP), and enterprise data automation.
 
-**Currently available for contract work.** [\$75/hr · Remote · jquindao1@icloud.com](mailto:jquindao1@icloud.com)
+I bridge deep distributed cloud infrastructure with high-stakes financial and game-system execution.
 
----
-
-## 💻 What I Actually Build
-
-| Project | What It Does | Stack |
-|---------|-------------|-------|
-| ⚡ **[railway-orchestrator](https://github.com/djjrip/railway-orchestrator)** | Zero-trust container control plane — real-time GraphQL v2 telemetry, log streaming, 3/3 Jest passing | `Next.js 14` `TypeScript` `GraphQL` |
-| 💳 **[stripe-webhook-guard](https://github.com/djjrip/stripe-webhook-guard)** | Sliding-window idempotency guard — zero duplicate charges on Stripe webhook replay | `TypeScript` `Express` `Stripe` |
-| 🔁 **[temporal-deployment-engine](https://github.com/djjrip/temporal-deployment-engine)** | Distributed deployment saga with exponential backoff + compensation workflows | `Temporal.io` `TypeScript` |
-| 📊 **[sql-reconciliation-engine](https://github.com/djjrip/sql-reconciliation-engine)** | Financial variance ledger — sub-5ms queries, SOX-adjacent audit reports | `TypeScript` `SQLite` `Drizzle` |
-| 🛡️ **[anti-cheat-sdk](https://github.com/djjrip/anti-cheat-sdk)** | User-space game integrity SDK — no kernel drivers, Ring 3 memory auditing | `C++` `Node.js` |
-| 🤖 **[nexus-agent-framework](https://github.com/djjrip/nexus-agent-framework)** | Multi-agent orchestration with AWS Bedrock + MCP tool-calling | `TypeScript` `AWS Bedrock` |
-| ☁️ **[ggloop-cloud](https://github.com/djjrip/ggloop-cloud)** | Live-service esports backend — Kinesis event pipeline, sub-50ms ingestion | `Node.js` `AWS Lambda` |
-
-**Full scoreboard: 17/17 repositories — `tsc --noEmit` Exit 0.**
+* **⚡ Real-Time Telemetry & Event Streaming:** Architected sub-50ms event ingestion on AWS using Kinesis Data Streams, Lambda, and WebSockets with zero dropped events.
+* **🤖 Autonomous Agentic AI (MCP):** Production multi-agent orchestration integrating AWS Bedrock (Claude 3.5 Sonnet) and OpenAI APIs via Model Context Protocol (MCP), featuring dynamic schema validation, automated tool calling, and pgvector RAG retrieval.
+* **🏦 Enterprise Financial & Systems Automation:** Former Finance Associate II at **NCR Atleos**, reconfiguring bank routing parameters for national ATM networks, managing multi-million-dollar cash settlements, and cutting discrepancy investigation cycle times by 40% with Python/SQL reconciliation pipelines.
+* **🛡️ Client Integrity & System Hooks:** Developed Electron.js native desktop applications paired with Node.js and C++ user-space (Ring 3) process watchdogs, memory buffer management, and cryptographic HMAC-SHA256 verification.
+* **☁️ Cloud & Container Scaling:** Zero-downtime containerized deployments across AWS App Runner, ECS Fargate, RDS PostgreSQL, and CloudWatch with Docker and GitHub Actions CI/CD.
 
 ---
 
-## 🛠️ Stack
+## 🏗️ Flagship Systems & Architecture
 
-```
-Languages:   TypeScript · JavaScript · Python · C++
-Backend:     Node.js · Express · Next.js App Router · REST · GraphQL
-Database:    PostgreSQL · Drizzle ORM · SQLite · Neon
-Infra:       Railway · AWS (Lambda, Kinesis, ECS) · Cloudflare · Docker
-Payments:    Stripe · PayPal · Webhook idempotency
-Testing:     Jest · React Testing Library · TDD
-AI/Agents:   Google Antigravity · AWS Bedrock · MCP · Temporal.io
-```
+### 1. GG Loop — Real-Time Telemetry & Tournament Infrastructure
+* **Problem:** Live-service games and esports tournaments require high-throughput match state auditing without invasive kernel drivers or expensive bloated telemetry suites.
+* **Architecture:** Ingestion through AWS Kinesis Data Streams and AWS Lambda fanout to WebSocket state synchronization, backed by RDS PostgreSQL and pgvector for match embeddings.
+* **Result:** Sub-50ms ingestion latency, 100% idempotent Stripe Connect payout execution, and auto-scaling serverless infrastructure.
+
+### 2. NCR Atleos — Automated Bank Network Reconciliation
+* **Scope:** Daily settlement reconciliation across national banking and ATM networks.
+* **Impact:** Replaced manual exception tracking spreadsheets with automated Python/SQL anomaly detection pipelines, cutting investigation cycle times by 40% with 99.9%+ balance sheet accuracy.
+
+---
+
+## 💻 Featured Repositories
+
+| Repository | Description | Tech Stack |
+|---|---|---|
+| 💳 **[stripe-webhook-guard](https://github.com/djjrip/stripe-webhook-guard)** | Production-grade zero-loss Stripe webhook idempotency, cryptographic verification, and replay suppression. | `TypeScript`, `Node.js`, `Express`, `Stripe API` |
+| 🛡️ **[anti-cheat-sdk](https://github.com/djjrip/anti-cheat-sdk)** | Lightweight zero-overhead process scanning and active-window focus tracking SDK for Windows and macOS. | `C++`, `Node.js`, `Rust` |
+| 🏦 **[freely-reconciliation-engine](https://github.com/djjrip/freely-reconciliation-engine)** | Enterprise B2B payment reconciliation & double-entry ledger verification engine. | `TypeScript`, `SQL`, `PostgreSQL` |
+| ☁️ **[aws-infrastructure-playbook](https://github.com/djjrip/aws-infrastructure-playbook)** | Production AWS patterns: App Runner, ECS Fargate, RDS, Bedrock, and automated FinOps cleanup. | `Python`, `Boto3`, `AWS CloudFormation` |
+| 🖥️ **[electron-resilience-toolkit](https://github.com/djjrip/electron-resilience-toolkit)** | Fault-tolerant desktop process manager with heap monitoring, automated watchdogs, and CI truth gates. | `TypeScript`, `Electron`, `Node.js` |
+| 📊 **[sql-reconciliation-engine](https://github.com/djjrip/sql-reconciliation-engine)** | Database schema reconciliation and financial transaction auditing engine inspired by NCR Atleos operations. | `SQL`, `PostgreSQL`, `Python` |
 
 ---
 
@@ -55,13 +57,4 @@ AI/Agents:   Google Antigravity · AWS Bedrock · MCP · Temporal.io
 * **Distributed Cloud / Systems Engineer:** Real-time event streaming, telemetry pipelines, high-throughput microservices.
 * **Location:** Dallas-Fort Worth, TX (Open to Remote, SF, NYC, Tokyo, or Relocation).
 
-## 🤝 Let's Work
-
-**Available now for:**
-- Contract backend engineering ($75/hr, remote)
-- Stripe / payment pipeline audits and hardening
-- Next.js App Router builds and rewrites
-- Railway / container infrastructure
-- Founding engineer contracts at early-stage startups
-
-📬 **jquindao1@icloud.com · (469) 371-8556**
+📬 **Get in touch:** [jquindao1@icloud.com](mailto:jquindao1@icloud.com) &bull; [LinkedIn](https://linkedin.com/in/jaysonquindao) &bull; [Portfolio](https://jaysonquindao-com.pages.dev)
