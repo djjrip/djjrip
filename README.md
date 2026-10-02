@@ -1,27 +1,37 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=220&section=header&text=Jayson%20Quindao&fontSize=65&desc=Forward%20Deployed%20AI%20Engineer%20%7C%20Cloud%20Systems%20Architect&descAlignY=75" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=220&section=header&text=Jayson%20Quindao&fontSize=65&desc=Technical%20Founder%20%7C%20Forward%20Deployed%20AI%20Engineer&descAlignY=75" />
 </div>
 
 <div align="center">
   <a href="https://linkedin.com/in/jaysonquindao"><img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" /></a>
   <a href="mailto:jquindao1@icloud.com"><img src="https://img.shields.io/badge/Email-Direct-ea4aaa?style=for-the-badge&logo=apple" /></a>
-  <a href="https://jaysonquindao-com.pages.dev"><img src="https://img.shields.io/badge/Portfolio-Live-emerald?style=for-the-badge" /></a>
-  <a href="https://ggloop.io"><img src="https://img.shields.io/badge/Platform-GGLoop.io-violet?style=for-the-badge" /></a>
+  <a href="https://djjrip.github.io/ggloop/"><img src="https://img.shields.io/badge/Platform-GGLoop-violet?style=for-the-badge" /></a>
 </div>
 
 <br />
 
 ## 🚀 About Me
 
-I am a **Forward Deployed AI Engineer and Cloud Systems Architect**, and the technical founder of **[GG Loop LLC](https://ggloop.io)**. I specialize in building real-time event telemetry streaming pipelines, agentic LLM architectures (MCP), and enterprise data automation.
-
-I bridge deep distributed cloud infrastructure with high-stakes financial and game-system execution.
+I am a **Technical Founder, Forward Deployed AI Engineer, and Cloud Systems Architect**. I am the founder of **[GG Loop](https://djjrip.github.io/ggloop/)**, an elite esports tournament OS bridging deep distributed cloud infrastructure with high-stakes financial and game-system execution.
 
 * **⚡ Real-Time Telemetry & Event Streaming:** Architected sub-50ms event ingestion on AWS using Kinesis Data Streams, Lambda, and WebSockets with zero dropped events.
 * **🤖 Autonomous Agentic AI (MCP):** Production multi-agent orchestration integrating AWS Bedrock (Claude 3.5 Sonnet) and OpenAI APIs via Model Context Protocol (MCP), featuring dynamic schema validation, automated tool calling, and pgvector RAG retrieval.
 * **🏦 Enterprise Financial & Systems Automation:** Former Finance Associate II at **NCR Atleos**, reconfiguring bank routing parameters for national ATM networks, managing multi-million-dollar cash settlements, and cutting discrepancy investigation cycle times by 40% with Python/SQL reconciliation pipelines.
 * **🛡️ Client Integrity & System Hooks:** Developed Electron.js native desktop applications paired with Node.js and C++ user-space (Ring 3) process watchdogs, memory buffer management, and cryptographic HMAC-SHA256 verification.
 * **☁️ Cloud & Container Scaling:** Zero-downtime containerized deployments across AWS App Runner, ECS Fargate, RDS PostgreSQL, and CloudWatch with Docker and GitHub Actions CI/CD.
+
+---
+
+## 💎 LIVE PRODUCTS
+
+**GG Loop — Real-Time Telemetry & Tournament Infrastructure**
+* **Platform Demo:** [https://gg-loop-tournament.vercel.app](https://gg-loop-tournament.vercel.app)
+* **Landing Page:** [https://djjrip.github.io/ggloop/](https://djjrip.github.io/ggloop/)
+
+**Support the Vision:**
+- 🥇 **[Stripe $29/mo Founding Member](https://buy.stripe.com/4gMcN7bnS8Qhbr57l60Fi00)**
+- 🏆 **[Stripe $500 Sponsor](https://buy.stripe.com/dRm5kF77CfeFdzd0WI0Fi02)**
+- 🏟️ **[Stripe $1,500 LAN](https://buy.stripe.com/aFa28t1Ni9Ulan1eNy0Fi01)**
 
 ---
 
@@ -57,4 +67,4 @@ I bridge deep distributed cloud infrastructure with high-stakes financial and ga
 * **Distributed Cloud / Systems Engineer:** Real-time event streaming, telemetry pipelines, high-throughput microservices.
 * **Location:** Dallas-Fort Worth, TX (Open to Remote, SF, NYC, Tokyo, or Relocation).
 
-📬 **Get in touch:** [jquindao1@icloud.com](mailto:jquindao1@icloud.com) &bull; [LinkedIn](https://linkedin.com/in/jaysonquindao) &bull; [Portfolio](https://jaysonquindao-com.pages.dev)
+📬 **Get in touch:** [jquindao1@icloud.com](mailto:jquindao1@icloud.com) &bull; [LinkedIn](https://linkedin.com/in/jaysonquindao)
