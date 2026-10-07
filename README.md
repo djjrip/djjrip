@@ -3,7 +3,8 @@
 </div>
 
 <div align="center">
-  <a href="https://jaysonquindao-com.pages.dev"><img src="https://img.shields.io/badge/Portfolio-jaysonquindao--com.pages.dev-0f172a?style=for-the-badge&logo=cloudflare" /></a>
+  <a href="https://djjrip.github.io"><img src="https://img.shields.io/badge/Portfolio-djjrip.github.io-0f172a?style=for-the-badge&logo=github" /></a>
+  <a href="https://djjrip.github.io/resume.pdf"><img src="https://img.shields.io/badge/Resume_(PDF)-1_Page_Master-dc2626?style=for-the-badge&logo=adobeacrobatreader" /></a>
   <a href="https://gg-loop-tournament.vercel.app"><img src="https://img.shields.io/badge/Live_Platform-GG_Loop_SaaS-7c3aed?style=for-the-badge&logo=vercel" /></a>
   <a href="https://github.com/djjrip/anti-cheat-sdk"><img src="https://img.shields.io/badge/Rust_Crate-anti--cheat--sdk-ea580c?style=for-the-badge&logo=rust" /></a>
   <a href="https://linkedin.com/in/jaysonquindao"><img src="https://img.shields.io/badge/LinkedIn-Connect-2563eb?style=for-the-badge&logo=linkedin" /></a>
@@ -39,7 +40,8 @@
 
 ## 📬 Direct Contact
 
-* **Executive Portfolio:** [https://jaysonquindao-com.pages.dev](https://jaysonquindao-com.pages.dev)
+* **Engineering Portfolio:** [https://djjrip.github.io](https://djjrip.github.io)
+* **1-Page Master Resume (PDF):** [https://djjrip.github.io/resume.pdf](https://djjrip.github.io/resume.pdf)
 * **Live SaaS Platform:** [https://gg-loop-tournament.vercel.app](https://gg-loop-tournament.vercel.app)
 * **Email:** [jquindao1@icloud.com](mailto:jquindao1@icloud.com) | `jaysonquindao@ggloop.io`
 * **Location:** New York, NY & Dallas, TX (**Immediate NYC / SF Onsite & Remote Ready**)
