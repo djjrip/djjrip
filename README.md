@@ -1,70 +1,45 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=220&section=header&text=Jayson%20Quindao&fontSize=65&desc=Technical%20Founder%20%7C%20Forward%20Deployed%20AI%20Engineer&descAlignY=75" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=220&section=header&text=Jayson%20Quindao&fontSize=62&desc=Principal%20Systems%20Architect%20%7C%20Rust%20Telemetry%20%26%20AI%20Agent%20Infrastructure&descAlignY=75" />
 </div>
 
 <div align="center">
-  <a href="https://linkedin.com/in/jaysonquindao"><img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" /></a>
-  <a href="mailto:jquindao1@icloud.com"><img src="https://img.shields.io/badge/Email-Direct-ea4aaa?style=for-the-badge&logo=apple" /></a>
-  <a href="https://djjrip.github.io/ggloop/"><img src="https://img.shields.io/badge/Platform-GGLoop-violet?style=for-the-badge" /></a>
+  <a href="https://jaysonquindao-com.pages.dev"><img src="https://img.shields.io/badge/Portfolio-jaysonquindao--com.pages.dev-0f172a?style=for-the-badge&logo=cloudflare" /></a>
+  <a href="https://gg-loop-tournament.vercel.app"><img src="https://img.shields.io/badge/Live_Platform-GG_Loop_SaaS-7c3aed?style=for-the-badge&logo=vercel" /></a>
+  <a href="https://github.com/djjrip/anti-cheat-sdk"><img src="https://img.shields.io/badge/Rust_Crate-anti--cheat--sdk-ea580c?style=for-the-badge&logo=rust" /></a>
+  <a href="https://linkedin.com/in/jaysonquindao"><img src="https://img.shields.io/badge/LinkedIn-Connect-2563eb?style=for-the-badge&logo=linkedin" /></a>
+  <a href="mailto:jquindao1@icloud.com"><img src="https://img.shields.io/badge/Email-jquindao1%40icloud.com-10b981?style=for-the-badge&logo=apple" /></a>
 </div>
 
 <br />
 
-## 🚀 About Me
+## ⚡ Engineering Profile
 
-I am a **Technical Founder, Forward Deployed AI Engineer, and Cloud Systems Architect**. I am the founder of **[GG Loop](https://djjrip.github.io/ggloop/)**, an elite esports tournament OS bridging deep distributed cloud infrastructure with high-stakes financial and game-system execution.
+**6+ years** building high-throughput distributed telemetry pipelines, userspace security SDKs in **Rust & C++**, full-stack **TypeScript / Next.js / PostgreSQL** platforms, autonomous **Model Context Protocol (MCP) multi-agent engines**, and cryptographic financial settlement ledgers.
 
-* **⚡ Real-Time Telemetry & Event Streaming:** Architected sub-50ms event ingestion on AWS using Kinesis Data Streams, Lambda, and WebSockets with zero dropped events.
-* **🤖 Autonomous Agentic AI (MCP):** Production multi-agent orchestration integrating AWS Bedrock (Claude 3.5 Sonnet) and OpenAI APIs via Model Context Protocol (MCP), featuring dynamic schema validation, automated tool calling, and pgvector RAG retrieval.
-* **🏦 Enterprise Financial & Systems Automation:** Former Finance Associate II at **NCR Atleos**, reconfiguring bank routing parameters for national ATM networks, managing multi-million-dollar cash settlements, and cutting discrepancy investigation cycle times by 40% with Python/SQL reconciliation pipelines.
-* **🛡️ Client Integrity & System Hooks:** Developed Electron.js native desktop applications paired with Node.js and C++ user-space (Ring 3) process watchdogs, memory buffer management, and cryptographic HMAC-SHA256 verification.
-* **☁️ Cloud & Container Scaling:** Zero-downtime containerized deployments across AWS App Runner, ECS Fargate, RDS PostgreSQL, and CloudWatch with Docker and GitHub Actions CI/CD.
-
----
-
-## 💎 LIVE PRODUCTS
-
-**GG Loop — Real-Time Telemetry & Tournament Infrastructure**
-* **Platform Demo:** [https://gg-loop-tournament.vercel.app](https://gg-loop-tournament.vercel.app)
-* **Landing Page:** [https://djjrip.github.io/ggloop/](https://djjrip.github.io/ggloop/)
-
-**Support the Vision:**
-- 🥇 **[Stripe $29/mo Founding Member](https://buy.stripe.com/4gMcN7bnS8Qhbr57l60Fi00)**
-- 🏆 **[Stripe $500 Sponsor](https://buy.stripe.com/dRm5kF77CfeFdzd0WI0Fi02)**
-- 🏟️ **[Stripe $1,500 LAN](https://buy.stripe.com/aFa28t1Ni9Ulan1eNy0Fi01)**
+* **🛡️ Rust Userspace Behavioral Telemetry & Anti-Cheat SDK ([`anti-cheat-sdk`](https://github.com/djjrip/anti-cheat-sdk)):** Architected a zero-kernel-bloat Ring-3 telemetry engine in Rust featuring Win32 process memory enumeration (`K32GetModuleFileNameExW`), SHA-256 binary integrity hashing, sub-millisecond input/click timing entropy analysis, and HMAC-SHA256 cryptographic event signing (`9/9 cargo tests passing`).
+* **📡 High-Throughput B2B Studio Telemetry Ingest Engine ([`gg-loop-platform`](https://github.com/GG-LOOP-LLC/gg-loop-platform)):** Built multi-tenant REST & sub-50ms WebSocket ingestion pipelines (`/api/v1/ingest`, `/api/v1/flags`) powered by single-roundtrip PostgreSQL `unnest()` bulk inserts and automated anomaly detection rules (`>25 CPS` impossible input rate & `<2ms` metronomic macro variance).
+* **🏦 Enterprise Financial Systems & Data Automation (NCR Atleos):** Former **Financial Systems & Data Automation Engineer** at **NCR Atleos** (`2021–2023`), where I architected automated Python/SQL reconciliation pipelines across national ATM and interbank networks—processing multi-million-dollar daily transaction flows with 99.9%+ ledger accuracy and cutting discrepancy investigation cycle times by **40%**.
+* **🤖 Autonomous Agentic AI & MCP Infrastructure:** Production multi-agent orchestration integrating Claude, OpenAI, and Gemini APIs via custom Model Context Protocol (MCP) tool servers, dynamic JSON schema validation, and `pgvector` RAG pipelines.
+* **🎓 Academic & Geographic Readiness:** Incoming **Columbia University (New York, NY)** B.S. Computer Science Transfer Candidate (Spring 2027). Available immediately for **NYC / SF Onsite, Hybrid, or US/Global Remote** engineering leadership and founding engineer roles.
 
 ---
 
-## 🏗️ Flagship Systems & Architecture
+## 🏗️ Flagship Production Systems
 
-### 1. GG Loop — Real-Time Telemetry & Tournament Infrastructure
-* **Problem:** Live-service games and esports tournaments require high-throughput match state auditing without invasive kernel drivers or expensive bloated telemetry suites.
-* **Architecture:** Ingestion through AWS Kinesis Data Streams and AWS Lambda fanout to WebSocket state synchronization, backed by RDS PostgreSQL and pgvector for match embeddings.
-* **Result:** Sub-50ms ingestion latency, 100% idempotent Stripe Connect payout execution, and auto-scaling serverless infrastructure.
-
-### 2. NCR Atleos — Automated Bank Network Reconciliation
-* **Scope:** Daily settlement reconciliation across national banking and ATM networks.
-* **Impact:** Replaced manual exception tracking spreadsheets with automated Python/SQL anomaly detection pipelines, cutting investigation cycle times by 40% with 99.9%+ balance sheet accuracy.
-
----
-
-## 💻 Featured Repositories
-
-| Repository | Description | Tech Stack |
+| System / Repository | Architecture & Production Verification | Core Stack |
 |---|---|---|
-| 💳 **[stripe-webhook-guard](https://github.com/djjrip/stripe-webhook-guard)** | Production-grade zero-loss Stripe webhook idempotency, cryptographic verification, and replay suppression. | `TypeScript`, `Node.js`, `Express`, `Stripe API` |
-| 🛡️ **[anti-cheat-sdk](https://github.com/djjrip/anti-cheat-sdk)** | Lightweight zero-overhead process scanning and active-window focus tracking SDK for Windows and macOS. | `C++`, `Node.js`, `Rust` |
-| 🏦 **[freely-reconciliation-engine](https://github.com/djjrip/freely-reconciliation-engine)** | Enterprise B2B payment reconciliation & double-entry ledger verification engine. | `TypeScript`, `SQL`, `PostgreSQL` |
-| ☁️ **[aws-infrastructure-playbook](https://github.com/djjrip/aws-infrastructure-playbook)** | Production AWS patterns: App Runner, ECS Fargate, RDS, Bedrock, and automated FinOps cleanup. | `Python`, `Boto3`, `AWS CloudFormation` |
-| 🖥️ **[electron-resilience-toolkit](https://github.com/djjrip/electron-resilience-toolkit)** | Fault-tolerant desktop process manager with heap monitoring, automated watchdogs, and CI truth gates. | `TypeScript`, `Electron`, `Node.js` |
-| 📊 **[sql-reconciliation-engine](https://github.com/djjrip/sql-reconciliation-engine)** | Database schema reconciliation and financial transaction auditing engine inspired by NCR Atleos operations. | `SQL`, `PostgreSQL`, `Python` |
+| 🛡️ **[`anti-cheat-sdk`](https://github.com/djjrip/anti-cheat-sdk)** | Userspace behavioral telemetry & anti-cheat crate: Win32 `K32GetModuleFileNameExW` process path resolution, SHA-256 binary hashing, timing entropy analysis, and HMAC-SHA256 event signatures. | `Rust`, `Win32 API`, `SHA-256`, `HMAC`, `FFI` |
+| 🎮 **[`gg-loop-platform`](https://github.com/GG-LOOP-LLC/gg-loop-platform)** | Live competitive esports & fintech tournament SaaS ([`gg-loop-tournament.vercel.app`](https://gg-loop-tournament.vercel.app)): B2B studio telemetry ingest API, PostgreSQL `unnest` batch ingestion, sub-50ms WebSockets, and ACID double-entry Stripe ledger. | `TypeScript`, `Next.js`, `PostgreSQL`, `Drizzle ORM`, `Stripe` |
+| 💳 **[`stripe-webhook-guard`](https://github.com/djjrip/stripe-webhook-guard)** | Production-grade zero-loss Stripe webhook idempotency middleware, cryptographic signature verification, and replay attack suppression for high-volume financial ledgers. | `TypeScript`, `Node.js`, `Express`, `Stripe API` |
+| 🏦 **[`freely-reconciliation-engine`](https://github.com/djjrip/freely-reconciliation-engine)** | Enterprise B2B payment reconciliation & double-entry ledger verification engine modeled on national ATM settlement workflows. | `TypeScript`, `PostgreSQL`, `SQL` |
+| 📊 **[`sql-reconciliation-engine`](https://github.com/djjrip/sql-reconciliation-engine)** | Automated Python/SQL transaction anomaly detection and interbank settlement auditing pipeline (40% cycle-time reduction architecture). | `Python`, `SQL`, `PostgreSQL`, `Pandas` |
+| ☁️ **[`aws-infrastructure-playbook`](https://github.com/djjrip/aws-infrastructure-playbook)** | Production AWS infrastructure patterns: ECS Fargate, App Runner, Kinesis Data Streams, RDS PostgreSQL, Bedrock, and automated FinOps governance. | `Python`, `Boto3`, `Docker`, `AWS` |
 
 ---
 
-## 🤝 Open for Engineering Roles & Partnerships
+## 📬 Direct Contact
 
-* **Forward Deployed AI Engineer / Solutions Architect:** AI infrastructure, enterprise model deployment, agentic systems (MCP).
-* **Distributed Cloud / Systems Engineer:** Real-time event streaming, telemetry pipelines, high-throughput microservices.
-* **Location:** Dallas-Fort Worth, TX (Open to Remote, SF, NYC, Tokyo, or Relocation).
-
-📬 **Get in touch:** [jquindao1@icloud.com](mailto:jquindao1@icloud.com) &bull; [LinkedIn](https://linkedin.com/in/jaysonquindao)
+* **Executive Portfolio:** [https://jaysonquindao-com.pages.dev](https://jaysonquindao-com.pages.dev)
+* **Live SaaS Platform:** [https://gg-loop-tournament.vercel.app](https://gg-loop-tournament.vercel.app)
+* **Email:** [jquindao1@icloud.com](mailto:jquindao1@icloud.com) | `jaysonquindao@ggloop.io`
+* **Location:** New York, NY & Dallas, TX (**Immediate NYC / SF Onsite & Remote Ready**)
