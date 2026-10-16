@@ -10,6 +10,7 @@
   <a href="https://github.com/djjrip/anti-cheat-sdk"><img src="https://img.shields.io/badge/Rust_Crate-anti--cheat--sdk-ea580c?style=for-the-badge&logo=rust" /></a>
   <a href="https://linkedin.com/in/jaysonquindao"><img src="https://img.shields.io/badge/LinkedIn-Connect-2563eb?style=for-the-badge&logo=linkedin" /></a>
   <a href="mailto:jquindao1@icloud.com"><img src="https://img.shields.io/badge/Email-jquindao1%40icloud.com-10b981?style=for-the-badge&logo=apple" /></a>
+  <img src="https://img.shields.io/badge/Relocation-Immediate_NYC%20%7C%20SF%20%7C%20Nationwide-8b5cf6?style=for-the-badge&logo=airplane" />
 </div>
 
 <br />
@@ -25,7 +26,7 @@
 
 **Founder & Systems Architect** specializing in high-throughput distributed telemetry pipelines, userspace security watchdogs in **Rust & C++**, automated financial settlement reconciliation engines (**NCR Atleos**), and autonomous **Model Context Protocol (MCP)** multi-agent orchestration.
 
-* **🛡️ Userspace Behavioral Telemetry & Anti-Cheat SDK ([`anti-cheat-sdk`](https://github.com/djjrip/anti-cheat-sdk)):** Lightweight Ring-3 process watchdog in Rust featuring Win32 process memory enumeration, binary SHA-256 hashing, timing entropy anomaly detection, and cryptographic HMAC-SHA256 event signatures (`9/9 tests passing`).
+* **🛡️ Userspace Behavioral Telemetry & Corporate Zero-Trust SDK ([`anti-cheat-sdk`](https://github.com/djjrip/anti-cheat-sdk)):** Enterprise process watchdog and zero-trust binary auditor in Rust featuring FIPS 180-4 SHA-256 integrity verification, parent-process ancestry inspection, SOC 2 Type II audit logging, and cryptographic HMAC-SHA256 signatures (`13/13 tests passing`).
 * **📡 High-Throughput Tournament & Telemetry OS ([`gg-loop-tournament`](https://github.com/djjrip/gg-loop-tournament)):** Production multi-tenant esports platform ([`gg-loop-tournament.vercel.app`](https://gg-loop-tournament.vercel.app)) with automated bracket scheduling, sub-50ms WebSocket state ingestion, and double-entry Stripe settlement ledgers.
 * **🏦 National ATM Settlement Operations & Financial Analysis (NCR Atleos):** Managed daily multi-million-dollar cash payout reconciliations across national ATM banking networks, sustaining **99.9%+ balance sheet accuracy** and cutting transaction discrepancy investigation cycle times by **40%** via automated SQL anomaly pipelines.
 * **🤖 Autonomous Multi-Agent AI Infrastructure:** Production orchestration connecting LLMs via Model Context Protocol (MCP) toolchains, structured JSON schema validation, and deterministic state machine replication.
@@ -53,4 +54,6 @@
 * **Master Resume (PDF):** [https://djjrip.github.io/resume.pdf](https://djjrip.github.io/resume.pdf)
 * **Email:** [jquindao1@icloud.com](mailto:jquindao1@icloud.com) | `jaysonquindao@ggloop.io`
 * **Direct Cell:** (469) 371-8556
-* **Location:** Dallas-Fort Worth, TX & New York, NY
+* **Mobility & Relocation:** **Immediate Unrestricted Relocation (NYC, SF, Seattle, Nationwide) & 100% Fully Remote**
+* **Current Location:** Dallas-Fort Worth, TX
+
